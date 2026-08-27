@@ -425,6 +425,126 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
+  /* ---------- PRÓXIMO PARTIDO ---------- */
+  .partido-card{
+    position:relative;
+    border-radius: 22px;
+    padding: 40px 30px 34px;
+    background: linear-gradient(160deg, rgba(47,111,237,0.18), rgba(255,255,255,0.03) 60%);
+    border: 1px solid rgba(255,255,255,0.14);
+    overflow:hidden;
+    text-align:center;
+  }
+  .partido-card::before{
+    content:"";
+    position:absolute;
+    top:-40%; left:50%;
+    width:140%; height:220%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at top, rgba(255,204,51,0.14), transparent 55%);
+    pointer-events:none;
+  }
+
+  .partido-tipo{
+    display:inline-block;
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--azul-noche);
+    background: linear-gradient(120deg, var(--amarillo), var(--amarillo-suave));
+    padding: 7px 18px;
+    border-radius: 999px;
+    margin-bottom: 30px;
+    position:relative;
+    z-index:1;
+  }
+
+  .partido-equipos{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: clamp(16px, 5vw, 48px);
+    margin-bottom: 36px;
+    position:relative;
+    z-index:1;
+  }
+  .equipo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 12px;
+    width: 130px;
+  }
+  .equipo-escudo{
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Anton', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+  .equipo-escudo.local{
+    background: conic-gradient(from 180deg, var(--azul-rayo), var(--amarillo), var(--blanco), var(--azul-rayo));
+    box-shadow: 0 0 0 4px var(--azul-panel), 0 0 26px rgba(255,204,51,0.3);
+    color: var(--azul-noche);
+  }
+  .equipo-escudo.visitante{
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.25);
+    color: var(--blanco-70);
+  }
+  .equipo-nombre{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-size: 15px;
+    color: var(--blanco);
+    line-height: 1.2;
+  }
+  .partido-vs{
+    font-family:'Anton', sans-serif;
+    font-size: 26px;
+    color: var(--amarillo);
+    opacity: 0.85;
+  }
+
+  .partido-info{
+    display:flex;
+    justify-content:center;
+    gap: clamp(20px, 6vw, 60px);
+    flex-wrap: wrap;
+    position:relative;
+    z-index:1;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .info-item{
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+  }
+  .info-label{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11.5px;
+    color: var(--blanco-40);
+  }
+  .info-valor{
+    font-family:'Anton', sans-serif;
+    font-size: 20px;
+    color: var(--blanco);
+    letter-spacing: 0.4px;
+  }
+
+  @media (max-width: 480px){
+    .partido-equipos{ gap: 14px; }
+    .equipo{ width: auto; }
+  }
+
   footer{
     position:relative;
     z-index:1;
@@ -755,7 +875,41 @@
     <section id="proximo" class="panel">
       <h2><span class="num">05</span> Próximo partido</h2>
       <div class="linea"></div>
-      <div class="placeholder">Aquí irá la info del próximo partido — rival, fecha y hora.</div>
+
+      <div class="partido-card">
+        <span class="partido-tipo">Partido amistoso</span>
+
+        <div class="partido-equipos">
+          <div class="equipo">
+            <div class="equipo-escudo local">RS</div>
+            <span class="equipo-nombre">Rayo Santboiano</span>
+          </div>
+
+          <div class="partido-vs">
+            <span>VS</span>
+          </div>
+
+          <div class="equipo">
+            <div class="equipo-escudo visitante">BSD</div>
+            <span class="equipo-nombre">Brugal SD</span>
+          </div>
+        </div>
+
+        <div class="partido-info">
+          <div class="info-item">
+            <span class="info-label">Día</span>
+            <span class="info-valor">Sábado</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Hora</span>
+            <span class="info-valor">09:00h</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Lugar</span>
+            <span class="info-valor">Gavà</span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
