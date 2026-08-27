@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rayo Santboiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul-noche: #061530;
+    --azul-marino: #0c2350;
+    --azul-panel: #102b5c;
+    --azul-rayo: #2f6fed;
+    --amarillo: #ffcc33;
+    --amarillo-suave: #ffe28a;
+    --blanco: #ffffff;
+    --blanco-70: rgba(255,255,255,0.7);
+    --blanco-40: rgba(255,255,255,0.4);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--azul-noche);
+    color: var(--blanco);
+    font-family: 'Barlow', sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---------- FONDO CON RAYOS NEÓN ---------- */
+  #rayo-bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background:
+      radial-gradient(ellipse 90% 60% at 20% -10%, rgba(47,111,237,0.35), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 100% 110%, rgba(255,204,51,0.10), transparent 60%),
+      linear-gradient(180deg, var(--azul-noche) 0%, var(--azul-marino) 55%, var(--azul-noche) 100%);
+    pointer-events:none;
+  }
+  #rayo-bg svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .rayito{
+    stroke: #ffffff;
+    stroke-width: 1.1;
+    fill:none;
+    opacity:0;
+    filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 6px rgba(255,255,255,0.6));
+    stroke-linecap:round;
+    animation: destello 6s ease-in-out infinite;
+  }
+  @keyframes destello{
+    0%   { opacity:0; }
+    4%   { opacity:0.9; }
+    8%   { opacity:0.15; }
+    12%  { opacity:0.7; }
+    18%  { opacity:0; }
+    100% { opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .rayito{ animation:none; opacity:0.18; }
+  }
+
+  /* ---------- CONTENIDO ---------- */
+  .contenido{ position:relative; z-index:1; }
+
+  header.hero{
+    padding: 64px 6vw 40px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .escudo{
+    width:86px; height:86px;
+    border-radius:50%;
+    background: conic-gradient(from 180deg, var(--azul-rayo), var(--amarillo), var(--blanco), var(--azul-rayo));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 14px;
+    box-shadow: 0 0 0 4px var(--azul-panel), 0 0 30px rgba(255,204,51,0.35);
+  }
+  .escudo span{
+    width:70px; height:70px;
+    border-radius:50%;
+    background: var(--azul-marino);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Anton', sans-serif;
+    font-size:30px;
+    color:var(--amarillo);
+    letter-spacing:1px;
+  }
+
+  .eyebrow{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-size:13px;
+    color: var(--amarillo);
+    font-weight:600;
+  }
+
+  h1.titulo{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size: clamp(42px, 9vw, 96px);
+    line-height:0.95;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, var(--amarillo-suave) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .subtitulo{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: clamp(15px, 2.2vw, 20px);
+    color: var(--blanco-70);
+    max-width: 560px;
+    letter-spacing:0.3px;
+  }
+
+  /* ---------- NAV PESTAÑAS ---------- */
+  nav.tabs{
+    position:sticky;
+    top:0;
+    z-index:5;
+    display:flex;
+    justify-content:center;
+    gap: clamp(4px, 1.5vw, 10px);
+    padding: 14px 4vw;
+    margin-top: 20px;
+    backdrop-filter: blur(14px);
+    background: rgba(6,21,48,0.72);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  nav.tabs::-webkit-scrollbar{ display:none; }
+
+  .tab-btn{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size: clamp(13px, 1.6vw, 16px);
+    white-space:nowrap;
+    color: var(--blanco-70);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor:pointer;
+    transition: all 0.25s ease;
+  }
+  .tab-btn:hover{
+    color: var(--blanco);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .tab-btn:focus-visible{
+    outline: 2px solid var(--amarillo);
+    outline-offset: 2px;
+  }
+  .tab-btn.activo{
+    color: var(--azul-noche);
+    background: linear-gradient(120deg, var(--amarillo), var(--amarillo-suave));
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(255,204,51,0.45);
+  }
+
+  /* ---------- PANELES ---------- */
+  main{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 6vw 120px;
+    min-height: 40vh;
+  }
+
+  .panel{ display:none; animation: aparece 0.45s ease; }
+  .panel.activo{ display:block; }
+  @keyframes aparece{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .panel h2{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size: clamp(28px, 5vw, 44px);
+    letter-spacing:1px;
+    margin-bottom: 6px;
+  }
+  .panel h2 .num{
+    color: var(--amarillo);
+  }
+  .linea{
+    width:64px; height:4px;
+    background: linear-gradient(90deg, var(--amarillo), var(--azul-rayo));
+    border-radius:4px;
+    margin-bottom: 26px;
+  }
+
+  .placeholder{
+    border: 1px dashed rgba(255,255,255,0.25);
+    border-radius: 16px;
+    padding: 40px 28px;
+    background: rgba(255,255,255,0.03);
+    color: var(--blanco-70);
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    text-align:center;
+  }
+
+  /* ---------- HISTORIA ---------- */
+  .historia-intro p{
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--blanco-70);
+    margin-bottom: 16px;
+    max-width: 68ch;
+  }
+  .historia-lead{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 22px !important;
+    font-weight: 600;
+    color: var(--blanco) !important;
+    line-height: 1.4 !important;
+  }
+
+  .hito{
+    display:grid;
+    grid-template-columns: 88px 1fr;
+    gap: 22px;
+    margin: 38px 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hito-year{
+    font-family:'Anton', sans-serif;
+    font-size: 17px;
+    color: var(--amarillo);
+    letter-spacing: 0.5px;
+    padding-top: 3px;
+  }
+  .hito-body h3{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 22px;
+    color: var(--blanco);
+    margin-bottom: 12px;
+  }
+  .hito-body p{
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: var(--blanco-70);
+    margin-bottom: 12px;
+    max-width: 66ch;
+  }
+  .hito-body p:last-child{ margin-bottom:0; }
+
+  .cierre-historia{
+    margin-top: 46px;
+    padding: 34px 28px;
+    border-radius: 16px;
+    text-align:center;
+    background: linear-gradient(160deg, rgba(47,111,237,0.16), rgba(255,204,51,0.08));
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .cierre-historia p{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    color: var(--blanco-70);
+    margin-bottom: 4px;
+  }
+  .cierre-final{
+    font-family:'Anton', sans-serif !important;
+    text-transform: uppercase;
+    font-size: 26px !important;
+    color: var(--amarillo) !important;
+    letter-spacing: 0.5px;
+    margin-top: 10px !important;
+  }
+  .rayo-icono{
+    display:inline-block;
+    filter: drop-shadow(0 0 8px rgba(255,204,51,0.7));
+  }
+
+  @media (max-width: 560px){
+    .hito{ grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* ---------- PLANTILLA ---------- */
+  .plantilla-intro{
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--blanco-70);
+    max-width: 68ch;
+    margin-bottom: 34px;
+  }
+
+  .jugadores-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .jugador-card{
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 22px 22px 24px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .jugador-card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .jugador-card.destacado{
+    border-color: rgba(255,204,51,0.35);
+    background: linear-gradient(160deg, rgba(255,204,51,0.07), rgba(255,255,255,0.03));
+  }
+  .jugador-card.capitan{
+    border-color: rgba(255,204,51,0.6);
+    box-shadow: 0 0 24px rgba(255,204,51,0.12);
+  }
+  .jugador-card.retirado{
+    opacity: 0.72;
+    filter: grayscale(0.35);
+  }
+  .jugador-card.retirado:hover{ opacity: 0.9; }
+
+  .jugador-top{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .dorsal{
+    font-family:'Anton', sans-serif;
+    font-size: 26px;
+    width: 48px;
+    height: 48px;
+    flex-shrink:0;
+    border-radius: 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(47,111,237,0.25);
+    color: var(--blanco);
+    border: 1px solid rgba(47,111,237,0.5);
+  }
+  .jugador-card.destacado .dorsal{
+    background: rgba(255,204,51,0.2);
+    border-color: rgba(255,204,51,0.55);
+    color: var(--amarillo);
+  }
+  .dorsal.tecnico{
+    font-size: 17px;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    color: var(--blanco);
+  }
+
+  .jugador-top h3{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    color: var(--blanco);
+    line-height:1.1;
+  }
+  .posicion{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--amarillo);
+    font-weight: 600;
+  }
+  .jugador-card.retirado .posicion{ color: var(--blanco-40); }
+
+  .jugador-card p{
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--blanco-70);
+    margin-bottom: 10px;
+  }
+  .jugador-card p:last-child{ margin-bottom: 0; }
+  .jugador-card .frase{
+    font-style: italic;
+    color: var(--blanco);
+  }
+
+  .subtitulo-seccion{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    color: var(--blanco-40);
+    margin: 48px 0 18px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .tecnico-grid{
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  footer{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding: 30px 6vw 46px;
+    font-family:'Barlow Condensed', sans-serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    color: var(--blanco-40);
+  }
+
+  @media (max-width:520px){
+    nav.tabs{ justify-content:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div id="rayo-bg">
+  <svg viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true">
+    <polyline class="rayito" style="animation-delay:0.2s"  points="60,40 90,140 55,150 110,280" />
+    <polyline class="rayito" style="animation-delay:2.1s"  points="900,60 860,170 905,180 840,320" />
+    <polyline class="rayito" style="animation-delay:4.4s"  points="180,300 210,400 175,410 230,540" />
+    <polyline class="rayito" style="animation-delay:1.3s"  points="760,420 800,520 765,530 820,660" />
+    <polyline class="rayito" style="animation-delay:3.6s"  points="40,620 75,720 40,730 95,860" />
+    <polyline class="rayito" style="animation-delay:5.2s"  points="930,640 895,740 935,750 880,880" />
+    <polyline class="rayito" style="animation-delay:0.8s"  points="300,780 335,880 300,890 355,1020" />
+    <polyline class="rayito" style="animation-delay:2.9s"  points="650,900 685,1000 650,1010 705,1140" />
+    <polyline class="rayito" style="animation-delay:4.9s"  points="120,1040 150,1140 115,1150 170,1280" />
+    <polyline class="rayito" style="animation-delay:1.7s"  points="820,1080 855,1180 820,1190 870,1320" />
+    <polyline class="rayito" style="animation-delay:3.3s"  points="500,60 530,160 495,170 545,300" />
+    <polyline class="rayito" style="animation-delay:5.8s"  points="460,1120 490,1220 455,1230 505,1360" />
+  </svg>
+</div>
+
+<div class="contenido">
+
+  <header class="hero">
+    <div class="escudo"><span>RS</span></div>
+    <div class="eyebrow">Club de Fútbol</div>
+    <h1 class="titulo">Rayo Santboiano</h1>
+    <p class="subtitulo">Fieles al escudo, fieles a Sant Boi. Bienvenido a la casa del equipo.</p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Secciones del club">
+    <button class="tab-btn activo" data-panel="historia" role="tab" aria-selected="true">Historia</button>
+    <button class="tab-btn" data-panel="plantilla" role="tab" aria-selected="false">Plantilla</button>
+    <button class="tab-btn" data-panel="evolucion" role="tab" aria-selected="false">Evolución</button>
+    <button class="tab-btn" data-panel="clasificacion" role="tab" aria-selected="false">Clasificación</button>
+    <button class="tab-btn" data-panel="proximo" role="tab" aria-selected="false">Próximo partido</button>
+  </nav>
+
+  <main>
+    <section id="historia" class="panel activo">
+      <h2><span class="num">01</span> Historia</h2>
+      <div class="linea"></div>
+
+      <div class="historia-intro">
+        <p class="historia-lead">El Rayo Santboiano no es un equipo de fútbol cualquiera. Es una historia de amistad, fútbol y sentimiento que comenzó en 2011.</p>
+        <p>Todo empezó cuando Luis, Albert y David, tres amigos unidos por una misma pasión, decidieron crear algo que fuera mucho más que un simple equipo de fútbol. La idea era sencilla: reunir a amigos, conocidos y gente cercana para compartir buenos momentos, hacer deporte y disfrutar juntos de aquello que siempre les había unido: el fútbol.</p>
+        <p>Así nació el Rayo Santboiano.</p>
+        <p>Lo que comenzó prácticamente como una excusa para juntarse y jugar fue creciendo con el paso de los años hasta convertirse en un club con identidad propia, con sus colores, su escudo, sus historias y, sobre todo, su gente.</p>
+        <p>Desde aquel 2011 han sido muchos los jugadores que han vestido nuestra camiseta. Algunos estuvieron durante una etapa, otros dejaron una huella imborrable y consiguieron convertirse en auténticas leyendas del Rayo Santboiano. Y sí… también pasaron algunos de los que, por el bien de nuestra historia, mejor no hablar demasiado.</p>
+        <p>Porque si algo caracteriza al Rayo es todo lo vivido por el camino: partidos inolvidables, victorias, derrotas, goles imposibles, remontadas, enfados, celebraciones, risas y cientos de anécdotas que forman parte de la historia del club.</p>
+      </div>
+
+      <div class="hito">
+        <span class="hito-year">2011 — 3</span>
+        <div class="hito-body">
+          <h3>Un escudo, unos colores, una identidad</h3>
+          <p>A lo largo de los años, el club también ha evolucionado visualmente. El escudo del Rayo Santboiano ha sido modificado en tres ocasiones, adaptándose a las diferentes etapas del equipo pero intentando conservar siempre la esencia con la que nació.</p>
+          <p>Hay algo, sin embargo, que prácticamente nunca ha cambiado: el azul. Desde nuestros primeros partidos, el azul ha sido el color que ha identificado al Rayo Santboiano y el que generación tras generación han defendido nuestros jugadores sobre el terreno de juego.</p>
+          <p>En 2024, el club decidió dar un paso más e innovar con su equipación, escribiendo un nuevo capítulo dentro de una historia que continúa evolucionando sin olvidar sus raíces.</p>
+        </div>
+      </div>
+
+      <div class="hito">
+        <span class="hito-year">Pausa</span>
+        <div class="hito-body">
+          <h3>Caer, parar… y volver</h3>
+          <p>Como ocurre en cualquier club con muchos años de historia, no todo ha sido sencillo. Hubo una etapa en la que el Rayo Santboiano se distanció de los terrenos de juego. La falta de jugadores, de continuidad y, sobre todo, de gente con la motivación necesaria para seguir compitiendo hizo que durante unos años el proyecto perdiera fuerza.</p>
+          <p>Pero el Rayo nunca desapareció del todo. Porque cuando un equipo nace de la amistad y de tantos recuerdos compartidos, siempre queda algo esperando el momento de volver. Y ese momento llegó.</p>
+          <p>El club regresó con nuevas ganas, nuevos jugadores y la ilusión de recuperar aquello que había hecho especial al equipo desde sus inicios. El Rayo Santboiano volvió para resurgir.</p>
+        </div>
+      </div>
+
+      <div class="hito">
+        <span class="hito-year">Hoy</span>
+        <div class="hito-body">
+          <h3>Una nueva etapa</h3>
+          <p>Hoy, más de una década después de aquel comienzo entre amigos, seguimos escribiendo nuestra historia. Actualmente competimos juntos en la Liga PROMOSPORTIVE, defendiendo nuestros colores y afrontando cada partido con la misma filosofía con la que nació el club en 2011: disfrutar del fútbol, competir, estar juntos y sentirnos parte de algo nuestro.</p>
+          <p>Han cambiado jugadores, equipaciones y etapas. Pero hay algo que continúa intacto. La amistad. El fútbol. Y el Rayo Santboiano.</p>
+        </div>
+      </div>
+
+      <div class="cierre-historia">
+        <p>La historia todavía no ha terminado.</p>
+        <p>Ahora vamos todos juntos.</p>
+        <p>Ahora vamos a por todas.</p>
+        <p class="cierre-final">Ahora… vuelve a caer el Rayo. <span class="rayo-icono">⚡</span></p>
+      </div>
+    </section>
+
+    <section id="plantilla" class="panel">
+      <h2><span class="num">02</span> Plantilla</h2>
+      <div class="linea"></div>
+
+      <p class="plantilla-intro">La plantilla del Rayo Santboiano combina experiencia, calidad, carácter y, sobre todo, jugadores que representan la esencia del club. Cada uno tiene su papel, su personalidad y una historia propia dentro del equipo.</p>
+
+      <div class="jugadores-grid">
+
+        <article class="jugador-card retirado">
+          <div class="jugador-top">
+            <span class="dorsal">3</span>
+            <div>
+              <h3>Albert Vázquez</h3>
+              <span class="posicion">Retirado</span>
+            </div>
+          </div>
+          <p>Uno de los nombres históricos del equipo. Las múltiples lesiones sufridas a lo largo de los años terminaron obligándole a colgar las botas antes de tiempo.</p>
+          <p class="frase">Su cuerpo dijo basta, pero su nombre sigue formando parte de la historia del Rayo Santboiano.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">4</span>
+            <div>
+              <h3>Rubén Acedo</h3>
+              <span class="posicion">Mediocentro</span>
+            </div>
+          </div>
+          <p class="frase">Equilibrio, criterio y control.</p>
+          <p>Mediocentro con una gran capacidad para dominar el ritmo de los partidos, ofrecer soluciones en la construcción del juego y aportar estabilidad al equipo cuando el balón pasa por sus pies.</p>
+          <p class="frase">El hombre que pone orden en el centro del campo.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">5</span>
+            <div>
+              <h3>Esteve Badía</h3>
+              <span class="posicion">Mediocentro ofensivo</span>
+            </div>
+          </div>
+          <p class="frase">La magia del equipo.</p>
+          <p>Esteve tiene esa capacidad especial para convertir una jugada aparentemente sencilla en algo diferente. Técnica, visión y creatividad al servicio del equipo.</p>
+          <p class="frase">Cuando aparece su varita mágica, todo lo que toca puede convertirse en gloria.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">6</span>
+            <div>
+              <h3>Daniel Kraniel</h3>
+              <span class="posicion">Extremo</span>
+            </div>
+          </div>
+          <p class="frase">Regate, desborde y técnica.</p>
+          <p>Si hablamos de encarar, superar rivales y buscar siempre una jugada más, hablamos de Kraniel. Un futbolista eléctrico, insistente y con una característica que define perfectamente su forma de jugar:</p>
+          <p class="frase">nunca da un balón por perdido.</p>
+        </article>
+
+        <article class="jugador-card destacado">
+          <div class="jugador-top">
+            <span class="dorsal">7</span>
+            <div>
+              <h3>Albert González</h3>
+              <span class="posicion">Excapitán</span>
+            </div>
+          </div>
+          <p>Uno de los grandes referentes del Rayo Santboiano.</p>
+          <p>Carácter, intensidad y compromiso absoluto. Lucha cada balón como si fuese el último y nunca se esconde cuando el equipo necesita dar un paso adelante.</p>
+          <p>Durante años llevó el brazalete y continúa siendo una de las grandes voces del vestuario.</p>
+          <p class="frase">El carácter del Rayo sobre el terreno de juego.</p>
+        </article>
+
+        <article class="jugador-card destacado">
+          <div class="jugador-top">
+            <span class="dorsal">8</span>
+            <div>
+              <h3>Luis López</h3>
+              <span class="posicion">Fundador</span>
+            </div>
+          </div>
+          <p>Uno de los creadores del Rayo Santboiano y pieza activa tanto dentro como fuera del terreno de juego.</p>
+          <p>Organizador, calculador de los tiempos y siempre pendiente de todo lo que rodea al equipo. Además, es uno de los responsables de mantener vivo al Rayo fuera del campo a través de las redes sociales y la organización del club.</p>
+          <p class="frase">Fútbol dentro. Rayo fuera. Siempre pendiente del siguiente movimiento.</p>
+        </article>
+
+        <article class="jugador-card destacado capitan">
+          <div class="jugador-top">
+            <span class="dorsal">9</span>
+            <div>
+              <h3>Ivan Mosby</h3>
+              <span class="posicion">Capitán</span>
+            </div>
+          </div>
+          <p class="frase">El capitán del equipo.</p>
+          <p>Un jugador con instinto competitivo y una relación especial con el gol. Cuando consigue levantar la cabeza y tiene la portería entre ceja y ceja, sabe perfectamente qué hacer.</p>
+          <p class="frase">Cuando Mosby apunta, normalmente no perdona.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">10</span>
+            <div>
+              <h3>David Jofra</h3>
+              <span class="posicion">Defensa</span>
+            </div>
+          </div>
+          <p class="frase">Músculo, potencia y contundencia.</p>
+          <p>Una presencia constante en defensa y uno de esos jugadores que siempre parece estar donde tiene que estar. Fuerte en los duelos y difícil de superar cuando entra en acción.</p>
+          <p class="frase">Omnipresente.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">11</span>
+            <div>
+              <h3>Enrik Vera</h3>
+              <span class="posicion">Jugador ofensivo</span>
+            </div>
+          </div>
+          <p class="frase">Carácter, regate y liderazgo.</p>
+          <p>Un jugador capaz de cambiar el ritmo de un partido gracias a su calidad individual. No rehúye la responsabilidad, busca constantemente hacer cosas diferentes y aporta ese punto de talento que eleva el nivel colectivo.</p>
+          <p class="frase">Su toque de calidad hace que el Rayo dé un salto adelante.</p>
+        </article>
+
+        <article class="jugador-card retirado">
+          <div class="jugador-top">
+            <span class="dorsal">13</span>
+            <div>
+              <h3>Marcel Campos</h3>
+              <span class="posicion">Retirado</span>
+            </div>
+          </div>
+          <p>Formó parte del equipo durante una de sus etapas más recordadas, pero finalmente apareció un rival al que ni siquiera Marcel consiguió superar:</p>
+          <p class="frase">las excusas.</p>
+          <p>Y las excusas pudieron con él. Las botas quedaron aparcadas, pero su nombre permanece para siempre en los archivos del Rayo Santboiano.</p>
+        </article>
+
+        <article class="jugador-card">
+          <div class="jugador-top">
+            <span class="dorsal">14</span>
+            <div>
+              <h3>Kirian Esteras</h3>
+              <span class="posicion">Portero</span>
+            </div>
+          </div>
+          <p class="frase">El guardián de la portería.</p>
+          <p>Portero titular del equipo, competitivo hasta el último segundo y capaz de dejarlo absolutamente todo por evitar un gol.</p>
+          <p>Guerrero como pocos, vive cada partido con una intensidad especial y se ha convertido en una pieza fundamental del equipo.</p>
+          <p class="frase">Alma viva del Rayo Santboiano bajo palos.</p>
+        </article>
+
+      </div>
+
+      <h3 class="subtitulo-seccion">Cuerpo técnico</h3>
+      <div class="jugadores-grid tecnico-grid">
+        <article class="jugador-card destacado">
+          <div class="jugador-top">
+            <span class="dorsal tecnico">GS</span>
+            <div>
+              <h3>Gerard Stinson</h3>
+              <span class="posicion">Entrenador</span>
+            </div>
+          </div>
+          <p class="frase">El fútbol se puede abandonar desde dentro del campo, pero nunca se abandona del todo.</p>
+          <p>Antiguo jugador del Rayo Santboiano, Gerard inicia ahora una nueva etapa en el club pasando de las botas a la pizarra.</p>
+          <p>Conoce al equipo, conoce el vestuario y conoce perfectamente lo que significa defender estos colores. Ahora le toca dirigir desde el banquillo.</p>
+          <p class="frase">De jugador a entrenador. Del campo a los mandos del Rayo Santboiano. <span class="rayo-icono">⚡</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="evolucion" class="panel">
+      <h2><span class="num">03</span> Evolución</h2>
+      <div class="linea"></div>
+      <div class="placeholder">Aquí irá la evolución del equipo a lo largo de las temporadas.</div>
+    </section>
+
+    <section id="clasificacion" class="panel">
+      <h2><span class="num">04</span> Clasificación</h2>
+      <div class="linea"></div>
+      <div class="placeholder">Aquí irá la tabla de clasificación de la liga.</div>
+    </section>
+
+    <section id="proximo" class="panel">
+      <h2><span class="num">05</span> Próximo partido</h2>
+      <div class="linea"></div>
+      <div class="placeholder">Aquí irá la info del próximo partido — rival, fecha y hora.</div>
+    </section>
+  </main>
+
+  <footer>Rayo Santboiano · Sant Boi de Llobregat</footer>
+
+</div>
+
+<script>
+  const botones = document.querySelectorAll('.tab-btn');
+  const paneles = document.querySelectorAll('.panel');
+
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      botones.forEach(b => { b.classList.remove('activo'); b.setAttribute('aria-selected','false'); });
+      paneles.forEach(p => p.classList.remove('activo'));
+
+      btn.classList.add('activo');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById(btn.dataset.panel).classList.add('activo');
+    });
+  });
+</script>
+
+</body>
+</html>
