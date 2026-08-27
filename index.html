@@ -545,6 +545,41 @@
     .equipo{ width: auto; }
   }
 
+  .convocatoria{
+    position:relative;
+    z-index:1;
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .convocatoria-titulo{
+    display:block;
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12.5px;
+    color: var(--blanco-40);
+    margin-bottom: 16px;
+  }
+  .convocatoria-lista{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 10px;
+  }
+  .convocatoria-lista li{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: var(--blanco);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 9px 18px;
+    border-radius: 999px;
+  }
+
   footer{
     position:relative;
     z-index:1;
@@ -911,6 +946,17 @@
             <span class="info-label">Lugar</span>
             <span class="info-valor">Gavà</span>
           </div>
+        </div>
+
+        <div class="convocatoria">
+          <span class="convocatoria-titulo">Convocatoria</span>
+          <ul class="convocatoria-lista">
+            <li>Ivan Mosby</li>
+            <li>Daniel Kraniel</li>
+            <li>Diego</li>
+            <li>Kiri</li>
+            <li>Rubén Acedo</li>
+          </ul>
         </div>
       </div>
     </section>
