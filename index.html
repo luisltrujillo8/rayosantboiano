@@ -576,6 +576,190 @@
     border-radius: 999px;
   }
 
+  /* ---------- EVOLUCIÓN ---------- */
+  .evolucion-intro{
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--blanco-70);
+    max-width: 62ch;
+    margin-bottom: 28px;
+  }
+
+  .evolucion-wrap{
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .evolucion-tabla{
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 640px;
+  }
+
+  .evolucion-tabla th,
+  .evolucion-tabla td{
+    text-align: center;
+    padding: 12px 14px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 14.5px;
+    white-space: nowrap;
+  }
+
+  .evolucion-tabla thead th{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--azul-noche);
+    background: linear-gradient(120deg, var(--amarillo), var(--amarillo-suave));
+    position: sticky;
+    top: 0;
+  }
+
+  .evolucion-tabla tbody tr{
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .evolucion-tabla tbody tr:last-child{ border-bottom:none; }
+  .evolucion-tabla tbody tr:hover{
+    background: rgba(255,255,255,0.05);
+  }
+
+  .evolucion-tabla td{
+    color: var(--blanco-70);
+    font-weight: 500;
+  }
+
+  .col-jugador{
+    text-align: left !important;
+    font-weight: 700 !important;
+    color: var(--blanco) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    position: sticky;
+    left: 0;
+    background: var(--azul-marino);
+    z-index: 2;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .evolucion-tabla thead .col-jugador{
+    background: var(--amarillo);
+    z-index: 3;
+  }
+
+  .evolucion-nota{
+    margin-top: 16px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 13.5px;
+    color: var(--blanco-40);
+    font-style: italic;
+  }
+
+  /* ---------- CLASIFICACIÓN ---------- */
+  .clasificacion-tabla{
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 460px;
+  }
+  .clasificacion-tabla th,
+  .clasificacion-tabla td{
+    text-align: center;
+    padding: 14px 16px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .clasificacion-tabla thead th{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--azul-noche);
+    background: linear-gradient(120deg, var(--amarillo), var(--amarillo-suave));
+  }
+  .clasificacion-tabla tbody tr{
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .clasificacion-tabla tbody tr:last-child{ border-bottom:none; }
+  .clasificacion-tabla tbody tr:hover{
+    background: rgba(255,255,255,0.05);
+  }
+  .clasificacion-tabla td{
+    color: var(--blanco-70);
+    font-weight: 500;
+  }
+  .col-pos{
+    font-family:'Anton', sans-serif;
+    color: var(--blanco-40) !important;
+    font-size: 14px;
+    width: 40px;
+  }
+  .col-equipo{
+    text-align: left !important;
+    font-weight: 700 !important;
+    color: var(--blanco) !important;
+    letter-spacing: 0.3px;
+  }
+  .fila-rayo{
+    background: linear-gradient(90deg, rgba(255,204,51,0.14), rgba(47,111,237,0.1)) !important;
+  }
+  .fila-rayo td{ color: var(--blanco) !important; }
+  .fila-rayo .col-pos{
+    color: var(--amarillo) !important;
+  }
+  .fila-rayo .col-equipo{
+    color: var(--amarillo) !important;
+  }
+
+  /* barras laterales de posición */
+  .clasificacion-tabla tbody td.col-pos{
+    box-shadow: inset 6px 0 0 0 transparent;
+  }
+  .fila-primero td.col-pos{
+    box-shadow: inset 6px 0 0 0 #6fcf97;
+  }
+  .fila-primero{
+    background: rgba(111,207,151,0.14) !important;
+  }
+  .fila-segundo td.col-pos{
+    box-shadow: inset 6px 0 0 0 #9fd9b4;
+  }
+  .fila-segundo{
+    background: rgba(159,217,180,0.09) !important;
+  }
+  .fila-penultimo td.col-pos{
+    box-shadow: inset 6px 0 0 0 #e0906a;
+  }
+  .fila-penultimo{
+    background: rgba(224,144,106,0.13) !important;
+  }
+  .fila-ultimo td.col-pos{
+    box-shadow: inset 6px 0 0 0 #e0817e;
+  }
+  .fila-ultimo{
+    background: rgba(224,129,126,0.16) !important;
+  }
+  .fila-rayo td.col-pos{
+    box-shadow: inset 6px 0 0 0 var(--amarillo);
+  }
+
+  .goleadores-tabla thead th:nth-child(2){
+    color: var(--azul-noche);
+  }
+  .goleadores-tabla tbody td:nth-child(2){
+    font-family:'Anton', sans-serif;
+    font-size: 16px;
+    color: var(--amarillo) !important;
+  }
+  .goleadores-tabla tbody td:nth-child(3){
+    font-family:'Anton', sans-serif;
+    font-size: 16px;
+    color: var(--azul-rayo) !important;
+    text-shadow: 0 0 10px rgba(47,111,237,0.5);
+  }
+
   footer{
     position:relative;
     z-index:1;
@@ -936,13 +1120,75 @@
     <section id="evolucion" class="panel">
       <h2><span class="num">03</span> Evolución</h2>
       <div class="linea"></div>
-      <div class="placeholder">Aquí irá la evolución del equipo a lo largo de las temporadas.</div>
+
+      <p class="evolucion-intro">Puntuación individual de cada jugador partido a partido. Así podemos ver quién está más en forma y cómo evoluciona el rendimiento del equipo jornada tras jornada.</p>
+
+      <div class="evolucion-wrap">
+        <table class="evolucion-tabla">
+          <thead>
+            <tr>
+              <th class="col-jugador">Jugador</th>
+              <th>J1</th>
+              <th>J2</th>
+              <th>J3</th>
+              <th>J4</th>
+              <th>J5</th>
+              <th>J6</th>
+              <th>J7</th>
+              <th>J8</th>
+              <th>J9</th>
+              <th>J10</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-jugador">Rubén Acedo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Daniel Kraniel</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Albert González</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Luis López</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Ivan Mosby</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">David Jofra</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Enrik Vera</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Kirian Esteras</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Papu</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Diego</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Fran</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Carlos</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="evolucion-nota">* Pásame las puntuaciones de cada jornada y las voy rellenando.</p>
     </section>
 
     <section id="clasificacion" class="panel">
       <h2><span class="num">04</span> Clasificación</h2>
       <div class="linea"></div>
-      <div class="placeholder">Aquí irá la tabla de clasificación de la liga.</div>
+
+      <div class="evolucion-wrap">
+        <table class="clasificacion-tabla">
+          <thead>
+            <tr>
+              <th class="col-pos">#</th>
+              <th class="col-equipo">Equipo</th>
+              <th>PJ</th>
+              <th>Puntos</th>
+              <th>Dif. goles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">FC Punjab</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">Recreativo de Hierba</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="fila-rayo"><td class="col-pos">3</td><td class="col-equipo">Rayo Santboiano</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">4</td><td class="col-equipo">La 109</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">5</td><td class="col-equipo">Héroes del Banquillo</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">4gats</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="fila-penultimo"><td class="col-pos">7</td><td class="col-equipo">Brugal</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="fila-ultimo"><td class="col-pos">8</td><td class="col-equipo">Cierra Bares</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="evolucion-nota">* Clasificación inicial de la temporada, todo a 0. Se irá actualizando jornada a jornada.</p>
     </section>
 
     <section id="proximo" class="panel">
@@ -999,7 +1245,35 @@
     <section id="goleadores" class="panel">
       <h2><span class="num">06</span> Goleadores</h2>
       <div class="linea"></div>
-      <div class="placeholder">Aquí irá la tabla de goleadores del equipo — pásame los datos cuando quieras.</div>
+
+      <div class="evolucion-wrap">
+        <table class="clasificacion-tabla goleadores-tabla">
+          <thead>
+            <tr>
+              <th class="col-equipo">Jugador</th>
+              <th>Goles</th>
+              <th>Asistencias</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-equipo">Rubén Acedo</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Esteve Badía</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Daniel Kraniel</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Albert González</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Luis López</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Ivan Mosby</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">David Jofra</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Enrik Vera</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Kirian Esteras</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Papu</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Sergio Gutiérrez</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Diego</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Fran</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-equipo">Carlos</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="evolucion-nota">* Pásame los goles y asistencias reales y actualizo la tabla.</p>
     </section>
 
     <section id="resultados" class="panel">
