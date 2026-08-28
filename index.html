@@ -127,6 +127,68 @@
     letter-spacing:0.3px;
   }
 
+  /* ---------- BARRA RESUMEN ---------- */
+  .resumen-bar{
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 6vw;
+    display:flex;
+    align-items:stretch;
+    justify-content:center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .resumen-item{
+    flex: 1 1 260px;
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .resumen-item:first-child{
+    border-radius: 14px 14px 0 0;
+  }
+  .resumen-divisor{ display:none; }
+  .resumen-icono{
+    font-size: 22px;
+    flex-shrink:0;
+    filter: drop-shadow(0 0 6px rgba(255,204,51,0.4));
+  }
+  .resumen-texto{
+    display:flex;
+    flex-direction:column;
+    gap: 2px;
+    min-width:0;
+  }
+  .resumen-titulo{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    color: var(--amarillo);
+    font-weight: 600;
+  }
+  .resumen-valor{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 14.5px;
+    color: var(--blanco);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (min-width: 640px){
+    .resumen-item{ border-radius: 0; }
+    .resumen-item:first-child{ border-radius: 14px 0 0 14px; border-right:none; }
+    .resumen-item:last-child{ border-radius: 0 14px 14px 0; }
+  }
+  @media (max-width: 639px){
+    .resumen-item:last-child{ border-radius: 0 0 14px 14px; border-top:none; }
+  }
+
   /* ---------- NAV PESTAÑAS ---------- */
   nav.tabs{
     position:sticky;
@@ -760,6 +822,76 @@
     text-shadow: 0 0 10px rgba(47,111,237,0.5);
   }
 
+  /* ---------- RESULTADOS + MVP ---------- */
+  .resultado-card{
+    display:flex;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 14px;
+    overflow:hidden;
+  }
+  .resultado-fila{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 18px;
+    padding: 18px 22px;
+    flex-wrap: wrap;
+  }
+  .resultado-jornada{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    color: var(--blanco-40);
+    min-width: 100px;
+  }
+  .resultado-marcador{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .resultado-equipo{ color: var(--blanco); }
+  .resultado-goles{
+    font-family:'Anton', sans-serif;
+    font-size: 18px;
+    color: var(--amarillo);
+    min-width: 18px;
+    text-align:center;
+  }
+  .resultado-vs-mini{
+    font-size: 12px;
+    color: var(--blanco-40);
+    text-transform: uppercase;
+  }
+  .resultado-mvp{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    background: rgba(255,204,51,0.1);
+    border: 1px solid rgba(255,204,51,0.3);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  .mvp-label{
+    font-family:'Anton', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--amarillo);
+  }
+  .mvp-nombre{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blanco);
+  }
+  .resultado-vacio{ opacity: 0.6; }
+
   footer{
     position:relative;
     z-index:1;
@@ -805,6 +937,24 @@
     <p class="subtitulo">Fieles al escudo, fieles a Sant Boi. Bienvenido a la casa del equipo.</p>
   </header>
 
+  <section class="resumen-bar">
+    <div class="resumen-item">
+      <span class="resumen-icono">⚡</span>
+      <div class="resumen-texto">
+        <span class="resumen-titulo">Próximo partido</span>
+        <span class="resumen-valor">vs Brugal SD · Sábado 09:00h · Gavà</span>
+      </div>
+    </div>
+    <div class="resumen-divisor"></div>
+    <div class="resumen-item">
+      <span class="resumen-icono">🏆</span>
+      <div class="resumen-texto">
+        <span class="resumen-titulo">Clasificación</span>
+        <span class="resumen-valor">3º puesto · 0 pts · 8 equipos</span>
+      </div>
+    </div>
+  </section>
+
   <nav class="tabs" role="tablist" aria-label="Secciones del club">
     <button class="tab-btn activo" data-panel="historia" role="tab" aria-selected="true">Historia</button>
     <button class="tab-btn" data-panel="plantilla" role="tab" aria-selected="false">Plantilla</button>
@@ -813,7 +963,6 @@
     <button class="tab-btn" data-panel="proximo" role="tab" aria-selected="false">Próximo partido</button>
     <button class="tab-btn" data-panel="goleadores" role="tab" aria-selected="false">Goleadores</button>
     <button class="tab-btn" data-panel="resultados" role="tab" aria-selected="false">Resultados</button>
-    <button class="tab-btn" data-panel="mvp" role="tab" aria-selected="false">MVP de cada partido</button>
   </nav>
 
   <main>
@@ -1279,13 +1428,27 @@
     <section id="resultados" class="panel">
       <h2><span class="num">07</span> Resultados</h2>
       <div class="linea"></div>
-      <div class="placeholder">Aquí irán los resultados de los partidos jugados.</div>
-    </section>
 
-    <section id="mvp" class="panel">
-      <h2><span class="num">08</span> MVP de cada partido</h2>
-      <div class="linea"></div>
-      <div class="placeholder">Aquí irá el MVP de cada jornada.</div>
+      <p class="evolucion-intro">Cada partido jugado, con su resultado y el MVP de esa jornada.</p>
+
+      <div class="resultado-card resultado-vacio">
+        <div class="resultado-fila">
+          <span class="resultado-jornada">Próximamente</span>
+          <div class="resultado-marcador">
+            <span class="resultado-equipo">Rayo Santboiano</span>
+            <span class="resultado-goles">–</span>
+            <span class="resultado-vs-mini">vs</span>
+            <span class="resultado-goles">–</span>
+            <span class="resultado-equipo">Rival</span>
+          </div>
+          <div class="resultado-mvp">
+            <span class="mvp-label">MVP</span>
+            <span class="mvp-nombre">—</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="evolucion-nota">* En cuanto se juegue el primer partido, pásame el resultado y el MVP y los voy añadiendo aquí, uno por jornada.</p>
     </section>
   </main>
 
