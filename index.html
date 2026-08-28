@@ -814,6 +814,145 @@
     box-shadow: 0 0 5px currentColor;
   }
 
+  /* ---------- SOCIOS ---------- */
+  .socios-card{
+    position: relative;
+    max-width: 560px;
+    margin: 20px auto 0;
+    padding: 52px 32px 40px;
+    border-radius: 24px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at top, rgba(255,204,51,0.16), transparent 60%),
+      linear-gradient(160deg, rgba(47,111,237,0.16), rgba(255,255,255,0.03) 65%);
+    border: 1px solid rgba(255,255,255,0.14);
+    overflow: hidden;
+  }
+  .socios-rayo{
+    position: absolute;
+    top: -18px;
+    right: 6px;
+    font-size: 120px;
+    line-height: 1;
+    opacity: 0.06;
+    transform: rotate(12deg);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .socios-icono{
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%);
+    box-shadow: 0 6px 20px rgba(238,42,123,0.35);
+    position: relative;
+    z-index: 1;
+  }
+
+  .socios-titulo{
+    position: relative;
+    z-index: 1;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(22px, 4vw, 30px);
+    letter-spacing: 0.4px;
+    color: var(--blanco);
+    margin-bottom: 14px;
+  }
+  .socios-texto{
+    position: relative;
+    z-index: 1;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--blanco-70);
+    max-width: 40ch;
+    margin: 0 auto 30px;
+  }
+
+  .socios-boton{
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 15px;
+    color: #1a0d2b;
+    text-decoration: none;
+    background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%);
+    padding: 14px 30px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(238,42,123,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .socios-boton:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(238,42,123,0.5);
+  }
+  .socios-boton svg{ color: #1a0d2b; flex-shrink: 0; }
+
+  .socios-seguidores{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .socios-seguidores-num{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--amarillo);
+    text-shadow: 0 0 18px rgba(255,204,51,0.45);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .socios-seguidores-num::before{
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px rgba(74,222,128,0.9);
+    animation: pulso-vivo 1.8s ease-in-out infinite;
+  }
+  @keyframes pulso-vivo{
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+  .socios-seguidores-label{
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11.5px;
+    color: var(--blanco-40);
+  }
+
+  .socios-handle{
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13.5px;
+    letter-spacing: 1px;
+    color: var(--blanco-40);
+  }
+
   /* ---------- CLASIFICACIÓN ---------- */
   .clasificacion-tabla{
     border-collapse: collapse;
@@ -1058,6 +1197,7 @@
     <button class="tab-btn" data-panel="proximo" role="tab" aria-selected="false">Próximo partido</button>
     <button class="tab-btn" data-panel="goleadores" role="tab" aria-selected="false">Goleadores</button>
     <button class="tab-btn" data-panel="resultados" role="tab" aria-selected="false">Resultados</button>
+    <button class="tab-btn" data-panel="socios" role="tab" aria-selected="false">Socios</button>
   </nav>
 
   <main>
@@ -1710,7 +1850,43 @@
 
       <p class="evolucion-nota">* En cuanto se juegue el primer partido, pásame el resultado y el MVP y los voy añadiendo aquí, uno por jornada.</p>
     </section>
-  </main>
+
+    <section id="socios" class="panel">
+      <h2><span class="num">08</span> Socios</h2>
+      <div class="linea"></div>
+
+      <div class="socios-card">
+        <div class="socios-rayo">⚡</div>
+
+        <div class="socios-icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="white" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.6" stroke="white" stroke-width="1.8"/>
+            <circle cx="17.4" cy="6.6" r="1.15" fill="white"/>
+          </svg>
+        </div>
+
+        <h3 class="socios-titulo">¿Te quieres unir a la familia?</h3>
+        <p class="socios-texto">Síguenos y forma parte de la afición del Rayo Santboiano: partidos, entrenamientos, celebraciones y todo lo que pasa dentro y fuera del campo.</p>
+
+        <a class="socios-boton" href="https://www.instagram.com/rayosantboiano/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.6" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/>
+          </svg>
+          Síguenos en Instagram
+        </a>
+
+        <div class="socios-seguidores">
+          <span class="socios-seguidores-num">106</span>
+          <span class="socios-seguidores-label">Seguidores</span>
+        </div>
+
+        <span class="socios-handle">@rayosantboiano</span>
+      </div>
+    </section>
+    </main>
 
   <footer>Rayo Santboiano · Sant Boi de Llobregat</footer>
 
