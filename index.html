@@ -762,6 +762,58 @@
     font-style: italic;
   }
 
+  /* ---------- GRÁFICA EVOLUCIÓN ---------- */
+  .chart-card{
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    padding: 18px 16px 10px;
+  }
+  #evolucion-svg{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chart-legend{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 14px 4px 6px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 10px;
+  }
+  .chart-legend-item{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: var(--blanco);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 5px 12px 5px 8px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .chart-legend-item:hover{
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .chart-legend-item.inactivo{
+    opacity: 0.35;
+  }
+  .chart-legend-dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 5px currentColor;
+  }
+
   /* ---------- CLASIFICACIÓN ---------- */
   .clasificacion-tabla{
     border-collapse: collapse;
@@ -1351,7 +1403,172 @@
         </table>
       </div>
       <p class="evolucion-nota">* Pásame las puntuaciones de cada jornada y las voy rellenando.</p>
+
+      <h3 class="subtitulo-seccion">Gráfica de rendimiento</h3>
+      <p class="evolucion-intro">Así se ve la evolución de cada jugador jornada a jornada, de un vistazo. Toca un nombre en la leyenda para aislarlo o volver a mostrarlo.</p>
+
+      <div class="chart-card">
+        <svg id="evolucion-svg" viewBox="0 0 880 380" preserveAspectRatio="xMidYMid meet"></svg>
+        <div id="evolucion-legend" class="chart-legend"></div>
+      </div>
+      <p class="evolucion-nota" id="evolucion-chart-nota">* La gráfica se dibuja sola a partir de la tabla de arriba: en cuanto metamos puntuaciones reales, aparecerán aquí las líneas de subidas y bajadas.</p>
     </section>
+
+    <script>
+    (function(){
+      function dibujarGraficaEvolucion(){
+        const tabla = document.querySelector('.evolucion-tabla');
+        if(!tabla) return;
+
+        const headers = Array.from(tabla.querySelectorAll('thead th')).slice(1).map(th => th.textContent.trim());
+        const filas = Array.from(tabla.querySelectorAll('tbody tr'));
+
+        const paleta = ['#ffcc33','#2f6fed','#ff6b6b','#4ade80','#f472b6','#38bdf8','#fb923c','#a78bfa','#facc15','#34d399','#f87171','#93c5fd','#c084fc','#fca5a5'];
+
+        const jugadores = filas.map((fila, i) => {
+          const celdas = Array.from(fila.querySelectorAll('td'));
+          const nombre = celdas[0].textContent.trim();
+          const valores = celdas.slice(1).map(td => {
+            const t = td.textContent.trim();
+            const n = parseFloat(t.replace(',', '.'));
+            return isNaN(n) ? null : n;
+          });
+          return { nombre, valores, color: paleta[i % paleta.length], activo: true };
+        });
+
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.getElementById('evolucion-svg');
+        svg.innerHTML = '';
+
+        const margin = { top: 20, right: 20, bottom: 36, left: 34 };
+        const width = 880 - margin.left - margin.right;
+        const height = 380 - margin.top - margin.bottom;
+        const yMax = 10, yMin = 0;
+        const n = headers.length;
+
+        const xPos = (i) => margin.left + (n <= 1 ? 0 : (i / (n - 1)) * width);
+        const yPos = (v) => margin.top + height - ((v - yMin) / (yMax - yMin)) * height;
+
+        const g = document.createElementNS(svgNS, 'g');
+        svg.appendChild(g);
+
+        // lineas de rejilla horizontales
+        for(let v = yMin; v <= yMax; v += 2){
+          const line = document.createElementNS(svgNS, 'line');
+          line.setAttribute('x1', margin.left);
+          line.setAttribute('x2', margin.left + width);
+          line.setAttribute('y1', yPos(v));
+          line.setAttribute('y2', yPos(v));
+          line.setAttribute('stroke', 'rgba(255,255,255,0.08)');
+          line.setAttribute('stroke-width', '1');
+          g.appendChild(line);
+
+          const label = document.createElementNS(svgNS, 'text');
+          label.setAttribute('x', margin.left - 10);
+          label.setAttribute('y', yPos(v) + 4);
+          label.setAttribute('text-anchor', 'end');
+          label.setAttribute('font-size', '11');
+          label.setAttribute('font-family', 'Barlow Condensed, sans-serif');
+          label.setAttribute('fill', 'rgba(255,255,255,0.4)');
+          label.textContent = v;
+          g.appendChild(label);
+        }
+
+        // etiquetas eje X (jornadas)
+        headers.forEach((h, i) => {
+          const label = document.createElementNS(svgNS, 'text');
+          label.setAttribute('x', xPos(i));
+          label.setAttribute('y', margin.top + height + 22);
+          label.setAttribute('text-anchor', 'middle');
+          label.setAttribute('font-size', '11');
+          label.setAttribute('font-family', 'Barlow Condensed, sans-serif');
+          label.setAttribute('fill', 'rgba(255,255,255,0.5)');
+          label.textContent = h;
+          g.appendChild(label);
+        });
+
+        function trazar(){
+          Array.from(g.querySelectorAll('.linea-jugador, .punto-jugador')).forEach(el => el.remove());
+
+          jugadores.forEach(j => {
+            if(!j.activo) return;
+            let puntos = [];
+            j.valores.forEach((v, i) => {
+              if(v !== null){ puntos.push([xPos(i), yPos(v)]); }
+            });
+
+            // trazar segmentos solo entre puntos consecutivos con datos
+            let segmento = [];
+            j.valores.forEach((v, i) => {
+              if(v !== null){
+                segmento.push([xPos(i), yPos(v)]);
+              } else {
+                dibujarSegmento(segmento, j.color);
+                segmento = [];
+              }
+            });
+            dibujarSegmento(segmento, j.color);
+
+            puntos.forEach(p => {
+              const c = document.createElementNS(svgNS, 'circle');
+              c.setAttribute('class', 'punto-jugador');
+              c.setAttribute('cx', p[0]);
+              c.setAttribute('cy', p[1]);
+              c.setAttribute('r', 3.5);
+              c.setAttribute('fill', j.color);
+              c.setAttribute('stroke', '#061530');
+              c.setAttribute('stroke-width', '1.5');
+              g.appendChild(c);
+            });
+          });
+        }
+
+        function dibujarSegmento(segmento, color){
+          if(segmento.length < 2) return;
+          const path = document.createElementNS(svgNS, 'path');
+          const d = segmento.map((p, i) => (i === 0 ? 'M' : 'L') + p[0] + ',' + p[1]).join(' ');
+          path.setAttribute('d', d);
+          path.setAttribute('class', 'linea-jugador');
+          path.setAttribute('fill', 'none');
+          path.setAttribute('stroke', color);
+          path.setAttribute('stroke-width', '2.4');
+          path.setAttribute('stroke-linecap', 'round');
+          path.setAttribute('stroke-linejoin', 'round');
+          path.setAttribute('opacity', '0.95');
+          g.appendChild(path);
+        }
+
+        trazar();
+
+        // leyenda
+        const leyenda = document.getElementById('evolucion-legend');
+        leyenda.innerHTML = '';
+        jugadores.forEach(j => {
+          const item = document.createElement('button');
+          item.type = 'button';
+          item.className = 'chart-legend-item';
+          item.innerHTML = '<span class="chart-legend-dot" style="background:' + j.color + '"></span>' + j.nombre;
+          item.addEventListener('click', () => {
+            j.activo = !j.activo;
+            item.classList.toggle('inactivo', !j.activo);
+            trazar();
+          });
+          leyenda.appendChild(item);
+        });
+
+        const hayDatos = jugadores.some(j => j.valores.some(v => v !== null));
+        const nota = document.getElementById('evolucion-chart-nota');
+        if(hayDatos && nota){ nota.style.display = 'none'; }
+      }
+
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', dibujarGraficaEvolucion);
+      } else {
+        dibujarGraficaEvolucion();
+      }
+    })();
+    </script>
+
 
     <section id="clasificacion" class="panel">
       <h2><span class="num">04</span> Clasificación</h2>
