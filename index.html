@@ -641,6 +641,34 @@
     letter-spacing: 0.4px;
   }
 
+  .partido-pendiente-wrap{
+    position: relative;
+    z-index: 1;
+    padding: 30px 10px 10px;
+    text-align: center;
+  }
+  .partido-pendiente-rayo{
+    display: inline-block;
+    font-size: 34px;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 10px rgba(255,204,51,0.5));
+  }
+  .partido-pendiente-titulo{
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(20px, 4vw, 26px);
+    letter-spacing: 0.4px;
+    color: var(--blanco);
+    margin-bottom: 10px;
+  }
+  .partido-pendiente-texto{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    color: var(--blanco-70);
+    max-width: 40ch;
+    margin: 0 auto;
+  }
+
   @media (max-width: 480px){
     .partido-equipos{ gap: 14px; }
     .equipo{ width: auto; }
@@ -1126,6 +1154,14 @@
   }
   .resultado-vacio{ opacity: 0.6; }
 
+  .resultado-amistoso .resultado-jornada{
+    color: var(--blanco-40);
+    font-style: italic;
+  }
+  .resultado-goles.perdido{
+    color: #e0817e;
+  }
+
   footer{
     position:relative;
     z-index:1;
@@ -1176,7 +1212,7 @@
       <span class="resumen-icono">⚡</span>
       <div class="resumen-texto">
         <span class="resumen-titulo">Próximo partido</span>
-        <span class="resumen-valor">vs Brugal SD · Sábado 09:00h · Gavà</span>
+        <span class="resumen-valor" id="resumen-proximo-valor">Pendiente de fecha y rival</span>
       </div>
     </div>
     <div class="resumen-divisor"></div>
@@ -1556,6 +1592,39 @@
 
     <script>
     (function(){
+      function sincronizarProximoPartido(){
+        const datos = document.getElementById('proximo-partido-data');
+        const resumen = document.getElementById('resumen-proximo-valor');
+        if(!datos || !resumen) return;
+
+        const estado = datos.dataset.estado;
+        if(estado === 'pendiente'){
+          resumen.textContent = 'Pendiente de fecha y rival';
+          return;
+        }
+
+        const rival = datos.dataset.rival || '';
+        const dia = datos.dataset.dia || '';
+        const hora = datos.dataset.hora || '';
+        const lugar = datos.dataset.lugar || '';
+        const partes = [];
+        if(rival) partes.push('vs ' + rival);
+        if(dia && hora) partes.push(dia + ' ' + hora);
+        else if(dia) partes.push(dia);
+        if(lugar) partes.push(lugar);
+        resumen.textContent = partes.join(' · ') || 'Pendiente de fecha y rival';
+      }
+
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', sincronizarProximoPartido);
+      } else {
+        sincronizarProximoPartido();
+      }
+    })();
+    </script>
+
+    <script>
+    (function(){
       function dibujarGraficaEvolucion(){
         const tabla = document.querySelector('.evolucion-tabla');
         if(!tabla) return;
@@ -1744,49 +1813,18 @@
       <h2><span class="num">05</span> Próximo partido</h2>
       <div class="linea"></div>
 
-      <div class="partido-card">
-        <span class="partido-tipo">Partido amistoso</span>
+      <div class="partido-card"
+           id="proximo-partido-data"
+           data-estado="pendiente"
+           data-rival=""
+           data-dia=""
+           data-hora=""
+           data-lugar="">
 
-        <div class="partido-equipos">
-          <div class="equipo">
-            <div class="equipo-escudo local">RS</div>
-            <span class="equipo-nombre">Rayo Santboiano</span>
-          </div>
-
-          <div class="partido-vs">
-            <span>VS</span>
-          </div>
-
-          <div class="equipo">
-            <div class="equipo-escudo visitante">BSD</div>
-            <span class="equipo-nombre">Brugal SD</span>
-          </div>
-        </div>
-
-        <div class="partido-info">
-          <div class="info-item">
-            <span class="info-label">Día</span>
-            <span class="info-valor">Sábado</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Hora</span>
-            <span class="info-valor">09:00h</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Lugar</span>
-            <span class="info-valor">Gavà</span>
-          </div>
-        </div>
-
-        <div class="convocatoria">
-          <span class="convocatoria-titulo">Convocatoria</span>
-          <ul class="convocatoria-lista">
-            <li>Ivan Mosby</li>
-            <li>Daniel Kraniel</li>
-            <li>Diego</li>
-            <li>Kiri</li>
-            <li>Rubén Acedo</li>
-          </ul>
+        <div class="partido-pendiente-wrap">
+          <span class="partido-pendiente-rayo">⚡</span>
+          <h3 class="partido-pendiente-titulo">Pendiente de fecha y rival</h3>
+          <p class="partido-pendiente-texto">En cuanto se confirme el próximo encuentro, aparecerá aquí con todos los datos.</p>
         </div>
       </div>
     </section>
@@ -1831,24 +1869,20 @@
 
       <p class="evolucion-intro">Cada partido jugado, con su resultado y el MVP de esa jornada.</p>
 
-      <div class="resultado-card resultado-vacio">
+      <div class="resultado-card resultado-amistoso">
         <div class="resultado-fila">
-          <span class="resultado-jornada">Próximamente</span>
+          <span class="resultado-jornada">Amistoso</span>
           <div class="resultado-marcador">
             <span class="resultado-equipo">Rayo Santboiano</span>
-            <span class="resultado-goles">–</span>
-            <span class="resultado-vs-mini">vs</span>
-            <span class="resultado-goles">–</span>
-            <span class="resultado-equipo">Rival</span>
-          </div>
-          <div class="resultado-mvp">
-            <span class="mvp-label">MVP</span>
-            <span class="mvp-nombre">—</span>
+            <span class="resultado-goles perdido">2</span>
+            <span class="resultado-vs-mini">–</span>
+            <span class="resultado-goles">9</span>
+            <span class="resultado-equipo">Brugal SD</span>
           </div>
         </div>
       </div>
 
-      <p class="evolucion-nota">* En cuanto se juegue el primer partido, pásame el resultado y el MVP y los voy añadiendo aquí, uno por jornada.</p>
+      <p class="evolucion-nota">* Fue un partido amistoso, así que no cuenta para la clasificación. En cuanto juguemos el primero de liga, empezamos a sumar resultados de verdad.</p>
     </section>
 
     <section id="socios" class="panel">
