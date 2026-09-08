@@ -707,6 +707,34 @@
     border: 1px solid rgba(255,255,255,0.15);
     padding: 9px 18px;
     border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .conv-num{
+    font-family: 'Anton', sans-serif;
+    font-size: 12px;
+    color: var(--azul-noche);
+    background: var(--amarillo);
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+  }
+  .conv-rol{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--amarillo);
+    font-weight: 700;
+    background: rgba(255,204,51,0.12);
+    border: 1px solid rgba(255,204,51,0.3);
+    padding: 2px 8px;
+    border-radius: 999px;
   }
 
   /* ---------- EVOLUCIÓN ---------- */
@@ -1815,16 +1843,50 @@
 
       <div class="partido-card"
            id="proximo-partido-data"
-           data-estado="pendiente"
-           data-rival=""
-           data-dia=""
-           data-hora=""
+           data-estado="confirmado"
+           data-rival="Brugal / Recreativo de Hierba"
+           data-dia="Sábado 12 sept"
+           data-hora="09:00 - 11:00h"
            data-lugar="">
 
-        <div class="partido-pendiente-wrap">
-          <span class="partido-pendiente-rayo">⚡</span>
-          <h3 class="partido-pendiente-titulo">Pendiente de fecha y rival</h3>
-          <p class="partido-pendiente-texto">En cuanto se confirme el próximo encuentro, aparecerá aquí con todos los datos.</p>
+        <span class="partido-tipo">Próximo partido</span>
+
+        <div class="partido-equipos">
+          <div class="equipo">
+            <div class="equipo-escudo local">RS</div>
+            <span class="equipo-nombre">Rayo Santboiano</span>
+          </div>
+
+          <div class="partido-vs">
+            <span>VS</span>
+          </div>
+
+          <div class="equipo">
+            <div class="equipo-escudo visitante">?</div>
+            <span class="equipo-nombre">Brugal / Recreativo de Hierba</span>
+          </div>
+        </div>
+
+        <div class="partido-info">
+          <div class="info-item">
+            <span class="info-label">Día</span>
+            <span class="info-valor">Sábado 12 sept</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Hora</span>
+            <span class="info-valor">09:00 - 11:00h</span>
+          </div>
+        </div>
+
+        <div class="convocatoria">
+          <span class="convocatoria-titulo">Convocatoria</span>
+          <ul class="convocatoria-lista">
+            <li><b class="conv-num">6</b> Daniel Kraniel</li>
+            <li><b class="conv-num">7</b> Albert González</li>
+            <li><b class="conv-num">9</b> Ivan Mosby <span class="conv-rol">Capitán</span></li>
+            <li><b class="conv-num">11</b> Enric Vera</li>
+            <li><b class="conv-num">14</b> Kirian Esteras <span class="conv-rol">Portero</span></li>
+          </ul>
         </div>
       </div>
     </section>
