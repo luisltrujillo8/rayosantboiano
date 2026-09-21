@@ -1097,19 +1097,46 @@
     box-shadow: inset 6px 0 0 0 var(--amarillo);
   }
 
-  .goleadores-tabla thead th:nth-child(2){
+  .goleadores-tabla thead th:nth-child(3){
     color: var(--azul-noche);
-  }
-  .goleadores-tabla tbody td:nth-child(2){
-    font-family:'Anton', sans-serif;
-    font-size: 16px;
-    color: var(--amarillo) !important;
   }
   .goleadores-tabla tbody td:nth-child(3){
     font-family:'Anton', sans-serif;
     font-size: 16px;
+    color: var(--amarillo) !important;
+  }
+  .goleadores-tabla tbody td:nth-child(4){
+    font-family:'Anton', sans-serif;
+    font-size: 16px;
     color: var(--azul-rayo) !important;
     text-shadow: 0 0 10px rgba(47,111,237,0.5);
+  }
+
+  .fila-lider{
+    background: linear-gradient(90deg, rgba(255,204,51,0.16), rgba(255,204,51,0.04)) !important;
+  }
+  .fila-lider td.col-pos{
+    box-shadow: inset 6px 0 0 0 var(--amarillo);
+    color: var(--amarillo) !important;
+    font-family:'Anton', sans-serif;
+  }
+  .fila-lider .col-equipo{
+    color: var(--amarillo) !important;
+    font-weight: 700 !important;
+  }
+  .lider-tag{
+    display: inline-block;
+    margin-left: 8px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--azul-noche);
+    background: linear-gradient(120deg, var(--amarillo), var(--amarillo-suave));
+    padding: 3px 10px;
+    border-radius: 999px;
+    vertical-align: middle;
   }
 
   /* ---------- RESULTADOS + MVP ---------- */
@@ -1248,7 +1275,7 @@
       <span class="resumen-icono">🏆</span>
       <div class="resumen-texto">
         <span class="resumen-titulo">Clasificación</span>
-        <span class="resumen-valor">7º puesto · 0 pts · 10 equipos</span>
+        <span class="resumen-valor">9º puesto · 0 pts · 10 equipos</span>
       </div>
     </div>
   </section>
@@ -1589,20 +1616,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="col-jugador">Rubén Acedo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Rubén Acedo</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Daniel Kraniel</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Daniel Kraniel</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Albert González</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Luis López</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Ivan Mosby</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Luis López</td><td>8,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Ivan Mosby</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">David Jofra</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Enrik Vera</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Kirian Esteras</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Enrik Vera</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Kirian Esteras</td><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Papu</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Diego</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Fran</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Carlos</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Carlos</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
           </tbody>
         </table>
       </div>
@@ -1627,7 +1654,7 @@
 
         const estado = datos.dataset.estado;
         if(estado === 'pendiente'){
-          resumen.textContent = 'Pendiente de fecha y rival';
+          resumen.textContent = datos.dataset.mensaje || 'Pendiente de fecha y rival';
           return;
         }
 
@@ -1823,20 +1850,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">Movimiento es Vida</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">White Diamond</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-pos">3</td><td class="col-equipo">Vozolona FC</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-pos">4</td><td class="col-equipo">Betis Florida</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">4 Gats</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Brugal SD</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr class="fila-rayo"><td class="col-pos">7</td><td class="col-equipo">Rayo Santboiano</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-pos">8</td><td class="col-equipo">Cierra Bares</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr class="fila-penultimo"><td class="col-pos">9</td><td class="col-equipo">Acomayo</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr class="fila-ultimo"><td class="col-pos">10</td><td class="col-equipo">Tinder de Milán</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">Tinder de Milán</td><td>1</td><td>3</td><td>+3</td></tr>
+            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">Betis Florida</td><td>1</td><td>3</td><td>+2</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">Acomayo</td><td>1</td><td>3</td><td>+2</td></tr>
+            <tr><td class="col-pos">4</td><td class="col-equipo">Vozolona FC</td><td>1</td><td>3</td><td>+1</td></tr>
+            <tr><td class="col-pos">5</td><td class="col-equipo">Brugal SD</td><td>1</td><td>3</td><td>+1</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">White Diamond</td><td>1</td><td>0</td><td>-1</td></tr>
+            <tr><td class="col-pos">7</td><td class="col-equipo">Cierrabares FC</td><td>1</td><td>0</td><td>-1</td></tr>
+            <tr><td class="col-pos">8</td><td class="col-equipo">Movimiento es Vida</td><td>1</td><td>0</td><td>-2</td></tr>
+            <tr class="fila-rayo"><td class="col-pos">9</td><td class="col-equipo">Rayo Santboiano</td><td>1</td><td>0</td><td>-2</td></tr>
+            <tr class="fila-ultimo"><td class="col-pos">10</td><td class="col-equipo">4 Gats</td><td>1</td><td>0</td><td>-3</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="evolucion-nota">* Clasificación inicial de la temporada, todo a 0. Se irá actualizando jornada a jornada.</p>
+      <p class="evolucion-nota">* Clasificación después de la Jornada 1. Se irá actualizando jornada a jornada.</p>
     </section>
 
     <section id="proximo" class="panel">
@@ -1846,9 +1873,9 @@
       <div class="partido-card"
            id="proximo-partido-data"
            data-estado="confirmado"
-           data-rival="Acomayo"
-           data-dia="Sábado 19/09"
-           data-hora="10:00h"
+           data-rival="Cierra Bares"
+           data-dia="Sábado 26/09"
+           data-hora="09:10h"
            data-lugar="">
 
         <span class="partido-tipo">Próximo partido</span>
@@ -1865,34 +1892,19 @@
 
           <div class="equipo">
             <div class="equipo-escudo visitante">?</div>
-            <span class="equipo-nombre">Acomayo</span>
+            <span class="equipo-nombre">Cierra Bares</span>
           </div>
         </div>
 
         <div class="partido-info">
           <div class="info-item">
             <span class="info-label">Día</span>
-            <span class="info-valor">Sábado 19/09</span>
+            <span class="info-valor">Sábado 26/09</span>
           </div>
           <div class="info-item">
             <span class="info-label">Hora</span>
-            <span class="info-valor">10:00h</span>
+            <span class="info-valor">09:10h</span>
           </div>
-        </div>
-
-        <div class="convocatoria">
-          <span class="convocatoria-titulo">Convocatoria</span>
-          <ul class="convocatoria-lista">
-            <li><b class="conv-num">8</b> Luis López</li>
-            <li><b class="conv-num">16</b> Carlos</li>
-            <li><b class="conv-num">14</b> Kirian Esteras <span class="conv-rol">Portero</span></li>
-            <li><b class="conv-num">11</b> Enrik Vera</li>
-            <li><b class="conv-num">9</b> Ivan Mosby <span class="conv-rol">Capitán</span></li>
-            <li><b class="conv-num">4</b> Acedinho</li>
-            <li><b class="conv-num">6</b> Daniel Kraniel</li>
-            <li><b class="conv-num">5</b> Esteve Badía</li>
-            <li><b class="conv-num">46</b> Sergio Gutiérrez</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -1905,26 +1917,27 @@
         <table class="clasificacion-tabla goleadores-tabla">
           <thead>
             <tr>
+              <th class="col-pos">#</th>
               <th class="col-equipo">Jugador</th>
               <th>Goles</th>
               <th>Asistencias</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="col-equipo">Rubén Acedo</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Esteve Badía</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Daniel Kraniel</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Albert González</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Luis López</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Ivan Mosby</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">David Jofra</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Enrik Vera</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Kirian Esteras</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Papu</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Sergio Gutiérrez</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Diego</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Fran</td><td>0</td><td>0</td></tr>
-            <tr><td class="col-equipo">Carlos</td><td>0</td><td>0</td></tr>
+            <tr class="fila-lider"><td class="col-pos">1</td><td class="col-equipo">Luis López <span class="lider-tag">⚽ Pichichi</span></td><td>1</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Rubén Acedo</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Esteve Badía</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Daniel Kraniel</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Albert González</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Ivan Mosby</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">David Jofra</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Enrik Vera</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Kirian Esteras</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Papu</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Sergio Gutiérrez</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Diego</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Fran</td><td>0</td><td>0</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Carlos</td><td>0</td><td>0</td></tr>
           </tbody>
         </table>
       </div>
@@ -1936,6 +1949,19 @@
       <div class="linea"></div>
 
       <p class="evolucion-intro">Cada partido jugado, con su resultado y el MVP de esa jornada.</p>
+
+      <div class="resultado-card">
+        <div class="resultado-fila">
+          <span class="resultado-jornada">Jornada 1</span>
+          <div class="resultado-marcador">
+            <span class="resultado-equipo">Rayo Santboiano</span>
+            <span class="resultado-goles perdido">1</span>
+            <span class="resultado-vs-mini">–</span>
+            <span class="resultado-goles">3</span>
+            <span class="resultado-equipo">Acomayo</span>
+          </div>
+        </div>
+      </div>
 
       <div class="resultado-card resultado-amistoso">
         <div class="resultado-fila">
@@ -1950,7 +1976,7 @@
         </div>
       </div>
 
-      <p class="evolucion-nota">* Fue un partido amistoso, así que no cuenta para la clasificación. En cuanto juguemos el primero de liga, empezamos a sumar resultados de verdad.</p>
+      <p class="evolucion-nota">* Primer resultado de liga. El amistoso contra Brugal SD no cuenta para la clasificación.</p>
     </section>
 
     <section id="socios" class="panel">
