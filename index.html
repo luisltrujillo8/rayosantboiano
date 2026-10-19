@@ -1267,6 +1267,245 @@
     color: var(--blanco-40); letter-spacing: .5px; margin-bottom: 6px;
   }
 
+
+  /* ---------- FANTASY ---------- */
+  .fy-intro{
+    color: var(--blanco-70); font-size: 15px; line-height: 1.7; max-width: 640px; margin-bottom: 22px;
+  }
+  .fy-resumen{
+    display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; margin-bottom: 22px;
+  }
+  .fy-tile{
+    border-radius: 18px; padding: 16px 18px;
+    background: linear-gradient(160deg, rgba(47,111,237,0.16), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.12);
+    position:relative; overflow:hidden;
+  }
+  .fy-tile.principal{
+    background: linear-gradient(135deg, rgba(255,204,51,0.24), rgba(47,111,237,0.18));
+    border-color: rgba(255,204,51,0.55);
+    box-shadow: 0 0 30px rgba(255,204,51,0.14);
+  }
+  .fy-tile .lbl{
+    font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size: 12px;
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--blanco-70);
+  }
+  .fy-tile .val{
+    font-family:'Anton', sans-serif; font-size: 34px; line-height:1.15; color: var(--blanco); margin-top: 4px;
+  }
+  .fy-tile.principal .val{ color: var(--amarillo); font-size: 40px; text-shadow: 0 0 22px rgba(255,204,51,0.35); }
+  .fy-tile .sub{
+    font-family:'Barlow Condensed', sans-serif; font-size: 14px; color: var(--blanco-70); margin-top: 2px;
+  }
+  .fy-tile .val.small{ font-size: 24px; }
+  .fy-orden{
+    display:flex; align-items:center; flex-wrap:wrap; gap: 8px; margin-bottom: 18px;
+  }
+  .fy-orden .lbl{
+    font-family:'Barlow Condensed', sans-serif; font-size:12px; letter-spacing:1.6px; text-transform:uppercase; color: var(--blanco-40); margin-right: 4px;
+  }
+  .fy-btn{
+    font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 999px; cursor:pointer;
+    color: var(--blanco-70); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
+    transition: all .2s;
+  }
+  .fy-btn:hover{ color: var(--blanco); border-color: rgba(255,255,255,0.35); }
+  .fy-btn.activo{ background: var(--amarillo); color: var(--azul-noche); border-color: var(--amarillo); }
+  .fy-grid{
+    display:flex; flex-wrap:wrap; justify-content:center; gap: 16px;
+  }
+  .fy-card{
+    flex: 0 0 calc((100% - 48px) / 4);
+    min-width: 0;
+    position:relative; overflow:hidden;
+    border-radius: 18px 18px 26px 26px;
+    padding: 12px 12px 12px;
+    text-align:center;
+    border: 1.5px solid var(--fy-borde, rgba(255,255,255,0.2));
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--fy-brillo, rgba(255,255,255,0.18)), transparent 60%),
+      linear-gradient(170deg, var(--fy-a), var(--fy-b));
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .fy-card:hover{ transform: translateY(-5px) scale(1.015); box-shadow: 0 16px 34px rgba(0,0,0,0.5), 0 0 26px var(--fy-halo, transparent); }
+  .fy-card::before{
+    content:'⚡'; position:absolute; right:-10px; top:36px; font-size: 120px; opacity: 0.08; transform: rotate(14deg); pointer-events:none;
+  }
+  .fy-card.oro{
+    --fy-a:#6a4b0a; --fy-b:#1c1405; --fy-borde: rgba(255,204,51,0.85); --fy-brillo: rgba(255,226,138,0.45); --fy-halo: rgba(255,204,51,0.35);
+  }
+  .fy-card.plata{
+    --fy-a:#3f5b94; --fy-b:#0d1d3d; --fy-borde: rgba(190,210,255,0.7); --fy-brillo: rgba(190,215,255,0.35); --fy-halo: rgba(120,170,255,0.3);
+  }
+  .fy-card.bronce{
+    --fy-a:#6b3f26; --fy-b:#1d120b; --fy-borde: rgba(224,150,100,0.7); --fy-brillo: rgba(240,170,120,0.28); --fy-halo: rgba(224,150,100,0.25);
+  }
+  .fy-card.sin{
+    --fy-a:#26334f; --fy-b:#0b1428; --fy-borde: rgba(255,255,255,0.16); --fy-brillo: rgba(255,255,255,0.08); --fy-halo: transparent;
+    filter: saturate(0.7);
+  }
+  .fy-top{
+    display:flex; align-items:flex-start; justify-content:space-between; position:relative; z-index:1;
+  }
+  .fy-media{ text-align:left; line-height:1; }
+  .fy-media b{
+    display:block; font-family:'Anton', sans-serif; font-size: 30px; color: var(--blanco);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  }
+  .fy-card.oro .fy-media b{ color: var(--amarillo-suave); }
+  .fy-media small{
+    font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size: 10px; letter-spacing: 1.4px; color: var(--blanco-70);
+  }
+  .fy-pos{
+    font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size: 13px; letter-spacing: 1.2px;
+    padding: 3px 9px; border-radius: 8px;
+    background: rgba(255,255,255,0.12); color: var(--blanco);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .fy-foto{
+    position:relative; z-index:1;
+    width: 112px; height: 112px; margin: 6px auto 8px;
+    border-radius: 50%; overflow:hidden;
+    background: #fff;
+    border: 3px solid var(--fy-borde);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+  .fy-foto img{ width:100%; height:100%; object-fit: cover; display:block; }
+  .fy-foto .ini{
+    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+    font-family:'Anton', sans-serif; font-size: 34px; color: var(--azul-noche); background: linear-gradient(135deg, var(--amarillo), var(--azul-rayo));
+  }
+  .fy-badges{
+    position:absolute; z-index:2; left: 10px; top: 62px; display:flex; flex-direction:column; gap:4px;
+  }
+  .fy-badge{
+    font-size: 11px; width: 24px; height: 24px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--amarillo); color: var(--azul-noche); font-weight:700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    font-family:'Barlow Condensed', sans-serif;
+  }
+  .fy-nombre{
+    font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size: 17px; letter-spacing: .6px;
+    text-transform: uppercase; color: var(--blanco); position:relative; z-index:1;
+    white-space: nowrap; overflow:hidden;
+  }
+  .fy-nombre.largo{ font-size: 14px; letter-spacing: .2px; }
+  .fy-rol{
+    font-family:'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--amarillo); min-height: 14px; position:relative; z-index:1;
+  }
+  .fy-stats{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 4px;
+    margin: 8px 0 10px; padding: 7px 0;
+    border-top: 1px solid rgba(255,255,255,0.14); border-bottom: 1px solid rgba(255,255,255,0.14);
+    position:relative; z-index:1;
+  }
+  .fy-stats div{ line-height: 1.1; }
+  .fy-stats b{ display:block; font-family:'Anton', sans-serif; font-size: 16px; color: var(--blanco); }
+  .fy-stats span{
+    font-family:'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--blanco-70);
+  }
+  .fy-valor{
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center; gap: 8px;
+    padding: 8px 10px; border-radius: 12px;
+    background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.12);
+  }
+  .fy-valor .lbl{
+    font-family:'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1.4px; color: var(--blanco-70); text-transform: uppercase;
+  }
+  .fy-valor b{ font-family:'Anton', sans-serif; font-size: 19px; color: var(--amarillo); letter-spacing: .3px; }
+  .fy-valor b small{ font-size: 12px; margin-left: 2px; color: var(--amarillo-suave); }
+  .fy-trend{ font-size: 12px; font-style: normal; }
+  .fy-trend.up{ color: #4ade80; }
+  .fy-trend.down{ color: #f87171; }
+  .fy-trend.eq{ color: var(--blanco-40); }
+  .fy-nota{ margin-top: 18px; }
+  @media (max-width: 760px){
+    .fy-card{ flex: 0 0 calc((100% - 32px) / 3); }
+    .fy-resumen{ grid-template-columns: 1fr 1fr; }
+    .fy-tile.principal{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 520px){
+    .fy-card{ flex: 0 0 calc((100% - 16px) / 2); }
+    .fy-foto{ width: 92px; height: 92px; }
+  }
+
+
+  /* ---------- FANTASY: vista ancha y compacta (todo en una pantalla) ---------- */
+  main.ancho{ max-width: 1320px; padding: 26px 3vw 80px; }
+  main.ancho #fantasy h2{ margin-bottom: 4px; }
+  main.ancho .fy-intro{ max-width: none; font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
+  main.ancho .fy-resumen{ grid-template-columns: 1.4fr 1fr 1fr auto; align-items: stretch; gap: 10px; margin-bottom: 14px; }
+  main.ancho .fy-tile{ padding: 10px 16px; border-radius: 14px; }
+  main.ancho .fy-tile .val{ font-size: 24px; margin-top: 2px; }
+  main.ancho .fy-tile.principal .val{ font-size: 30px; }
+  main.ancho .fy-tile .val.small{ font-size: 20px; }
+  main.ancho .fy-tile .sub{ font-size: 13px; }
+  main.ancho .fy-orden{ margin-bottom: 14px; }
+  main.ancho .fy-grid{ gap: 12px; }
+  main.ancho .fy-card{
+    flex: 0 0 calc((100% - 72px) / 7);
+    padding: 9px 9px 10px; border-radius: 14px 14px 22px 22px;
+  }
+  main.ancho .fy-card::before{ font-size: 90px; top: 28px; }
+  main.ancho .fy-media b{ font-size: 25px; }
+  main.ancho .fy-media small{ font-size: 8.5px; letter-spacing: 1px; }
+  main.ancho .fy-pos{ font-size: 11px; padding: 2px 7px; }
+  main.ancho .fy-foto{ width: 84px; height: 84px; margin: 4px auto 6px; border-width: 2.5px; }
+  main.ancho .fy-badges{ left: 6px; top: 50px; }
+  main.ancho .fy-badge{ width: 21px; height: 21px; font-size: 10px; }
+  main.ancho .fy-nombre{ font-size: 14px; letter-spacing: .3px; }
+  main.ancho .fy-nombre.largo{ font-size: 12.5px; letter-spacing: 0; }
+  main.ancho .fy-rol{ font-size: 9.5px; min-height: 12px; }
+  main.ancho .fy-stats{ margin: 6px 0 8px; padding: 5px 0; }
+  main.ancho .fy-stats b{ font-size: 14px; }
+  main.ancho .fy-stats span{ font-size: 9px; letter-spacing: .8px; }
+  main.ancho .fy-valor{ padding: 6px 6px; gap: 5px; border-radius: 10px; }
+  main.ancho .fy-valor .lbl{ display:none; }
+  main.ancho .fy-valor b{ font-size: 17px; }
+  main.ancho .fy-valor b small{ font-size: 10px; }
+  main.ancho .fy-nota{ margin-top: 12px; }
+  @media (max-width: 1099px){
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 48px) / 5); }
+    main.ancho .fy-resumen{ grid-template-columns: 1fr 1fr 1fr; }
+  }
+  @media (max-width: 760px){
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 24px) / 3); }
+    main.ancho .fy-resumen{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px){
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 12px) / 2); }
+  }
+
+
+  main.ancho{ padding-top: 14px; }
+  main.ancho #fantasy h2{ font-size: 30px; }
+  main.ancho #fantasy .linea{ margin: 6px 0 10px; }
+  main.ancho .fy-intro{ margin-bottom: 10px; }
+  main.ancho .fy-tile{ padding: 7px 14px; }
+  main.ancho .fy-tile .val, main.ancho .fy-tile .sub{ display:inline-block; vertical-align: baseline; }
+  main.ancho .fy-tile .sub{ margin-left: 10px; }
+  main.ancho .fy-tile .val{ font-size: 22px; }
+  main.ancho .fy-tile.principal .val{ font-size: 26px; }
+  main.ancho .fy-tile .val.small{ font-size: 19px; }
+  main.ancho .fy-orden{ margin-bottom: 10px; }
+  main.ancho .fy-btn{ padding: 5px 14px; }
+  main.ancho .fy-foto{ width: 74px; height: 74px; margin: 2px auto 5px; }
+  main.ancho .fy-badges{ top: 44px; }
+  main.ancho .fy-rol{ min-height: 0; }
+  main.ancho .fy-rol:empty{ display:none; }
+  main.ancho .fy-stats{ margin: 5px 0 7px; padding: 4px 0; }
+  main.ancho .fy-grid{ gap: 10px; }
+  main.ancho .fy-card{ flex-basis: calc((100% - 60px) / 7); }
+
+
+  main.ancho .fy-foto{ margin: 8px auto 5px; }
+  main.ancho .fy-badges{ top: 52px; }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -1416,6 +1655,7 @@
     <button class="tab-btn" data-panel="proximo" role="tab" aria-selected="false">Próximo partido</button>
     <button class="tab-btn" data-panel="goleadores" role="tab" aria-selected="false">Goleadores</button>
     <button class="tab-btn" data-panel="resultados" role="tab" aria-selected="false">Resultados</button>
+    <button class="tab-btn" data-panel="fantasy" role="tab" aria-selected="false">Fantasy</button>
     <button class="tab-btn" data-panel="socios" role="tab" aria-selected="false">Socios</button>
   </nav>
 
@@ -1848,6 +2088,129 @@
 
     <script>
     (function(){
+      // Valores de mercado inventados (en millones de euros). Se pueden cambiar aquí.
+      const VALOR = {
+        'Luis López': 31.0, 'Kirian Esteras': 24.5, 'Enrik Vera': 22.5, 'Esteve Badía': 19.5,
+        'Sergio Gutiérrez': 18.0, 'Ivan Mosby': 16.5, 'Carlos': 14.0, 'Albert González': 12.0,
+        'Rubén Acedo': 11.5, 'Daniel Kraniel': 9.0, 'David Jofra': 6.5, 'Papu': 4.0, 'Diego': 3.5, 'Fran': 2.5
+      };
+      const POS = { 'Mediocentro':'MC', 'Mediocentro ofensivo':'MCO', 'Extremo':'EXT', 'Defensa':'DEF', 'Portero':'POR',
+        'Jugador ofensivo':'DEL', 'Jugador polivalente':'POL', 'Revulsivo':'REV' };
+      const ROL = { 'Fundador':'Fundador', 'Capitán':'Capitán', 'Excapitán':'Excapitán' };
+      const ALIAS = { 'kiri':'Kirian Esteras' };
+      const f1 = n => n.toFixed(1).replace('.', ',');
+      const f2 = n => n.toFixed(2).replace('.', ',');
+      let orden = 'valor';
+      let jugadores = [];
+
+      function leerDatos(){
+        // media y notas desde Evolución
+        const notas = {};
+        document.querySelectorAll('.evolucion-tabla tbody tr').forEach(tr => {
+          const nombre = tr.querySelector('.col-jugador').textContent.trim();
+          const vals = Array.from(tr.querySelectorAll('td:not(.col-jugador)')).map(td => {
+            const n = parseFloat(td.textContent.trim().replace(',', '.')); return isNaN(n) ? null : n;
+          }).filter(v => v !== null);
+          notas[nombre] = vals;
+        });
+        // goles desde Goleadores (columna 4 = goles, 3 = PJ)
+        const goles = {};
+        document.querySelectorAll('.goleadores-tabla tbody tr').forEach(tr => {
+          const tds = tr.querySelectorAll('td');
+          const nombre = tds[1].textContent.replace('⚽ Pichichi', '').trim();
+          goles[nombre] = parseInt(tds[3].textContent.trim(), 10) || 0;
+        });
+        // MVPs desde Resultados
+        const mvps = {};
+        document.querySelectorAll('.mvp-nombre').forEach(el => {
+          const t = el.textContent.trim();
+          mvps[t] = (mvps[t] || 0) + 1;
+        });
+        // ficha desde Plantilla
+        const lista = [];
+        document.querySelectorAll('.jugador-card').forEach(card => {
+          if(card.classList.contains('retirado')) return;
+          const nombre = card.querySelector('h3').textContent.trim();
+          if(!(nombre in VALOR)) return;
+          const posTxt = card.querySelector('.posicion').textContent.trim();
+          const img = card.querySelector('img.foto');
+          const vals = notas[nombre] || [];
+          const media = vals.length ? vals.reduce((a,b) => a + b, 0) / vals.length : null;
+          const ultima = vals.length ? vals[vals.length - 1] : null;
+          let nMvp = 0;
+          Object.keys(mvps).forEach(k => {
+            const full = ALIAS[k.toLowerCase()] || k;
+            if(full === nombre || nombre.split(' ')[0] === k) nMvp += mvps[k];
+          });
+          lista.push({
+            nombre, posTxt, pos: POS[posTxt] || 'JUG', rol: ROL[posTxt] || '',
+            foto: img ? img.getAttribute('src') : '', vals, pj: vals.length, media, ultima,
+            goles: goles[nombre] || 0, mvp: nMvp, valor: VALOR[nombre]
+          });
+        });
+        jugadores = lista;
+      }
+
+      function pintar(){
+        const grid = document.getElementById('fy-grid');
+        if(!grid) return;
+        const lista = jugadores.slice().sort((a,b) => {
+          if(orden === 'media') return (b.media === null ? -1 : b.media) - (a.media === null ? -1 : a.media) || b.valor - a.valor;
+          if(orden === 'goles') return b.goles - a.goles || (b.media || 0) - (a.media || 0);
+          return b.valor - a.valor;
+        });
+        const maxGoles = Math.max.apply(null, jugadores.map(j => j.goles));
+        grid.innerHTML = '';
+        lista.forEach(j => {
+          const tier = j.media === null ? 'sin' : j.media >= 8 ? 'oro' : j.media >= 7 ? 'plata' : 'bronce';
+          let flecha = '<i class="fy-trend eq" title="Sin datos">●</i>';
+          if(j.ultima !== null && j.pj > 1){
+            const d = j.ultima - j.media;
+            flecha = d >= 0.3 ? '<i class="fy-trend up" title="En alza">▲</i>' : d <= -0.3 ? '<i class="fy-trend down" title="En baja">▼</i>' : '<i class="fy-trend eq" title="Estable">▬</i>';
+          }
+          const ini = j.nombre.split(' ').map(x => x[0]).slice(0,2).join('');
+          let badges = '';
+          if(maxGoles > 0 && j.goles === maxGoles) badges += '<span class="fy-badge" title="Pichichi">⚽</span>';
+          if(j.mvp > 0) badges += '<span class="fy-badge" title="MVP de la jornada">' + (j.mvp > 1 ? j.mvp + '★' : '★') + '</span>';
+          const card = document.createElement('article');
+          card.className = 'fy-card ' + tier;
+          card.innerHTML =
+            '<div class="fy-top"><div class="fy-media"><b>' + (j.media === null ? '--' : f2(j.media)) + '</b><small>MEDIA LIGA</small></div><span class="fy-pos">' + j.pos + '</span></div>' +
+            (badges ? '<div class="fy-badges">' + badges + '</div>' : '') +
+            '<div class="fy-foto">' + (j.foto ? '<img src="' + j.foto + '" alt="' + j.nombre + '">' : '<div class="ini">' + ini + '</div>') + '</div>' +
+            '<div class="fy-nombre' + (j.nombre.length > 13 ? ' largo' : '') + '">' + j.nombre + '</div>' +
+            '<div class="fy-rol">' + (j.rol || '') + '</div>' +
+            '<div class="fy-stats"><div><b>' + j.pj + '</b><span>PJ</span></div><div><b>' + j.goles + '</b><span>Goles</span></div><div><b>' + j.mvp + '</b><span>MVP</span></div></div>' +
+            '<div class="fy-valor"><span class="lbl">Valor</span><b>' + f1(j.valor) + '<small>M€</small></b>' + flecha + '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      function resumen(){
+        const el = document.getElementById('fy-resumen');
+        if(!el) return;
+        const total = jugadores.reduce((a,j) => a + j.valor, 0);
+        const caro = jugadores.slice().sort((a,b) => b.valor - a.valor)[0];
+        const conMedia = jugadores.filter(j => j.media !== null).sort((a,b) => b.media - a.media)[0];
+        el.innerHTML =
+          '<div class="fy-tile principal"><div class="lbl">Valor total de la plantilla</div><div class="val">' + f1(total) + ' M€</div><div class="sub">' + jugadores.length + ' jugadores en el mercado</div></div>' +
+          '<div class="fy-tile"><div class="lbl">Más valioso</div><div class="val small">' + caro.nombre + '</div><div class="sub">' + f1(caro.valor) + ' M€</div></div>' +
+          (conMedia ? '<div class="fy-tile"><div class="lbl">Mejor media liga</div><div class="val small">' + conMedia.nombre + '</div><div class="sub">' + f2(conMedia.media) + ' de media</div></div>' : '');
+      }
+
+      function iniciar(){
+        leerDatos(); resumen(); pintar();
+        document.querySelectorAll('.fy-btn').forEach(b => b.addEventListener('click', () => {
+          document.querySelectorAll('.fy-btn').forEach(x => x.classList.remove('activo'));
+          b.classList.add('activo'); orden = b.dataset.orden; pintar();
+        }));
+      }
+      if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', iniciar); } else { iniciar(); }
+    })();
+    </script>
+
+    <script>
+    (function(){
       function sincronizarProximoPartido(){
         const datos = document.getElementById('proximo-partido-data');
         const resumen = document.getElementById('resumen-proximo-valor');
@@ -2252,8 +2615,27 @@
       <p class="evolucion-nota">* El amistoso contra Brugal SD no cuenta para la clasificación.</p>
     </section>
 
+    <section id="fantasy" class="panel">
+      <h2><span class="num">08</span> Fantasy</h2>
+      <div class="linea"></div>
+
+      <p class="fy-intro">Cada jugador con su carta: <b>media real de la liga</b> (sale de Evolución) y valor de mercado 100% inventado... pero con mucho criterio.</p>
+
+      <div class="fy-resumen" id="fy-resumen"></div>
+
+      <div class="fy-orden">
+        <span class="lbl">Ordenar por</span>
+        <button type="button" class="fy-btn activo" data-orden="valor">Valor de mercado</button>
+        <button type="button" class="fy-btn" data-orden="media">Media liga</button>
+        <button type="button" class="fy-btn" data-orden="goles">Goles</button>
+      </div>
+
+      <div class="fy-grid" id="fy-grid"></div>
+      <p class="evolucion-nota fy-nota">* Oro: media de 8 o más · Plata: de 7 a 8 · Bronce: menos de 7 · Gris: aún sin puntuaciones. La flecha indica la forma: última nota frente a su media.</p>
+    </section>
+
     <section id="socios" class="panel">
-      <h2><span class="num">08</span> Socios</h2>
+      <h2><span class="num">09</span> Socios</h2>
       <div class="linea"></div>
 
       <div class="socios-card">
@@ -2305,6 +2687,7 @@
       btn.classList.add('activo');
       btn.setAttribute('aria-selected','true');
       document.getElementById(btn.dataset.panel).classList.add('activo');
+      document.querySelector('main').classList.toggle('ancho', btn.dataset.panel === 'fantasy');
     });
   });
 </script>
