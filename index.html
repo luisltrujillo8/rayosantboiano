@@ -1139,6 +1139,134 @@
     vertical-align: middle;
   }
 
+
+  /* ---------- RANKING DE MEDIAS (Evolución) ---------- */
+  .medias-grid{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap: 14px;
+    margin: 6px 0 14px;
+  }
+  .medias-grid .media-card{ flex: 0 0 calc((100% - 28px) / 3); min-width: 0; }
+  .medias-grid .media-card.top1{ flex: 0 0 100%; }
+  .media-card .media-izq, .media-card .media-der{ min-width:0; }
+  .media-card.top1{ display:grid; grid-template-columns: 1fr 1.15fr; gap: 26px; align-items:center; padding: 20px 24px; }
+  .media-card.top1 .media-valor{ font-size: 56px; }
+  .media-card.top1 .media-nombre{ font-size: 24px; }
+  .media-card.top1 .media-mini{ height: 70px; }
+  .media-card.top1 .media-mini-ejes{ font-size: 11px; }
+  .media-card.top1 .media-extra{ font-size: 13px; }
+  .media-card.top1 .media-barra{ margin-bottom: 0; }
+  @media (max-width: 760px){
+    .medias-grid .media-card{ flex: 0 0 calc((100% - 14px) / 2); }
+    .media-card.top1{ grid-template-columns: 1fr; gap: 12px; }
+  }
+  @media (max-width: 460px){
+    .medias-grid .media-card{ flex: 0 0 100%; }
+  }
+  .media-card{
+    position:relative;
+    border-radius: 18px;
+    padding: 16px 16px 14px;
+    background: linear-gradient(160deg, rgba(47,111,237,0.14), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow:hidden;
+  }
+  .media-card::after{
+    content:'⚡';
+    position:absolute; right:-6px; bottom:-14px;
+    font-size: 70px; opacity: 0.05; transform: rotate(12deg);
+    pointer-events:none;
+  }
+  .media-card.top1{
+    border-color: rgba(255,204,51,0.6);
+    background: linear-gradient(160deg, rgba(255,204,51,0.2), rgba(47,111,237,0.12));
+    box-shadow: 0 0 28px rgba(255,204,51,0.18);
+  }
+  .media-card.top2, .media-card.top3{ border-color: rgba(255,255,255,0.28); }
+  .media-cab{
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    margin-bottom: 10px;
+  }
+  .media-pos{
+    font-family:'Anton', sans-serif;
+    font-size: 12px; letter-spacing: 1px;
+    color: var(--blanco-40);
+  }
+  .media-card.top1 .media-pos{ color: var(--amarillo); }
+  .media-tag{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--amarillo); color: var(--azul-noche);
+  }
+  .media-nombre{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size: 18px;
+    text-transform: uppercase; letter-spacing: .5px;
+    color: var(--blanco);
+    margin-bottom: 4px;
+  }
+  .media-valor-fila{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+    margin-bottom: 10px;
+  }
+  .media-valor{
+    font-family:'Anton', sans-serif;
+    font-size: 42px; line-height: 1;
+    color: var(--blanco);
+  }
+  .media-valor.alta{ color: var(--amarillo); text-shadow: 0 0 18px rgba(255,204,51,0.35); }
+  .media-valor.media{ color: #7fb0ff; }
+  .media-valor small{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 13px; color: var(--blanco-40); margin-left: 3px;
+  }
+  .media-pj{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--blanco-70);
+    text-align:right; line-height: 1.35;
+  }
+  .media-pj b{ color: var(--blanco); font-size: 15px; }
+  .media-barra{
+    height: 7px; border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    overflow:hidden; margin-bottom: 12px;
+  }
+  .media-barra span{
+    display:block; height:100%; border-radius:999px;
+    background: linear-gradient(90deg, var(--azul-rayo), var(--amarillo));
+  }
+  .media-mini{
+    display:flex; align-items:flex-end; gap: 5px; height: 52px;
+    padding-top: 2px;
+  }
+  .media-mini .col{
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:3px; height:100%;
+  }
+  .media-mini .col i{
+    display:block; width:100%; border-radius: 3px 3px 0 0;
+    background: linear-gradient(180deg, var(--amarillo-suave), var(--azul-rayo));
+    min-height: 3px;
+  }
+  .media-mini .col.vacia i{ background: rgba(255,255,255,0.08); height: 3px !important; }
+  .media-mini-ejes{
+    display:flex; gap:5px; margin-top:4px;
+    font-family:'Barlow Condensed', sans-serif; font-size: 10.5px; color: var(--blanco-60, rgba(255,255,255,0.55));
+  }
+  .media-mini-ejes span{ flex:1; text-align:center; }
+  .media-extra{
+    display:flex; justify-content:space-between; margin-top: 10px;
+    font-family:'Barlow Condensed', sans-serif; font-size: 12px;
+    color: var(--blanco-70); text-transform: uppercase; letter-spacing: .8px;
+  }
+  .media-extra b{ color: var(--blanco); }
+  .medias-sin{
+    font-family:'Barlow Condensed', sans-serif; font-size: 13px;
+    color: var(--blanco-40); letter-spacing: .5px; margin-bottom: 6px;
+  }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -1616,24 +1744,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="col-jugador">Rubén Acedo</td><td>6,5</td><td>-</td><td>8</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>9</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Daniel Kraniel</td><td>6</td><td>7,5</td><td>-</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Rubén Acedo</td><td>6,5</td><td>-</td><td>8</td><td>6,5</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>9</td><td>7</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Daniel Kraniel</td><td>6</td><td>7,5</td><td>-</td><td>6,5</td><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Albert González</td><td>-</td><td>8</td><td>-</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Luis López</td><td>8,5</td><td>8</td><td>8,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Ivan Mosby</td><td>6</td><td>7,5</td><td>7,5</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Ivan Mosby</td><td>6</td><td>7,5</td><td>7,5</td><td>6,5</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">David Jofra</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Enrik Vera</td><td>7</td><td>9</td><td>9</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Kirian Esteras</td><td>9</td><td>9</td><td>9,5</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Enrik Vera</td><td>7</td><td>9</td><td>9</td><td>6,5</td><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Kirian Esteras</td><td>9</td><td>9</td><td>9,5</td><td>8</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Papu</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>7</td><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>7</td><td>10</td><td>-</td><td>-</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Diego</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Fran</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Carlos</td><td>7</td><td>8,5</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Carlos</td><td>7</td><td>8,5</td><td>8</td><td>-</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
           </tbody>
         </table>
       </div>
       <p class="evolucion-nota">* Pásame las puntuaciones de cada jornada y las voy rellenando.</p>
+
+      <h3 class="subtitulo-seccion">Media por jugador</h3>
+      <p class="evolucion-intro">Nota media de cada jugador por partidos jugados (sólo cuentan las jornadas en las que tiene puntuación). Ordenados de mejor a peor media.</p>
+      <div class="medias-grid" id="medias-grid"></div>
+      <p class="medias-sin" id="medias-sin"></p>
+      <p class="evolucion-nota">* Se calcula sola a partir de la tabla de arriba.</p>
 
       <h3 class="subtitulo-seccion">Gráfica de rendimiento</h3>
       <p class="evolucion-intro">Así se ve la evolución de cada jugador jornada a jornada, de un vistazo. Toca un nombre en la leyenda para aislarlo o volver a mostrarlo.</p>
@@ -1644,6 +1778,73 @@
       </div>
       <p class="evolucion-nota" id="evolucion-chart-nota">* La gráfica se dibuja sola a partir de la tabla de arriba: en cuanto metamos puntuaciones reales, aparecerán aquí las líneas de subidas y bajadas.</p>
     </section>
+
+    <script>
+    (function(){
+      function fmt(n){ return n.toFixed(2).replace('.', ','); }
+      function dibujarMedias(){
+        const filas = document.querySelectorAll('.evolucion-tabla tbody tr');
+        const grid = document.getElementById('medias-grid');
+        if(!filas.length || !grid) return;
+        const jug = [];
+        let ultima = 0;
+        filas.forEach(tr => {
+          const nombre = tr.querySelector('.col-jugador').textContent.trim();
+          const vals = Array.from(tr.querySelectorAll('td:not(.col-jugador)')).map(td => {
+            const t = td.textContent.trim().replace(',', '.');
+            const n = parseFloat(t);
+            return isNaN(n) ? null : n;
+          });
+          vals.forEach((v,i) => { if(v !== null && i + 1 > ultima) ultima = i + 1; });
+          const jugadas = vals.filter(v => v !== null);
+          jug.push({ nombre, vals, jugadas });
+        });
+        const con = jug.filter(j => j.jugadas.length > 0).map(j => {
+          const suma = j.jugadas.reduce((a,b) => a + b, 0);
+          return Object.assign(j, { media: suma / j.jugadas.length, mejor: Math.max.apply(null, j.jugadas) });
+        }).sort((a,b) => b.media - a.media || b.jugadas.length - a.jugadas.length);
+        const sin = jug.filter(j => j.jugadas.length === 0).map(j => j.nombre);
+
+        grid.innerHTML = '';
+        con.forEach((j, idx) => {
+          const clase = idx === 0 ? ' top1' : idx === 1 ? ' top2' : idx === 2 ? ' top3' : '';
+          const nivel = j.media >= 8 ? 'alta' : j.media >= 7 ? 'media' : '';
+          const medalla = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '';
+          let mini = '', ejes = '';
+          for(let i = 0; i < ultima; i++){
+            const v = j.vals[i];
+            if(v === null || v === undefined){
+              mini += '<div class="col vacia"><i></i></div>';
+            } else {
+              mini += '<div class="col"><i style="height:' + Math.max(8, v * 10) + '%" title="J' + (i+1) + ': ' + String(v).replace('.', ',') + '"></i></div>';
+            }
+            ejes += '<span>J' + (i+1) + '</span>';
+          }
+          const card = document.createElement('div');
+          card.className = 'media-card' + clase;
+          card.innerHTML =
+            '<div class="media-izq">' +
+            '<div class="media-cab"><span class="media-pos">' + (medalla || ('#' + (idx+1))) + (medalla ? ' #' + (idx+1) : '') + '</span>' +
+            (idx === 0 ? '<span class="media-tag">Mejor media</span>' : '') + '</div>' +
+            '<div class="media-nombre">' + j.nombre + '</div>' +
+            '<div class="media-valor-fila"><div class="media-valor ' + nivel + '">' + fmt(j.media) + '<small>/10</small></div>' +
+            '<div class="media-pj"><b>' + j.jugadas.length + '</b> partidos<br>jugados</div></div>' +
+            '<div class="media-barra"><span style="width:' + (j.media * 10) + '%"></span></div></div>' +
+            '<div class="media-der">' +
+            '<div class="media-mini">' + mini + '</div><div class="media-mini-ejes">' + ejes + '</div>' +
+            '<div class="media-extra"><span>Mejor nota <b>' + String(j.mejor).replace('.', ',') + '</b></span><span>Total <b>' + String(j.jugadas.reduce((a,b)=>a+b,0)).replace('.', ',') + '</b></span></div></div>';
+          grid.appendChild(card);
+        });
+        const nota = document.getElementById('medias-sin');
+        if(nota) nota.textContent = sin.length ? 'Sin puntuaciones todavía: ' + sin.join(', ') + '.' : '';
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', dibujarMedias);
+      } else {
+        dibujarMedias();
+      }
+    })();
+    </script>
 
     <script>
     (function(){
@@ -1850,21 +2051,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">White Diamond</td><td>4</td><td>9</td><td>+7</td></tr>
-            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">Brugal SD</td><td>4</td><td>8</td><td>+7</td></tr>
-            <tr><td class="col-pos">3</td><td class="col-equipo">Movimiento es Vida</td><td>3</td><td>6</td><td>+4</td></tr>
-            <tr class="fila-rayo"><td class="col-pos">4</td><td class="col-equipo">Rayo Santboiano</td><td>4</td><td>6</td><td>+3</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Vozolona FC</td><td>3</td><td>6</td><td>-2</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">La Toga</td><td>3</td><td>5</td><td>+4</td></tr>
-            <tr><td class="col-pos">7</td><td class="col-equipo">Acomayo</td><td>3</td><td>4</td><td>-1</td></tr>
-            <tr><td class="col-pos">8</td><td class="col-equipo">Betis Florida</td><td>4</td><td>3</td><td>-3</td></tr>
-            <tr><td class="col-pos">9</td><td class="col-equipo">Cierrabares FC</td><td>4</td><td>3</td><td>-6</td></tr>
-            <tr class="fila-penultimo"><td class="col-pos">10</td><td class="col-equipo">Tinder de Milán</td><td>3</td><td>3</td><td>-6</td></tr>
-            <tr class="fila-ultimo"><td class="col-pos">11</td><td class="col-equipo">4 Gats</td><td>3</td><td>1</td><td>-7</td></tr>
+            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">Brugal SD</td><td>5</td><td>11</td><td>+10</td></tr>
+            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">Movimiento es Vida</td><td>4</td><td>9</td><td>+6</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">White Diamond</td><td>5</td><td>9</td><td>+5</td></tr>
+            <tr class="fila-rayo"><td class="col-pos">4</td><td class="col-equipo">Rayo Santboiano</td><td>5</td><td>6</td><td>0</td></tr>
+            <tr><td class="col-pos">5</td><td class="col-equipo">Tinder de Milán</td><td>4</td><td>6</td><td>-1</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Vozolona FC</td><td>3</td><td>6</td><td>-2</td></tr>
+            <tr><td class="col-pos">7</td><td class="col-equipo">La Toga</td><td>3</td><td>5</td><td>+4</td></tr>
+            <tr><td class="col-pos">8</td><td class="col-equipo">Acomayo</td><td>4</td><td>4</td><td>-3</td></tr>
+            <tr><td class="col-pos">9</td><td class="col-equipo">4 Gats</td><td>4</td><td>4</td><td>-5</td></tr>
+            <tr class="fila-penultimo"><td class="col-pos">10</td><td class="col-equipo">Cierrabares FC</td><td>4</td><td>3</td><td>-6</td></tr>
+            <tr class="fila-ultimo"><td class="col-pos">11</td><td class="col-equipo">Betis Florida</td><td>5</td><td>3</td><td>-8</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="evolucion-nota">* Clasificación después de la Jornada 4. Se irá actualizando jornada a jornada.</p>
+      <p class="evolucion-nota">* Clasificación después de la Jornada 5. Se irá actualizando jornada a jornada.</p>
     </section>
 
     <section id="proximo" class="panel">
@@ -1874,7 +2075,7 @@
       <div class="partido-card"
            id="proximo-partido-data"
            data-estado="pendiente"
-           data-mensaje="Pendiente de asignación de Jornada 5">
+           data-mensaje="Pendiente de asignación de Jornada 6">
 
         <span class="partido-tipo">Próximo partido</span>
 
@@ -1925,15 +2126,15 @@
           </thead>
           <tbody>
             <tr class="fila-lider"><td class="col-pos">1</td><td class="col-equipo">Luis López <span class="lider-tag">⚽ Pichichi</span></td><td>3</td><td>3</td><td>0</td><td>1,00</td></tr>
-            <tr><td class="col-pos">2</td><td class="col-equipo">Enrik Vera</td><td>4</td><td>2</td><td>0</td><td>0,50</td></tr>
-            <tr><td class="col-pos">3</td><td class="col-equipo">Sergio Gutiérrez</td><td>2</td><td>1</td><td>0</td><td>0,50</td></tr>
-            <tr><td class="col-pos">3</td><td class="col-equipo">Carlos</td><td>3</td><td>1</td><td>0</td><td>0,33</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Rubén Acedo</td><td>3</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Esteve Badía</td><td>2</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Daniel Kraniel</td><td>3</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Albert González</td><td>2</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Ivan Mosby</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Kirian Esteras</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Sergio Gutiérrez</td><td>3</td><td>2</td><td>0</td><td>0,67</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Carlos</td><td>4</td><td>2</td><td>0</td><td>0,50</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Enrik Vera</td><td>5</td><td>2</td><td>0</td><td>0,40</td></tr>
+            <tr><td class="col-pos">5</td><td class="col-equipo">Kirian Esteras</td><td>5</td><td>1</td><td>0</td><td>0,20</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Rubén Acedo</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Esteve Badía</td><td>3</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Daniel Kraniel</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Albert González</td><td>2</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Ivan Mosby</td><td>5</td><td>0</td><td>0</td><td>0,00</td></tr>
             <tr><td class="col-pos">11</td><td class="col-equipo">David Jofra</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
             <tr><td class="col-pos">11</td><td class="col-equipo">Papu</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
             <tr><td class="col-pos">11</td><td class="col-equipo">Diego</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
@@ -1941,7 +2142,7 @@
           </tbody>
         </table>
       </div>
-      <p class="evolucion-nota">* Goleadores actualizados tras la Jornada 4. Media de goles por partido jugado (PJ según las jornadas en las que hay puntuación en Evolución).</p>
+      <p class="evolucion-nota">* Goleadores actualizados tras la Jornada 5. Media de goles por partido jugado (PJ según las jornadas en las que hay puntuación en Evolución).</p>
     </section>
 
     <section id="resultados" class="panel">
@@ -1949,6 +2150,23 @@
       <div class="linea"></div>
 
       <p class="evolucion-intro">Cada partido jugado, con su resultado y el MVP de esa jornada.</p>
+
+      <div class="resultado-card">
+        <div class="resultado-fila">
+          <span class="resultado-jornada">Jornada 5</span>
+          <div class="resultado-marcador">
+            <span class="resultado-equipo">Rayo Santboiano</span>
+            <span class="resultado-goles perdido">3</span>
+            <span class="resultado-vs-mini">–</span>
+            <span class="resultado-goles">6</span>
+            <span class="resultado-equipo">Brugal SD</span>
+          </div>
+          <div class="resultado-mvp">
+            <span class="mvp-label">MVP</span>
+            <span class="mvp-nombre">Esteve</span>
+          </div>
+        </div>
+      </div>
 
       <div class="resultado-card">
         <div class="resultado-fila">
