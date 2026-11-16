@@ -1506,6 +1506,126 @@
   main.ancho .fy-foto{ margin: 8px auto 5px; }
   main.ancho .fy-badges{ top: 52px; }
 
+
+  main.ancho .fy-resumen{ grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .fy-trend{ font-weight: 700; font-family:'Barlow Condensed', sans-serif; font-size: 12px; white-space: nowrap; }
+  @media (max-width: 1099px){ main.ancho .fy-resumen{ grid-template-columns: 1fr 1fr; } }
+
+
+  @media (min-width: 1100px){
+    main.ancho .fy-card{ flex: 0 0 calc((100% - (var(--fy-cols, 7) - 1) * 10px) / var(--fy-cols, 7)); }
+  }
+  @media (min-width: 1100px) and (max-width: 1500px){
+    main.ancho .fy-card{ padding: 8px 7px 9px; }
+    main.ancho .fy-media b{ font-size: 22px; }
+    main.ancho .fy-foto{ width: 66px; height: 66px; }
+    main.ancho .fy-badges{ top: 48px; left: 4px; }
+    main.ancho .fy-nombre{ font-size: 12.5px; }
+    main.ancho .fy-nombre.largo{ font-size: 11px; }
+    main.ancho .fy-valor b{ font-size: 15px; }
+    main.ancho .fy-valor{ gap: 3px; padding: 6px 3px; }
+    main.ancho .fy-trend{ font-size: 11px; }
+  }
+
+  /* ---------- COMPARADOR ---------- */
+  .cp-intro{ color: rgba(255,255,255,0.78); font-size: 16px; margin: 0 0 18px; }
+  .cp-pick{ display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch; margin-bottom: 20px; }
+  .cp-side{
+    --c: var(--amarillo);
+    position: relative; border-radius: 18px; padding: 16px 18px 18px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border: 1px solid color-mix(in srgb, var(--c) 55%, transparent);
+    box-shadow: 0 0 34px color-mix(in srgb, var(--c) 16%, transparent), inset 0 0 0 1px rgba(255,255,255,0.04);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .cp-side.b{ --c: #4da3ff; }
+  .cp-side .cp-lado{
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: 12px;
+    color: var(--c); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .cp-select{
+    width: 100%; max-width: 340px; appearance: none; -webkit-appearance: none;
+    background: rgba(6,21,48,0.85) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' fill='none' stroke='%23ffcc33' stroke-width='2'/></svg>") no-repeat right 14px center;
+    color: #fff; border: 1px solid color-mix(in srgb, var(--c) 60%, transparent); border-radius: 12px;
+    padding: 11px 38px 11px 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: .5px; cursor: pointer;
+  }
+  .cp-select:focus{ outline: 2px solid var(--c); }
+  .cp-select option{ background: #0c2350; color: #fff; }
+  .cp-foto{
+    width: 118px; height: 118px; border-radius: 50%; margin: 14px 0 8px; overflow: hidden; background: var(--azul-marino);
+    border: 3px solid var(--c); box-shadow: 0 0 0 5px rgba(255,255,255,0.06), 0 0 28px color-mix(in srgb, var(--c) 45%, transparent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cp-foto img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .cp-foto .ini{ font-family: 'Anton', sans-serif; font-size: 40px; color: var(--c); }
+  .cp-nombre{ font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.1; }
+  .cp-sub{ color: rgba(255,255,255,0.65); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+  .cp-big{ display: flex; gap: 22px; margin-top: 12px; }
+  .cp-big div{ text-align: center; }
+  .cp-big b{ display: block; font-family: 'Anton', sans-serif; font-size: 30px; color: var(--c); line-height: 1; }
+  .cp-big span{ font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+  .cp-vs{ display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .cp-vs .vs{
+    width: 74px; height: 74px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Anton', sans-serif; font-size: 28px; color: var(--azul-noche);
+    background: linear-gradient(135deg, var(--amarillo), #4da3ff); box-shadow: 0 0 30px rgba(255,204,51,0.4);
+  }
+  .cp-vs button{
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.22); color: #fff; border-radius: 999px;
+    padding: 7px 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1.5px; font-size: 13px; text-transform: uppercase; cursor: pointer;
+  }
+  .cp-vs button:hover{ background: rgba(255,204,51,0.18); border-color: var(--amarillo); }
+  .cp-veredicto{
+    border-radius: 18px; padding: 18px 22px; margin-bottom: 20px; text-align: center;
+    background: linear-gradient(120deg, rgba(255,204,51,0.14), rgba(77,163,255,0.14));
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+  .cp-veredicto .t{ font-family: 'Anton', sans-serif; font-size: 30px; letter-spacing: 1px; text-transform: uppercase; }
+  .cp-veredicto .marcador{ font-family: 'Anton', sans-serif; font-size: 52px; line-height: 1.1; margin: 4px 0; }
+  .cp-veredicto .marcador .a{ color: var(--amarillo); } .cp-veredicto .marcador .b{ color: #4da3ff; } .cp-veredicto .marcador .g{ color: rgba(255,255,255,0.4); padding: 0 12px; }
+  .cp-veredicto p{ margin: 4px 0 0; color: rgba(255,255,255,0.82); font-size: 15.5px; }
+  .cp-graficos{ display: grid; grid-template-columns: 1fr 1.35fr; gap: 16px; margin-bottom: 20px; }
+  .cp-box{ border-radius: 18px; padding: 16px 16px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+  .cp-box h3{ margin: 0 0 6px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: 14px; color: var(--amarillo); text-transform: uppercase; }
+  .cp-box svg{ width: 100%; height: auto; display: block; }
+  .cp-leyenda{ display: flex; gap: 18px; justify-content: center; font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 6px; flex-wrap: wrap; }
+  .cp-leyenda i{ display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  .cp-tabla{ display: flex; flex-direction: column; gap: 6px; }
+  .cp-fila{ display: grid; grid-template-columns: 1fr 150px 1fr; align-items: center; gap: 10px; padding: 4px 0; }
+  .cp-fila .lab{ text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 13px; color: rgba(255,255,255,0.75); }
+  .cp-celda{ display: flex; align-items: center; gap: 10px; }
+  .cp-celda.a{ flex-direction: row-reverse; }
+  .cp-celda .val{ min-width: 78px; font-family: 'Anton', sans-serif; font-size: 20px; letter-spacing: .5px; color: rgba(255,255,255,0.8); }
+  .cp-celda.a .val{ text-align: left; } .cp-celda.b .val{ text-align: right; }
+  .cp-celda.b{ flex-direction: row; } .cp-celda.b .val{ text-align: left; }
+  .cp-celda.a .val{ text-align: right; }
+  .cp-barra{ flex: 1; height: 12px; border-radius: 99px; background: rgba(255,255,255,0.07); overflow: hidden; display: flex; }
+  .cp-celda.a .cp-barra{ justify-content: flex-end; }
+  .cp-barra i{ display: block; height: 100%; border-radius: 99px; background: rgba(255,255,255,0.28); transition: width .5s ease; }
+  .cp-celda.a.gana .cp-barra i{ background: linear-gradient(270deg, var(--amarillo), #ffe28a); box-shadow: 0 0 12px rgba(255,204,51,0.55); }
+  .cp-celda.b.gana .cp-barra i{ background: linear-gradient(90deg, #4da3ff, #9ccfff); box-shadow: 0 0 12px rgba(77,163,255,0.55); }
+  .cp-celda.a.gana .val{ color: var(--amarillo); } .cp-celda.b.gana .val{ color: #6fb6ff; }
+  .cp-celda.gana .val::after{ content: ' ▲'; font-size: 11px; }
+  .cp-cara{ margin-top: 14px; }
+  .cp-jornadas{ display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; margin-top: 8px; }
+  .cp-j{ border-radius: 12px; padding: 8px 6px; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); }
+  .cp-j .n{ font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 2px; font-size: 12px; color: rgba(255,255,255,0.6); }
+  .cp-j .v{ display: flex; justify-content: center; gap: 10px; font-family: 'Anton', sans-serif; font-size: 18px; margin-top: 2px; }
+  .cp-j .v .a{ color: rgba(255,204,51,0.55); } .cp-j .v .b{ color: rgba(77,163,255,0.6); }
+  .cp-j .v .w.a{ color: var(--amarillo); } .cp-j .v .w.b{ color: #6fb6ff; }
+  .cp-j.sin{ opacity: .45; }
+  .cp-nota{ color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 12px; }
+  @media (max-width: 900px){
+    .cp-pick{ grid-template-columns: 1fr; }
+    .cp-vs{ flex-direction: row; }
+    .cp-vs .vs{ width: 56px; height: 56px; font-size: 22px; }
+    .cp-graficos{ grid-template-columns: 1fr; }
+    .cp-fila{ grid-template-columns: 1fr 96px 1fr; gap: 6px; }
+    .cp-celda .val{ min-width: 48px; font-size: 16px; }
+    .cp-fila .lab{ font-size: 11px; letter-spacing: 1px; }
+    .cp-veredicto .marcador{ font-size: 42px; }
+  }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -1642,7 +1762,7 @@
       <span class="resumen-icono">🏆</span>
       <div class="resumen-texto">
         <span class="resumen-titulo">Clasificación</span>
-        <span class="resumen-valor">4º puesto · 6 pts · 11 equipos</span>
+        <span class="resumen-valor">9º puesto · 6 pts · 11 equipos</span>
       </div>
     </div>
   </section>
@@ -1656,6 +1776,7 @@
     <button class="tab-btn" data-panel="goleadores" role="tab" aria-selected="false">Goleadores</button>
     <button class="tab-btn" data-panel="resultados" role="tab" aria-selected="false">Resultados</button>
     <button class="tab-btn" data-panel="fantasy" role="tab" aria-selected="false">Fantasy</button>
+    <button class="tab-btn" data-panel="comparador" role="tab" aria-selected="false">Comparador</button>
     <button class="tab-btn" data-panel="socios" role="tab" aria-selected="false">Socios</button>
   </nav>
 
@@ -1940,6 +2061,7 @@
           <p class="frase">Llegó para sumar y, desde el primer día, está cumpliendo.</p>
         </article>
 
+
       </div>
 
       <h3 class="subtitulo-seccion">Cuerpo técnico</h3>
@@ -1984,27 +2106,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="col-jugador">Rubén Acedo</td><td>6,5</td><td>-</td><td>8</td><td>6,5</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>9</td><td>7</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Daniel Kraniel</td><td>6</td><td>7,5</td><td>-</td><td>6,5</td><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Albert González</td><td>-</td><td>8</td><td>-</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Luis López</td><td>8,5</td><td>8</td><td>8,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Ivan Mosby</td><td>6</td><td>7,5</td><td>7,5</td><td>6,5</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Rubén Acedo</td><td>6,5</td><td>-</td><td>8</td><td>6,5</td><td>6,5</td><td>7,5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Esteve Badía</td><td>-</td><td>-</td><td>9</td><td>7</td><td>6,5</td><td>-</td><td>10</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Daniel Kraniel</td><td>6</td><td>7,5</td><td>-</td><td>6,5</td><td>5</td><td>7</td><td>8,5</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Albert González</td><td>-</td><td>8</td><td>-</td><td>7</td><td>-</td><td>9</td><td>9,5</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Luis López</td><td>8,5</td><td>8</td><td>8,5</td><td>-</td><td>-</td><td>8</td><td>8</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Ivan Mosby</td><td>6</td><td>7,5</td><td>7,5</td><td>6,5</td><td>6</td><td>-</td><td>8,5</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">David Jofra</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Enrik Vera</td><td>7</td><td>9</td><td>9</td><td>6,5</td><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Kirian Esteras</td><td>9</td><td>9</td><td>9,5</td><td>8</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Papu</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>7</td><td>10</td><td>-</td><td>-</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Enrik Vera</td><td>7</td><td>9</td><td>9</td><td>6,5</td><td>5</td><td>8,5</td><td>9</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Kirian Esteras</td><td>9</td><td>9</td><td>9,5</td><td>8</td><td>6</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Papu</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>8,5</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Sergio Gutiérrez</td><td>7</td><td>10</td><td>-</td><td>-</td><td>6</td><td>-</td><td>9</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Diego</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td class="col-jugador">Fran</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td class="col-jugador">Carlos</td><td>7</td><td>8,5</td><td>8</td><td>-</td><td>6,5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td class="col-jugador">Carlos</td><td>7</td><td>8,5</td><td>8</td><td>-</td><td>6,5</td><td>-</td><td>9</td><td>-</td><td>-</td><td>-</td></tr>
           </tbody>
         </table>
       </div>
       <p class="evolucion-nota">* Pásame las puntuaciones de cada jornada y las voy rellenando.</p>
 
       <h3 class="subtitulo-seccion">Media por jugador</h3>
-      <p class="evolucion-intro">Nota media de cada jugador por partidos jugados (sólo cuentan las jornadas en las que tiene puntuación). Ordenados de mejor a peor media.</p>
+      <p class="evolucion-intro">Nota media de cada jugador por partidos jugados (sólo cuentan las jornadas en las que tiene puntuación). Ordenados de mejor a peor media; para entrar en el ranking hacen falta al menos 3 partidos jugados.</p>
       <div class="medias-grid" id="medias-grid"></div>
       <p class="medias-sin" id="medias-sin"></p>
       <p class="evolucion-nota">* Se calcula sola a partir de la tabla de arriba.</p>
@@ -2042,7 +2164,7 @@
         const con = jug.filter(j => j.jugadas.length > 0).map(j => {
           const suma = j.jugadas.reduce((a,b) => a + b, 0);
           return Object.assign(j, { media: suma / j.jugadas.length, mejor: Math.max.apply(null, j.jugadas) });
-        }).sort((a,b) => b.media - a.media || b.jugadas.length - a.jugadas.length);
+        }).sort((a,b) => ((b.jugadas.length >= 3) - (a.jugadas.length >= 3)) || b.media - a.media || b.jugadas.length - a.jugadas.length);
         const sin = jug.filter(j => j.jugadas.length === 0).map(j => j.nombre);
 
         grid.innerHTML = '';
@@ -2090,9 +2212,15 @@
     (function(){
       // Valores de mercado inventados (en millones de euros). Se pueden cambiar aquí.
       const VALOR = {
-        'Luis López': 31.0, 'Kirian Esteras': 24.5, 'Enrik Vera': 22.5, 'Esteve Badía': 19.5,
-        'Sergio Gutiérrez': 18.0, 'Ivan Mosby': 16.5, 'Carlos': 14.0, 'Albert González': 12.0,
-        'Rubén Acedo': 11.5, 'Daniel Kraniel': 9.0, 'David Jofra': 6.5, 'Papu': 4.0, 'Diego': 3.5, 'Fran': 2.5
+        'Enrik Vera': 27.0, 'Esteve Badía': 26.0, 'Luis López': 34.5, 'Kirian Esteras': 25.0,
+        'Albert González': 22.0, 'Sergio Gutiérrez': 20.5, 'Ivan Mosby': 18.0, 'Carlos': 16.5,
+        'Rubén Acedo': 13.0, 'Daniel Kraniel': 11.0, 'Papu': 7.5, 'David Jofra': 6.5, 'Diego': 3.5, 'Fran': 2.5
+      };
+      // Valores tras la jornada anterior (para calcular la revalorización). Al actualizar, copiar aquí los de VALOR.
+      const VALOR_PREV = {
+        'Enrik Vera': 23.5, 'Esteve Badía': 19.5, 'Luis López': 34.0, 'Kirian Esteras': 25.0,
+        'Albert González': 17.5, 'Sergio Gutiérrez': 18.0, 'Ivan Mosby': 16.5, 'Carlos': 14.0,
+        'Rubén Acedo': 13.0, 'Daniel Kraniel': 9.5, 'Papu': 4.0, 'David Jofra': 6.5, 'Diego': 3.5, 'Fran': 2.5
       };
       const POS = { 'Mediocentro':'MC', 'Mediocentro ofensivo':'MCO', 'Extremo':'EXT', 'Defensa':'DEF', 'Portero':'POR',
         'Jugador ofensivo':'DEL', 'Jugador polivalente':'POL', 'Revulsivo':'REV' };
@@ -2106,12 +2234,14 @@
       function leerDatos(){
         // media y notas desde Evolución
         const notas = {};
+        const rawNotas = {};
         document.querySelectorAll('.evolucion-tabla tbody tr').forEach(tr => {
           const nombre = tr.querySelector('.col-jugador').textContent.trim();
           const vals = Array.from(tr.querySelectorAll('td:not(.col-jugador)')).map(td => {
             const n = parseFloat(td.textContent.trim().replace(',', '.')); return isNaN(n) ? null : n;
           }).filter(v => v !== null);
           notas[nombre] = vals;
+          rawNotas[nombre] = Array.from(tr.querySelectorAll('td:not(.col-jugador)')).map(td => { const n = parseFloat(td.textContent.trim().replace(',', '.')); return isNaN(n) ? null : n; });
         });
         // goles desde Goleadores (columna 4 = goles, 3 = PJ)
         const goles = {};
@@ -2145,29 +2275,31 @@
           lista.push({
             nombre, posTxt, pos: POS[posTxt] || 'JUG', rol: ROL[posTxt] || '',
             foto: img ? img.getAttribute('src') : '', vals, pj: vals.length, media, ultima,
-            goles: goles[nombre] || 0, mvp: nMvp, valor: VALOR[nombre]
+            goles: goles[nombre] || 0, mvp: nMvp, valor: VALOR[nombre], delta: VALOR[nombre] - (VALOR_PREV[nombre] !== undefined ? VALOR_PREV[nombre] : VALOR[nombre])
           });
         });
         jugadores = lista;
+        lista.forEach(j => { j.raw = rawNotas[j.nombre] || []; });
+        window.RAYO_JUGADORES = lista;
       }
 
       function pintar(){
         const grid = document.getElementById('fy-grid');
         if(!grid) return;
         const lista = jugadores.slice().sort((a,b) => {
-          if(orden === 'media') return (b.media === null ? -1 : b.media) - (a.media === null ? -1 : a.media) || b.valor - a.valor;
+          if(orden === 'media') return ((b.pj >= 3) - (a.pj >= 3)) || (b.media === null ? -1 : b.media) - (a.media === null ? -1 : a.media) || b.valor - a.valor;
           if(orden === 'goles') return b.goles - a.goles || (b.media || 0) - (a.media || 0);
           return b.valor - a.valor;
         });
         const maxGoles = Math.max.apply(null, jugadores.map(j => j.goles));
         grid.innerHTML = '';
+        grid.style.setProperty('--fy-cols', Math.ceil(lista.length / 2));
         lista.forEach(j => {
           const tier = j.media === null ? 'sin' : j.media >= 8 ? 'oro' : j.media >= 7 ? 'plata' : 'bronce';
-          let flecha = '<i class="fy-trend eq" title="Sin datos">●</i>';
-          if(j.ultima !== null && j.pj > 1){
-            const d = j.ultima - j.media;
-            flecha = d >= 0.3 ? '<i class="fy-trend up" title="En alza">▲</i>' : d <= -0.3 ? '<i class="fy-trend down" title="En baja">▼</i>' : '<i class="fy-trend eq" title="Estable">▬</i>';
-          }
+          const fd = n => (n > 0 ? '+' : '') + f1(n);
+          const flecha = j.delta > 0.001 ? '<i class="fy-trend up" title="Se revaloriza ' + fd(j.delta) + ' M€">▲ ' + fd(j.delta) + '</i>'
+            : j.delta < -0.001 ? '<i class="fy-trend down" title="Se devalúa ' + fd(j.delta) + ' M€">▼ ' + f1(Math.abs(j.delta)) + '</i>'
+            : '<i class="fy-trend eq" title="Sin cambios">▬</i>';
           const ini = j.nombre.split(' ').map(x => x[0]).slice(0,2).join('');
           let badges = '';
           if(maxGoles > 0 && j.goles === maxGoles) badges += '<span class="fy-badge" title="Pichichi">⚽</span>';
@@ -2190,16 +2322,20 @@
         const el = document.getElementById('fy-resumen');
         if(!el) return;
         const total = jugadores.reduce((a,j) => a + j.valor, 0);
+        const totalDelta = jugadores.reduce((a,j) => a + j.delta, 0);
         const caro = jugadores.slice().sort((a,b) => b.valor - a.valor)[0];
-        const conMedia = jugadores.filter(j => j.media !== null).sort((a,b) => b.media - a.media)[0];
+        const conMedia = jugadores.filter(j => j.media !== null && j.pj >= 3).sort((a,b) => b.media - a.media)[0];
+        const sube = jugadores.slice().sort((a,b) => b.delta - a.delta)[0];
         el.innerHTML =
           '<div class="fy-tile principal"><div class="lbl">Valor total de la plantilla</div><div class="val">' + f1(total) + ' M€</div><div class="sub">' + jugadores.length + ' jugadores en el mercado</div></div>' +
           '<div class="fy-tile"><div class="lbl">Más valioso</div><div class="val small">' + caro.nombre + '</div><div class="sub">' + f1(caro.valor) + ' M€</div></div>' +
-          (conMedia ? '<div class="fy-tile"><div class="lbl">Mejor media liga</div><div class="val small">' + conMedia.nombre + '</div><div class="sub">' + f2(conMedia.media) + ' de media</div></div>' : '');
+          (conMedia ? '<div class="fy-tile"><div class="lbl">Mejor media liga</div><div class="val small">' + conMedia.nombre + '</div><div class="sub">' + f2(conMedia.media) + ' de media</div></div>' : '') +
+          (sube && sube.delta > 0 ? '<div class="fy-tile"><div class="lbl">Mayor revalorización</div><div class="val small">' + sube.nombre + '</div><div class="sub">+' + f1(sube.delta) + ' M€</div></div>' : '');
       }
 
       function iniciar(){
         leerDatos(); resumen(); pintar();
+        document.dispatchEvent(new Event('rayo-datos'));
         document.querySelectorAll('.fy-btn').forEach(b => b.addEventListener('click', () => {
           document.querySelectorAll('.fy-btn').forEach(x => x.classList.remove('activo'));
           b.classList.add('activo'); orden = b.dataset.orden; pintar();
@@ -2414,21 +2550,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">Brugal SD</td><td>5</td><td>11</td><td>+10</td></tr>
-            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">Movimiento es Vida</td><td>4</td><td>9</td><td>+6</td></tr>
-            <tr><td class="col-pos">3</td><td class="col-equipo">White Diamond</td><td>5</td><td>9</td><td>+5</td></tr>
-            <tr class="fila-rayo"><td class="col-pos">4</td><td class="col-equipo">Rayo Santboiano</td><td>5</td><td>6</td><td>0</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Tinder de Milán</td><td>4</td><td>6</td><td>-1</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Vozolona FC</td><td>3</td><td>6</td><td>-2</td></tr>
-            <tr><td class="col-pos">7</td><td class="col-equipo">La Toga</td><td>3</td><td>5</td><td>+4</td></tr>
-            <tr><td class="col-pos">8</td><td class="col-equipo">Acomayo</td><td>4</td><td>4</td><td>-3</td></tr>
-            <tr><td class="col-pos">9</td><td class="col-equipo">4 Gats</td><td>4</td><td>4</td><td>-5</td></tr>
-            <tr class="fila-penultimo"><td class="col-pos">10</td><td class="col-equipo">Cierrabares FC</td><td>4</td><td>3</td><td>-6</td></tr>
-            <tr class="fila-ultimo"><td class="col-pos">11</td><td class="col-equipo">Betis Florida</td><td>5</td><td>3</td><td>-8</td></tr>
+            <tr class="fila-primero"><td class="col-pos">1</td><td class="col-equipo">Brugal SD</td><td>8</td><td>20</td><td>+14</td></tr>
+            <tr class="fila-segundo"><td class="col-pos">2</td><td class="col-equipo">La Toga</td><td>8</td><td>17</td><td>+16</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">White Diamond</td><td>7</td><td>15</td><td>+11</td></tr>
+            <tr><td class="col-pos">4</td><td class="col-equipo">4 Gats</td><td>7</td><td>13</td><td>+10</td></tr>
+            <tr><td class="col-pos">5</td><td class="col-equipo">Movimiento es Vida</td><td>7</td><td>12</td><td>0</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Betis Florida</td><td>8</td><td>9</td><td>-5</td></tr>
+            <tr><td class="col-pos">7</td><td class="col-equipo">Vozolona FC</td><td>7</td><td>9</td><td>-8</td></tr>
+            <tr><td class="col-pos">8</td><td class="col-equipo">Tinder de Milán</td><td>8</td><td>9</td><td>-9</td></tr>
+            <tr class="fila-rayo"><td class="col-pos">9</td><td class="col-equipo">Rayo Santboiano</td><td>7</td><td>6</td><td>-3</td></tr>
+            <tr class="fila-penultimo"><td class="col-pos">10</td><td class="col-equipo">Acomayo</td><td>6</td><td>4</td><td>-8</td></tr>
+            <tr class="fila-ultimo"><td class="col-pos">11</td><td class="col-equipo">Cierrabares FC</td><td>7</td><td>3</td><td>-18</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="evolucion-nota">* Clasificación después de la Jornada 5. Se irá actualizando jornada a jornada.</p>
+      <p class="evolucion-nota">* Clasificación después de la Jornada 7. Se irá actualizando jornada a jornada.</p>
     </section>
 
     <section id="proximo" class="panel">
@@ -2438,7 +2574,7 @@
       <div class="partido-card"
            id="proximo-partido-data"
            data-estado="pendiente"
-           data-mensaje="Pendiente de asignación de Jornada 6">
+           data-mensaje="Pendiente de asignación de Jornada 8">
 
         <span class="partido-tipo">Próximo partido</span>
 
@@ -2488,24 +2624,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="fila-lider"><td class="col-pos">1</td><td class="col-equipo">Luis López <span class="lider-tag">⚽ Pichichi</span></td><td>3</td><td>3</td><td>0</td><td>1,00</td></tr>
-            <tr><td class="col-pos">2</td><td class="col-equipo">Sergio Gutiérrez</td><td>3</td><td>2</td><td>0</td><td>0,67</td></tr>
-            <tr><td class="col-pos">2</td><td class="col-equipo">Carlos</td><td>4</td><td>2</td><td>0</td><td>0,50</td></tr>
-            <tr><td class="col-pos">2</td><td class="col-equipo">Enrik Vera</td><td>5</td><td>2</td><td>0</td><td>0,40</td></tr>
-            <tr><td class="col-pos">5</td><td class="col-equipo">Kirian Esteras</td><td>5</td><td>1</td><td>0</td><td>0,20</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Rubén Acedo</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Esteve Badía</td><td>3</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Daniel Kraniel</td><td>4</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Albert González</td><td>2</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">6</td><td class="col-equipo">Ivan Mosby</td><td>5</td><td>0</td><td>0</td><td>0,00</td></tr>
-            <tr><td class="col-pos">11</td><td class="col-equipo">David Jofra</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
-            <tr><td class="col-pos">11</td><td class="col-equipo">Papu</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
-            <tr><td class="col-pos">11</td><td class="col-equipo">Diego</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
-            <tr><td class="col-pos">11</td><td class="col-equipo">Fran</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
+            <tr class="fila-lider"><td class="col-pos">1</td><td class="col-equipo">Luis López <span class="lider-tag">⚽ Pichichi</span></td><td>5</td><td>4</td><td>0</td><td>0,80</td></tr>
+            <tr><td class="col-pos">2</td><td class="col-equipo">Enrik Vera</td><td>7</td><td>3</td><td>0</td><td>0,43</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">Albert González</td><td>4</td><td>2</td><td>0</td><td>0,50</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">Sergio Gutiérrez</td><td>4</td><td>2</td><td>0</td><td>0,50</td></tr>
+            <tr><td class="col-pos">3</td><td class="col-equipo">Carlos</td><td>5</td><td>2</td><td>0</td><td>0,40</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Esteve Badía</td><td>4</td><td>1</td><td>0</td><td>0,25</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Rubén Acedo</td><td>5</td><td>1</td><td>0</td><td>0,20</td></tr>
+            <tr><td class="col-pos">6</td><td class="col-equipo">Kirian Esteras</td><td>6</td><td>1</td><td>0</td><td>0,17</td></tr>
+            <tr><td class="col-pos">9</td><td class="col-equipo">Daniel Kraniel</td><td>6</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">9</td><td class="col-equipo">Ivan Mosby</td><td>6</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">9</td><td class="col-equipo">Papu</td><td>1</td><td>0</td><td>0</td><td>0,00</td></tr>
+            <tr><td class="col-pos">12</td><td class="col-equipo">David Jofra</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
+            <tr><td class="col-pos">12</td><td class="col-equipo">Diego</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
+            <tr><td class="col-pos">12</td><td class="col-equipo">Fran</td><td>0</td><td>0</td><td>0</td><td>-</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="evolucion-nota">* Goleadores actualizados tras la Jornada 5. Media de goles por partido jugado (PJ según las jornadas en las que hay puntuación en Evolución).</p>
+      <p class="evolucion-nota">* Goleadores actualizados tras la Jornada 7. Media de goles por partido jugado (PJ según las jornadas en las que hay puntuación en Evolución).</p>
     </section>
 
     <section id="resultados" class="panel">
@@ -2513,6 +2649,40 @@
       <div class="linea"></div>
 
       <p class="evolucion-intro">Cada partido jugado, con su resultado y el MVP de esa jornada.</p>
+
+      <div class="resultado-card">
+        <div class="resultado-fila">
+          <span class="resultado-jornada">Jornada 7</span>
+          <div class="resultado-marcador">
+            <span class="resultado-equipo">Rayo Santboiano</span>
+            <span class="resultado-goles perdido">3</span>
+            <span class="resultado-vs-mini">–</span>
+            <span class="resultado-goles">4</span>
+            <span class="resultado-equipo">La Toga</span>
+          </div>
+          <div class="resultado-mvp">
+            <span class="mvp-label">MVP</span>
+            <span class="mvp-nombre">Esteve Badía</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resultado-card">
+        <div class="resultado-fila">
+          <span class="resultado-jornada">Jornada 6</span>
+          <div class="resultado-marcador">
+            <span class="resultado-equipo">Rayo Santboiano</span>
+            <span class="resultado-goles perdido">3</span>
+            <span class="resultado-vs-mini">–</span>
+            <span class="resultado-goles">5</span>
+            <span class="resultado-equipo">Tinder de Milán</span>
+          </div>
+          <div class="resultado-mvp">
+            <span class="mvp-label">MVP</span>
+            <span class="mvp-nombre">Albert González</span>
+          </div>
+        </div>
+      </div>
 
       <div class="resultado-card">
         <div class="resultado-fila">
@@ -2631,11 +2801,47 @@
       </div>
 
       <div class="fy-grid" id="fy-grid"></div>
-      <p class="evolucion-nota fy-nota">* Oro: media de 8 o más · Plata: de 7 a 8 · Bronce: menos de 7 · Gris: aún sin puntuaciones. La flecha indica la forma: última nota frente a su media.</p>
+      <p class="evolucion-nota fy-nota">* Oro: media de 8 o más · Plata: de 7 a 8 · Bronce: menos de 7 · Gris: aún sin puntuaciones. La mejor media exige 3 partidos jugados. La flecha indica cuánto sube o baja su valor de mercado respecto a la jornada anterior.</p>
+    </section>
+
+    <section id="comparador" class="panel">
+      <h2><span class="num">09</span> Comparador</h2>
+      <div class="linea"></div>
+
+      <p class="cp-intro">Elige a dos jugadores del Rayo y compáralos cara a cara: notas, goles, regularidad, valor de mercado y su duelo jornada a jornada.</p>
+
+      <div class="cp-pick">
+        <div class="cp-side a" id="cp-a"></div>
+        <div class="cp-vs">
+          <div class="vs">VS</div>
+          <button type="button" id="cp-swap" title="Intercambiar jugadores">⇄ Cambiar</button>
+          <button type="button" id="cp-rand" title="Dos jugadores al azar">🎲 Al azar</button>
+        </div>
+        <div class="cp-side b" id="cp-b"></div>
+      </div>
+
+      <div class="cp-veredicto" id="cp-veredicto"></div>
+
+      <div class="cp-graficos">
+        <div class="cp-box"><h3>Perfil del jugador</h3><div id="cp-radar"></div><div class="cp-leyenda" id="cp-ley1"></div></div>
+        <div class="cp-box"><h3>Nota jornada a jornada</h3><div id="cp-linea"></div><div class="cp-leyenda" id="cp-ley2"></div></div>
+      </div>
+
+      <div class="cp-box">
+        <h3>Cara a cara</h3>
+        <div class="cp-tabla" id="cp-tabla"></div>
+      </div>
+
+      <div class="cp-box cp-cara">
+        <h3>Duelo por jornadas</h3>
+        <div id="cp-duelo-txt" style="color:rgba(255,255,255,0.8);font-size:15px"></div>
+        <div class="cp-jornadas" id="cp-jornadas"></div>
+      </div>
+      <p class="cp-nota">Gráfico de perfil: nota media y mejor nota se miden de 4 a 10; regularidad = menos oscilación entre notas; goles/partido, presencia (partidos jugados sobre jornadas disputadas) y valor se miden contra el máximo de la plantilla. El valor de mercado es inventado.</p>
     </section>
 
     <section id="socios" class="panel">
-      <h2><span class="num">09</span> Socios</h2>
+      <h2><span class="num">10</span> Socios</h2>
       <div class="linea"></div>
 
       <div class="socios-card">
@@ -2675,6 +2881,216 @@
 
 </div>
 
+    <script>
+    (function(){
+      const f1 = n => n.toFixed(1).replace('.', ',');
+      const f2 = n => n.toFixed(2).replace('.', ',');
+      const COL = { a: '#ffcc33', b: '#4da3ff' };
+      let J = [], nJ = 0, selA = null, selB = null;
+
+      function prep(){
+        J = (window.RAYO_JUGADORES || []).map(j => {
+          const v = j.vals;
+          const std = v.length >= 2 ? Math.sqrt(v.reduce((s,x) => s + Math.pow(x - j.media, 2), 0) / v.length) : null;
+          return Object.assign({}, j, {
+            best: v.length ? Math.max.apply(null, v) : null,
+            worst: v.length ? Math.min.apply(null, v) : null,
+            gpp: v.length ? j.goles / v.length : null,
+            std: std
+          });
+        });
+        nJ = 0;
+        J.forEach(j => (j.raw || []).forEach((x,i) => { if(x !== null && i + 1 > nJ) nJ = i + 1; }));
+      }
+      const byName = n => J.find(j => j.nombre === n);
+
+      function side(id, key, j){
+        const el = document.getElementById(id);
+        const ini = j.nombre.split(' ').map(x => x[0]).slice(0,2).join('');
+        const opts = J.map(p => '<option value="' + p.nombre + '"' + (p.nombre === j.nombre ? ' selected' : '') + '>' + p.nombre + '</option>').join('');
+        el.innerHTML =
+          '<div class="cp-lado">Jugador ' + key.toUpperCase() + '</div>' +
+          '<select class="cp-select" aria-label="Jugador ' + key.toUpperCase() + '">' + opts + '</select>' +
+          '<div class="cp-foto">' + (j.foto ? '<img src="' + j.foto + '" alt="' + j.nombre + '">' : '<div class="ini">' + ini + '</div>') + '</div>' +
+          '<div class="cp-nombre">' + j.nombre + '</div>' +
+          '<div class="cp-sub">' + j.posTxt + '</div>' +
+          '<div class="cp-big"><div><b>' + (j.media === null ? '--' : f2(j.media)) + '</b><span>Media</span></div><div><b>' + j.goles + '</b><span>Goles</span></div><div><b>' + f1(j.valor) + '</b><span>M€</span></div></div>';
+        el.querySelector('select').addEventListener('change', e => {
+          const nuevo = e.target.value;
+          if(key === 'a'){ if(nuevo === selB) selB = selA; selA = nuevo; }
+          else { if(nuevo === selA) selA = selB; selB = nuevo; }
+          pintar();
+        });
+      }
+
+      function radar(a, b){
+        const maxG = Math.max.apply(null, J.map(j => j.gpp || 0)) || 1;
+        const maxV = Math.max.apply(null, J.map(j => j.valor)) || 1;
+        const cl = x => Math.max(0, Math.min(100, x));
+        const ejes = [
+          ['Nota media', j => j.media === null ? 0 : cl((j.media - 4) / 6 * 100)],
+          ['Mejor nota', j => j.best === null ? 0 : cl((j.best - 4) / 6 * 100)],
+          ['Regularidad', j => j.std === null ? 0 : cl(100 - j.std * 30)],
+          ['Gol/partido', j => j.gpp === null ? 0 : cl(j.gpp / maxG * 100)],
+          ['Presencia', j => nJ ? cl(j.pj / nJ * 100) : 0],
+          ['Valor', j => cl(j.valor / maxV * 100)]
+        ];
+        const cx = 200, cy = 190, R = 130, n = ejes.length;
+        const ang = i => -Math.PI / 2 + i * 2 * Math.PI / n;
+        const pt = (i, r) => [cx + Math.cos(ang(i)) * r, cy + Math.sin(ang(i)) * r];
+        let s = '<svg viewBox="-70 0 540 390" role="img" aria-label="Gráfico de perfil comparado">';
+        [0.25, 0.5, 0.75, 1].forEach(k => {
+          s += '<polygon points="' + ejes.map((_, i) => pt(i, R * k).map(v => v.toFixed(1)).join(',')).join(' ') + '" fill="none" stroke="rgba(255,255,255,' + (k === 1 ? 0.3 : 0.13) + ')"/>';
+        });
+        ejes.forEach((e, i) => {
+          const p = pt(i, R), l = pt(i, R + 26);
+          s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0].toFixed(1) + '" y2="' + p[1].toFixed(1) + '" stroke="rgba(255,255,255,0.15)"/>';
+          const anchor = Math.abs(l[0] - cx) < 8 ? 'middle' : (l[0] > cx ? 'start' : 'end');
+          s += '<text x="' + l[0].toFixed(1) + '" y="' + (l[1] + 4).toFixed(1) + '" text-anchor="' + anchor + '" fill="rgba(255,255,255,0.85)" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="14" letter-spacing="1">' + e[0].toUpperCase() + '</text>';
+        });
+        [[b, COL.b], [a, COL.a]].forEach(([j, c]) => {
+          const pts = ejes.map((e, i) => pt(i, R * e[1](j) / 100));
+          s += '<polygon points="' + pts.map(p => p.map(v => v.toFixed(1)).join(',')).join(' ') + '" fill="' + c + '" fill-opacity="0.22" stroke="' + c + '" stroke-width="2.5" stroke-linejoin="round"/>';
+          pts.forEach((p, i) => { s += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="4" fill="' + c + '"><title>' + j.nombre + ' · ' + ejes[i][0] + ': ' + Math.round(ejes[i][1](j)) + '/100</title></circle>'; });
+        });
+        s += '</svg>';
+        document.getElementById('cp-radar').innerHTML = s;
+      }
+
+      function linea(a, b){
+        const W = 560, H = 330, pl = 40, pr = 18, pt = 20, pb = 36;
+        const n = Math.max(nJ, 2), ymin = 4, ymax = 10;
+        const X = i => pl + (W - pl - pr) * i / (n - 1);
+        const Y = v => pt + (H - pt - pb) * (1 - (v - ymin) / (ymax - ymin));
+        let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Evolución de notas">';
+        for(let v = ymin; v <= ymax; v++){
+          s += '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="rgba(255,255,255,' + (v === 8 ? 0.22 : 0.1) + ')"' + (v === 8 ? ' stroke-dasharray="4 4"' : '') + '/>';
+          s += '<text x="' + (pl - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="rgba(255,255,255,0.6)" font-size="12" font-family="Barlow,sans-serif">' + v + '</text>';
+        }
+        for(let i = 0; i < n; i++){
+          s += '<text x="' + X(i) + '" y="' + (H - 12) + '" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="13" font-family="Barlow Condensed,sans-serif" font-weight="700" letter-spacing="1">J' + (i + 1) + '</text>';
+        }
+        [[a, COL.a, -10], [b, COL.b, 19]].forEach(([j, c, off]) => {
+          const raw = (j.raw || []).slice(0, n);
+          let prev = null, area = '';
+          raw.forEach((v, i) => {
+            if(v === null) return;
+            if(prev !== null){
+              const gap = i - prev.i > 1;
+              s += '<line x1="' + X(prev.i) + '" y1="' + Y(prev.v) + '" x2="' + X(i) + '" y2="' + Y(v) + '" stroke="' + c + '" stroke-width="3.2" stroke-linecap="round"' + (gap ? ' stroke-dasharray="2 7" opacity="0.8"' : '') + '/>';
+            }
+            prev = { i: i, v: v };
+          });
+          raw.forEach((v, i) => {
+            if(v === null) return;
+            s += '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="5.5" fill="#061530" stroke="' + c + '" stroke-width="3"><title>' + j.nombre + ' · J' + (i + 1) + ': ' + f1(v) + '</title></circle>';
+            s += '<text x="' + X(i) + '" y="' + (Y(v) + off) + '" text-anchor="middle" fill="' + c + '" font-size="12" font-weight="700" font-family="Barlow Condensed,sans-serif">' + f1(v) + '</text>';
+          });
+        });
+        s += '</svg>';
+        document.getElementById('cp-linea').innerHTML = s;
+      }
+
+      function tabla(a, b){
+        const fd = n => (n > 0 ? '+' : '') + f1(n);
+        const filas = [
+          ['Media liga', j => j.media, v => f2(v), true],
+          ['Partidos jugados', j => j.pj, v => String(v), true],
+          ['Goles', j => j.goles, v => String(v), true],
+          ['Goles / partido', j => j.gpp, v => f2(v), true],
+          ['MVPs', j => j.mvp, v => String(v), true],
+          ['Mejor nota', j => j.best, v => f1(v), true],
+          ['Peor nota', j => j.worst, v => f1(v), true],
+          ['Última nota', j => j.ultima, v => f1(v), true],
+          ['Oscilación de notas', j => j.std, v => f2(v), false],
+          ['Valor de mercado', j => j.valor, v => f1(v) + ' M€', true],
+          ['Revalorización', j => j.delta, v => fd(v) + ' M€', true]
+        ];
+        let ga = 0, gb = 0, html = '';
+        filas.forEach(([lab, get, fmt, alto]) => {
+          const va = get(a), vb = get(b);
+          const sa = va === null || va === undefined ? null : va, sb = vb === null || vb === undefined ? null : vb;
+          let w = 0;
+          if(sa !== null || sb !== null){
+            const A = sa === null ? (alto ? -Infinity : Infinity) : sa;
+            const B = sb === null ? (alto ? -Infinity : Infinity) : sb;
+            if(Math.abs(A - B) > 1e-9 || A !== B) w = (alto ? A > B : A < B) ? 1 : -1;
+            if(A === B) w = 0;
+          }
+          if(w === 1) ga++; else if(w === -1) gb++;
+          const mx = Math.max(Math.abs(sa || 0), Math.abs(sb || 0)) || 1;
+          const pa = Math.round(Math.abs(sa || 0) / mx * 100), pb = Math.round(Math.abs(sb || 0) / mx * 100);
+          html += '<div class="cp-fila">' +
+            '<div class="cp-celda a' + (w === 1 ? ' gana' : '') + '"><span class="val">' + (sa === null ? '–' : fmt(sa)) + '</span><div class="cp-barra"><i style="width:' + pa + '%"></i></div></div>' +
+            '<div class="lab">' + lab + '</div>' +
+            '<div class="cp-celda b' + (w === -1 ? ' gana' : '') + '"><div class="cp-barra"><i style="width:' + pb + '%"></i></div><span class="val">' + (sb === null ? '–' : fmt(sb)) + '</span></div>' +
+            '</div>';
+        });
+        document.getElementById('cp-tabla').innerHTML = html;
+        return { ga, gb, total: filas.length };
+      }
+
+      function duelo(a, b){
+        let wa = 0, wb = 0, emp = 0, comun = 0, cel = '';
+        for(let i = 0; i < nJ; i++){
+          const x = (a.raw || [])[i], y = (b.raw || [])[i];
+          const ok = x !== null && x !== undefined && y !== null && y !== undefined;
+          if(ok){ comun++; if(x > y) wa++; else if(y > x) wb++; else emp++; }
+          cel += '<div class="cp-j' + (ok ? '' : ' sin') + '"><div class="n">J' + (i + 1) + '</div><div class="v">' +
+            '<span class="' + (ok && x > y ? 'w ' : '') + 'a">' + (x === null || x === undefined ? '–' : f1(x)) + '</span>' +
+            '<span class="' + (ok && y > x ? 'w ' : '') + 'b">' + (y === null || y === undefined ? '–' : f1(y)) + '</span></div></div>';
+        }
+        document.getElementById('cp-jornadas').innerHTML = cel;
+        const t = document.getElementById('cp-duelo-txt');
+        if(!comun){ t.innerHTML = 'No han coincidido en ninguna jornada con nota, así que no hay duelo directo.'; }
+        else {
+          t.innerHTML = 'Han coincidido en <b>' + comun + '</b> jornada' + (comun > 1 ? 's' : '') + ': <b style="color:' + COL.a + '">' + a.nombre + '</b> tuvo mejor nota en ' + wa + ', <b style="color:' + COL.b + '">' + b.nombre + '</b> en ' + wb + (emp ? ' y empataron en ' + emp : '') + '.';
+        }
+        return { wa, wb, comun };
+      }
+
+      function pintar(){
+        const a = byName(selA), b = byName(selB);
+        if(!a || !b) return;
+        side('cp-a', 'a', a); side('cp-b', 'b', b);
+        radar(a, b); linea(a, b);
+        const r = tabla(a, b), d = duelo(a, b);
+        const ley = '<span><i style="background:' + COL.a + '"></i>' + a.nombre + '</span><span><i style="background:' + COL.b + '"></i>' + b.nombre + '</span>';
+        document.getElementById('cp-ley1').innerHTML = ley;
+        document.getElementById('cp-ley2').innerHTML = ley + '<span style="color:rgba(255,255,255,.55)">Línea punteada: jornada sin jugar</span>';
+        const v = document.getElementById('cp-veredicto');
+        let titulo, frase;
+        if(r.ga === r.gb){ titulo = 'Empate técnico'; frase = 'Se reparten las categorías por igual: ' + r.ga + ' para cada uno.'; }
+        else {
+          const g = r.ga > r.gb ? a : b, p = r.ga > r.gb ? b : a, gw = Math.max(r.ga, r.gb), pw = Math.min(r.ga, r.gb);
+          titulo = 'Ventaja para ' + g.nombre;
+          frase = g.nombre + ' gana ' + gw + ' de ' + r.total + ' categorías' + (pw ? ' y ' + p.nombre + ' ' + pw : '') + '.';
+          if(d.comun && d.wa !== d.wb){
+            const dg = d.wa > d.wb ? a : b;
+            frase += ' En los duelos directos por jornada se impone ' + dg.nombre + ' (' + Math.max(d.wa, d.wb) + '-' + Math.min(d.wa, d.wb) + ').';
+          }
+        }
+        v.innerHTML = '<div class="t">' + titulo + '</div><div class="marcador"><span class="a">' + r.ga + '</span><span class="g">-</span><span class="b">' + r.gb + '</span></div><p>' + frase + '</p>';
+      }
+
+      function iniciar(){
+        prep();
+        if(!J.length) return;
+        const top = J.filter(j => j.pj >= 3).sort((x, y) => y.media - x.media);
+        selA = (byName('Luis López') || J[0]).nombre;
+        selB = (byName('Albert González') || top[1] || J[1]).nombre;
+        pintar();
+        document.getElementById('cp-swap').addEventListener('click', () => { const t = selA; selA = selB; selB = t; pintar(); });
+        document.getElementById('cp-rand').addEventListener('click', () => {
+          const i = Math.floor(Math.random() * J.length); let k;
+          do { k = Math.floor(Math.random() * J.length); } while(k === i);
+          selA = J[i].nombre; selB = J[k].nombre; pintar();
+        });
+      }
+      if(window.RAYO_JUGADORES){ iniciar(); } else { document.addEventListener('rayo-datos', iniciar, { once: true }); }
+    })();
+    </script>
+
 <script>
   const botones = document.querySelectorAll('.tab-btn');
   const paneles = document.querySelectorAll('.panel');
@@ -2687,7 +3103,7 @@
       btn.classList.add('activo');
       btn.setAttribute('aria-selected','true');
       document.getElementById(btn.dataset.panel).classList.add('activo');
-      document.querySelector('main').classList.toggle('ancho', btn.dataset.panel === 'fantasy');
+      document.querySelector('main').classList.toggle('ancho', btn.dataset.panel === 'fantasy' || btn.dataset.panel === 'comparador');
     });
   });
 </script>
