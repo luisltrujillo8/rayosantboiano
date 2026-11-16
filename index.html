@@ -1626,6 +1626,152 @@
     .cp-veredicto .marcador{ font-size: 42px; }
   }
 
+  /* ---------- PREMIOS ---------- */
+  .pr-intro{ color: rgba(255,255,255,0.78); font-size: 16px; margin: 0 0 6px; }
+  .pr-nav{ display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 8px; }
+  .pr-nav a{
+    text-decoration: none; color: #fff; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);
+    border-radius: 999px; padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1.5px; font-size: 14px; text-transform: uppercase;
+  }
+  .pr-nav a:hover{ background: rgba(255,204,51,0.16); border-color: var(--amarillo); color: var(--amarillo); }
+  .pr-bloque{ margin-top: 38px; scroll-margin-top: 70px; }
+  .pr-titulo{ display: flex; align-items: baseline; gap: 12px; margin: 0 0 4px; font-family: 'Anton', sans-serif; font-size: 34px; letter-spacing: 1px; text-transform: uppercase; }
+  .pr-titulo .n{ color: var(--amarillo); font-size: 22px; }
+  .pr-sub{ margin: 0 0 18px; color: rgba(255,255,255,0.7); font-size: 15px; max-width: 900px; }
+  .pr-chip{ display: inline-block; border-radius: 999px; padding: 3px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 1.5px; font-size: 12px; background: rgba(255,204,51,0.16); color: var(--amarillo); border: 1px solid rgba(255,204,51,0.4); text-transform: uppercase; }
+
+  /* cartas */
+  .pr-card{
+    --t1: #5a4410; --t2: #ffcc33; position: relative; width: 150px; border-radius: 16px; padding: 10px 10px 12px; text-align: center;
+    background: linear-gradient(165deg, color-mix(in srgb, var(--t2) 34%, #0c2350), #0a1c40 70%);
+    border: 1.5px solid color-mix(in srgb, var(--t2) 70%, transparent); box-shadow: 0 8px 26px rgba(0,0,0,0.45), 0 0 24px color-mix(in srgb, var(--t2) 22%, transparent);
+  }
+  .pr-card.plata{ --t2: #7fb4ff; } .pr-card.bronce{ --t2: #d08a4b; } .pr-card.sin{ --t2: #8b97ad; }
+  .pr-card .top{ display: flex; justify-content: space-between; align-items: flex-start; }
+  .pr-card .med{ font-family: 'Anton', sans-serif; font-size: 22px; line-height: 1; color: var(--t2); text-align: left; }
+  .pr-card .med small{ display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .pr-card .pos{ font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 1px; padding: 2px 7px; border-radius: 99px; background: rgba(255,255,255,0.12); }
+  .pr-card .foto{ width: 74px; height: 74px; margin: 6px auto 6px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2.5px solid var(--t2); display: flex; align-items: center; justify-content: center; }
+  .pr-card .foto img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .pr-card .foto .ini{ font-family: 'Anton', sans-serif; font-size: 26px; color: var(--t2); }
+  .pr-card .nom{ font-family: 'Anton', sans-serif; font-size: 15px; letter-spacing: .6px; text-transform: uppercase; line-height: 1.1; min-height: 17px; }
+  .pr-card .est{ display: flex; justify-content: center; gap: 12px; margin-top: 6px; font-size: 11px; color: rgba(255,255,255,0.65); }
+  .pr-card .est b{ display: block; font-family: 'Anton', sans-serif; font-size: 15px; color: #fff; }
+  .pr-card .idx{ margin-top: 8px; border-radius: 10px; padding: 4px 0; background: rgba(0,0,0,0.32); font-family: 'Anton', sans-serif; font-size: 16px; color: var(--amarillo); }
+  .pr-card .idx small{ font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); margin-left: 3px; }
+  .pr-capi{ position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--amarillo); color: #061530; font-family: 'Anton', sans-serif; font-size: 12px; letter-spacing: 1px; padding: 2px 10px; border-radius: 99px; box-shadow: 0 0 14px rgba(255,204,51,0.7); }
+
+  /* campo */
+  .pr-campo{
+    position: relative; border-radius: 22px; padding: 34px 20px 28px; overflow: hidden;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 70px, rgba(255,255,255,0) 70px 140px),
+      radial-gradient(ellipse at 50% 40%, #12408a 0%, #0b2a63 60%, #08204d 100%);
+    border: 1px solid rgba(255,255,255,0.18); box-shadow: inset 0 0 70px rgba(0,0,0,0.35);
+  }
+  .pr-campo::before{ content: ''; position: absolute; inset: 14px; border: 2px solid rgba(255,255,255,0.22); border-radius: 14px; pointer-events: none; }
+  .pr-campo::after{ content: ''; position: absolute; left: 14px; right: 14px; top: 50%; border-top: 2px solid rgba(255,255,255,0.18); pointer-events: none; }
+  .pr-circulo{ position: absolute; left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border: 2px solid rgba(255,255,255,0.18); border-radius: 50%; pointer-events: none; }
+  .pr-area{ position: absolute; left: 50%; bottom: 14px; width: 330px; height: 90px; margin-left: -165px; border: 2px solid rgba(255,255,255,0.18); border-bottom: none; pointer-events: none; }
+  .pr-fila{ position: relative; z-index: 2; display: flex; justify-content: center; gap: 34px; margin: 18px 0; }
+  .pr-resumen-once{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+  .pr-mini{ flex: 1 1 160px; border-radius: 14px; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+  .pr-mini .l{ font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+  .pr-mini .v{ font-family: 'Anton', sans-serif; font-size: 24px; color: var(--amarillo); }
+  .pr-banquillo{ display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; color: rgba(255,255,255,0.7); font-size: 14px; }
+  .pr-banquillo span.p{ display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px 12px 4px 4px; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: .5px; }
+  .pr-banquillo img{ width: 26px; height: 26px; border-radius: 50%; object-fit: cover; object-position: center 18%; }
+
+  /* podio */
+  .pr-podio{ display: flex; justify-content: center; align-items: flex-end; gap: 14px; margin: 10px auto 26px; max-width: 760px; }
+  .pr-pod{ flex: 1; text-align: center; }
+  .pr-pod .foto{ width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 8px; overflow: hidden; background: #0c2350; border: 3px solid var(--c); box-shadow: 0 0 26px color-mix(in srgb, var(--c) 55%, transparent); display: flex; align-items: center; justify-content: center; }
+  .pr-pod.p1 .foto{ width: 124px; height: 124px; }
+  .pr-pod .foto img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .pr-pod .foto .ini{ font-family: 'Anton', sans-serif; font-size: 30px; color: var(--c); }
+  .pr-pod .nom{ font-family: 'Anton', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: .8px; line-height: 1.1; }
+  .pr-pod .pts{ font-family: 'Anton', sans-serif; font-size: 22px; color: var(--c); margin: 2px 0 8px; }
+  .pr-pod .pts small{ font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.65); margin-left: 4px; }
+  .pr-pod .bloque{ border-radius: 14px 14px 0 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 10px; font-family: 'Anton', sans-serif; font-size: 46px; color: rgba(6,21,48,0.85);
+    background: linear-gradient(180deg, var(--c), color-mix(in srgb, var(--c) 40%, #0a1c40)); box-shadow: 0 0 30px color-mix(in srgb, var(--c) 30%, transparent); }
+  .pr-pod.p1{ --c: #ffcc33; } .pr-pod.p2{ --c: #c9d6ee; } .pr-pod.p3{ --c: #d08a4b; }
+  .pr-pod.p1 .bloque{ height: 150px; } .pr-pod.p2 .bloque{ height: 108px; } .pr-pod.p3 .bloque{ height: 78px; }
+  .pr-pod .corona{ font-size: 28px; line-height: 1; margin-bottom: 4px; }
+
+  .pr-leyenda{ display: flex; gap: 16px; flex-wrap: wrap; margin: 6px 0 12px; font-size: 13px; color: rgba(255,255,255,0.8); }
+  .pr-leyenda i{ display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: -1px; }
+  .pr-rank{ display: flex; flex-direction: column; gap: 6px; }
+  .pr-fr{ display: grid; grid-template-columns: 34px 42px minmax(120px, 190px) 1fr 82px; gap: 10px; align-items: center; padding: 6px 12px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+  .pr-fr.top3{ background: rgba(255,204,51,0.07); border-color: rgba(255,204,51,0.25); }
+  .pr-fr .pos{ font-family: 'Anton', sans-serif; font-size: 20px; color: var(--amarillo); text-align: center; }
+  .pr-fr .av{ width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2px solid rgba(255,255,255,0.25); }
+  .pr-fr .av img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .pr-fr .nm{ font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .5px; line-height: 1.1; }
+  .pr-fr .nm small{ display: block; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; font-weight: 600; text-transform: uppercase; }
+  .pr-barra{ display: flex; height: 16px; border-radius: 99px; overflow: hidden; background: rgba(255,255,255,0.06); }
+  .pr-barra i{ display: block; height: 100%; }
+  .pr-fr .tot{ font-family: 'Anton', sans-serif; font-size: 22px; text-align: right; }
+  .pr-fr .tot small{ font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); }
+  .pr-fr.prov{ opacity: .6; }
+
+  /* premios */
+  .pr-premios{ display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 14px; }
+  .pr-premio{ position: relative; border-radius: 18px; padding: 16px 16px 14px; overflow: hidden; background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); }
+  .pr-premio::before{ content: ''; position: absolute; right: -40px; top: -40px; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--ac, #ffcc33) 35%, transparent), transparent 70%); }
+  .pr-premio .ico{ width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; background: linear-gradient(135deg, var(--ac, #ffcc33), color-mix(in srgb, var(--ac, #ffcc33) 40%, #0a1c40)); box-shadow: 0 0 22px color-mix(in srgb, var(--ac, #ffcc33) 50%, transparent); }
+  .pr-premio .tit{ margin-top: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 2.5px; font-size: 14px; color: var(--ac, #ffcc33); text-transform: uppercase; }
+  .pr-premio .gan{ display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+  .pr-premio .fotos{ display: flex; }
+  .pr-premio .fotos .f{ width: 54px; height: 54px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2.5px solid var(--ac, #ffcc33); margin-left: -14px; display: flex; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; color: var(--ac, #ffcc33); }
+  .pr-premio .fotos .f:first-child{ margin-left: 0; }
+  .pr-premio .fotos img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .pr-premio .nom{ font-family: 'Anton', sans-serif; font-size: 21px; text-transform: uppercase; letter-spacing: .6px; line-height: 1.1; }
+  .pr-premio .dato{ margin-top: 10px; font-family: 'Anton', sans-serif; font-size: 30px; color: #fff; line-height: 1; }
+  .pr-premio .dato small{ font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 1.5px; color: rgba(255,255,255,0.65); margin-left: 6px; text-transform: uppercase; }
+  .pr-premio .det{ margin-top: 6px; font-size: 13.5px; color: rgba(255,255,255,0.7); }
+
+  /* rachas */
+  .pr-forma{ display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 16px; align-items: center; }
+  .pr-forma .f{ width: 44px; height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; font-size: 18px; color: #061530; }
+  .pr-forma .f small{ font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 9px; letter-spacing: 1px; margin-top: -2px; }
+  .pr-forma .f.v{ background: #4ade80; } .pr-forma .f.e{ background: #fbbf24; } .pr-forma .f.d{ background: #ff6b6b; } .pr-forma .f.s{ background: rgba(255,255,255,0.15); color: #fff; }
+  .pr-tiles{ display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .pr-tile{ border-radius: 16px; padding: 14px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+  .pr-tile .l{ font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+  .pr-tile .v{ font-family: 'Anton', sans-serif; font-size: 30px; line-height: 1.1; margin-top: 2px; }
+  .pr-tile .s{ font-size: 13.5px; color: rgba(255,255,255,0.7); margin-top: 3px; }
+  .pr-tile.verde .v{ color: #4ade80; } .pr-tile.rojo .v{ color: #ff8a8a; } .pr-tile.oro .v{ color: var(--amarillo); }
+  .pr-dos{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .pr-box{ border-radius: 18px; padding: 16px 16px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+  .pr-box h4{ margin: 0 0 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: 14px; color: var(--amarillo); text-transform: uppercase; }
+  .pr-box svg{ width: 100%; height: auto; display: block; }
+  .pr-racha{ display: flex; flex-direction: column; gap: 8px; }
+  .pr-rr{ display: grid; grid-template-columns: 32px 150px 1fr 44px; gap: 10px; align-items: center; }
+  .pr-rr .av{ width: 30px; height: 30px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2px solid rgba(255,255,255,0.25); }
+  .pr-rr .av img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .pr-rr .nm{ font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .4px; }
+  .pr-rr .bar{ display: flex; gap: 3px; }
+  .pr-rr .bar i{ flex: 1; height: 14px; border-radius: 4px; background: rgba(255,255,255,0.08); }
+  .pr-rr .bar i.on{ background: linear-gradient(180deg, #ffe28a, #ffcc33); box-shadow: 0 0 8px rgba(255,204,51,0.4); }
+  .pr-rr .num{ font-family: 'Anton', sans-serif; font-size: 20px; color: var(--amarillo); text-align: right; }
+  .pr-nota{ color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 10px; }
+
+  @media (max-width: 900px){
+    .pr-titulo{ font-size: 26px; }
+    .pr-dos{ grid-template-columns: 1fr; }
+    .pr-fila{ gap: 10px; margin: 14px 0; }
+    .pr-card{ width: 30vw; max-width: 150px; padding: 8px 6px 10px; }
+    .pr-card .foto{ width: 52px; height: 52px; }
+    .pr-card .nom{ font-size: 12px; }
+    .pr-card .med{ font-size: 17px; }
+    .pr-card .est{ gap: 7px; }
+    .pr-fr{ grid-template-columns: 26px 36px 1fr 60px; }
+    .pr-fr .pr-barra{ grid-column: 1 / -1; order: 5; }
+    .pr-rr{ grid-template-columns: 30px 100px 1fr 34px; gap: 6px; }
+    .pr-pod .nom{ font-size: 15px; } .pr-pod .foto{ width: 64px; height: 64px; } .pr-pod.p1 .foto{ width: 86px; height: 86px; }
+    .pr-area{ width: 60%; margin-left: -30%; }
+  }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -1777,6 +1923,7 @@
     <button class="tab-btn" data-panel="resultados" role="tab" aria-selected="false">Resultados</button>
     <button class="tab-btn" data-panel="fantasy" role="tab" aria-selected="false">Fantasy</button>
     <button class="tab-btn" data-panel="comparador" role="tab" aria-selected="false">Comparador</button>
+    <button class="tab-btn" data-panel="premios" role="tab" aria-selected="false">Premios</button>
     <button class="tab-btn" data-panel="socios" role="tab" aria-selected="false">Socios</button>
   </nav>
 
@@ -2842,8 +2989,61 @@
       <p class="cp-nota">Gráfico de perfil: nota media y mejor nota se miden de 4 a 10; regularidad = menos oscilación entre notas; goles/partido, presencia (partidos jugados sobre jornadas disputadas) y valor se miden contra el máximo de la plantilla. El valor de mercado es inventado.</p>
     </section>
 
+    <section id="premios" class="panel">
+      <h2><span class="num">10</span> Premios</h2>
+      <div class="linea"></div>
+
+      <p class="pr-intro">Todo se calcula solo con las notas, los goles, los MVPs y los resultados de cada jornada. Cuando metas una jornada nueva, esta pestaña se actualiza sola.</p>
+      <div class="pr-nav">
+        <a href="#pr-quinteto" data-ir="pr-quinteto">⭐ Quinteto ideal</a>
+        <a href="#pr-temporada" data-ir="pr-temporada">🏆 Jugador de la temporada</a>
+        <a href="#pr-premios" data-ir="pr-premios">🎖️ Premios del equipo</a>
+        <a href="#pr-rachas" data-ir="pr-rachas">🔥 Rachas y récords</a>
+      </div>
+
+      <div class="pr-bloque" id="pr-quinteto">
+        <div class="pr-titulo"><span class="n">01</span> Quinteto ideal</div>
+        <p class="pr-sub">El mejor cinco posible según el <b>Índice Rayo</b>: un portero y los cuatro jugadores de campo con más puntos. Hacen falta al menos 3 partidos jugados.</p>
+        <div class="pr-campo" id="pr-campo"></div>
+        <div class="pr-resumen-once" id="pr-once-res"></div>
+        <div class="pr-banquillo" id="pr-banquillo"></div>
+      </div>
+
+      <div class="pr-bloque" id="pr-temporada">
+        <div class="pr-titulo"><span class="n">02</span> Jugador de la temporada</div>
+        <p class="pr-sub">Ranking con el <b>Índice Rayo</b>: nota media × 10, +5 por gol, +6 por MVP y +1,5 por partido jugado. Así se premia el rendimiento, el gol, los partidos grandes y la presencia.</p>
+        <div class="pr-podio" id="pr-podio"></div>
+        <div class="pr-leyenda">
+          <span><i style="background:#4da3ff"></i>Nota media</span><span><i style="background:#ffcc33"></i>Goles</span><span><i style="background:#f472b6"></i>MVPs</span><span><i style="background:#4ade80"></i>Presencia</span>
+        </div>
+        <div class="pr-rank" id="pr-rank"></div>
+      </div>
+
+      <div class="pr-bloque" id="pr-premios">
+        <div class="pr-titulo"><span class="n">03</span> Premios del equipo</div>
+        <p class="pr-sub">Una insignia para cada cosa en la que alguien destaca. Si hay empate, se reparten.</p>
+        <div class="pr-premios" id="pr-premios-grid"></div>
+      </div>
+
+      <div class="pr-bloque" id="pr-rachas">
+        <div class="pr-titulo"><span class="n">04</span> Rachas y récords</div>
+        <p class="pr-sub">La temporada del Rayo en resultados y notas.</p>
+        <div class="pr-forma" id="pr-forma"></div>
+        <div class="pr-tiles" id="pr-tiles"></div>
+        <div class="pr-dos">
+          <div class="pr-box"><h4>Goles a favor y en contra</h4><div id="pr-graf-goles"></div></div>
+          <div class="pr-box"><h4>Nota media del equipo por jornada</h4><div id="pr-graf-notas"></div></div>
+        </div>
+        <div class="pr-box">
+          <h4>Partidos seguidos puntuando</h4>
+          <div class="pr-racha" id="pr-racha"></div>
+          <p class="pr-nota">Cada cuadrado es una jornada del equipo; se enciende si el jugador tiene nota. El número es su mejor racha seguida.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="socios" class="panel">
-      <h2><span class="num">10</span> Socios</h2>
+      <h2><span class="num">11</span> Socios</h2>
       <div class="linea"></div>
 
       <div class="socios-card">
@@ -3093,6 +3293,266 @@
     })();
     </script>
 
+    <script>
+    (function(){
+      const f1 = n => n.toFixed(1).replace('.', ',');
+      const f2 = n => n.toFixed(2).replace('.', ',');
+      const W = { nota: 10, gol: 5, mvp: 6, pj: 1.5 };
+      let J = [], nJ = 0, P = [];
+
+      const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      const ini = n => n.split(' ').map(x => x[0]).slice(0,2).join('');
+      const tier = m => m === null ? 'sin' : m >= 8 ? 'oro' : m >= 7 ? 'plata' : 'bronce';
+      const foto = (j, cls) => j.foto ? '<img src="' + j.foto + '" alt="' + esc(j.nombre) + '">' : '<div class="ini">' + ini(j.nombre) + '</div>';
+
+      function racha(raw, ok){
+        let best = 0, cur = 0;
+        for(let i = 0; i < nJ; i++){
+          const v = raw[i];
+          if(v !== null && v !== undefined && ok(v)){ cur++; if(cur > best) best = cur; } else cur = 0;
+        }
+        return best;
+      }
+
+      function prep(){
+        J = (window.RAYO_JUGADORES || []).map(j => {
+          const v = j.vals;
+          const std = v.length >= 2 ? Math.sqrt(v.reduce((s,x) => s + Math.pow(x - j.media, 2), 0) / v.length) : null;
+          const pts = { nota: j.media === null ? 0 : j.media * W.nota, gol: j.goles * W.gol, mvp: j.mvp * W.mvp, pj: j.pj * W.pj };
+          pts.total = pts.nota + pts.gol + pts.mvp + pts.pj;
+          return Object.assign({}, j, { std, pts, best: v.length ? Math.max.apply(null, v) : null });
+        });
+        nJ = 0;
+        J.forEach(j => (j.raw || []).forEach((x,i) => { if(x !== null && i + 1 > nJ) nJ = i + 1; }));
+        P = J.filter(j => j.pj >= 3).sort((a,b) => b.pts.total - a.pts.total);
+      }
+
+      function carta(j, extra){
+        return '<div class="pr-card ' + tier(j.media) + '">' + (extra || '') +
+          '<div class="top"><div class="med">' + (j.media === null ? '--' : f2(j.media)) + '<small>MEDIA</small></div><span class="pos">' + j.pos + '</span></div>' +
+          '<div class="foto">' + foto(j) + '</div>' +
+          '<div class="nom">' + esc(j.nombre) + '</div>' +
+          '<div class="est"><div><b>' + j.pj + '</b>PJ</div><div><b>' + j.goles + '</b>GOL</div><div><b>' + j.mvp + '</b>MVP</div></div>' +
+          '<div class="idx">' + f1(j.pts.total) + '<small>ÍNDICE</small></div></div>';
+      }
+
+      function quinteto(){
+        const el = document.getElementById('pr-campo');
+        if(!P.length){ el.innerHTML = '<p>Aún no hay jugadores con 3 partidos.</p>'; return; }
+        const por = P.filter(j => j.pos === 'POR')[0];
+        let campo = P.filter(j => j !== por).slice(0, por ? 4 : 5);
+        let once = (por ? [por] : []).concat(campo);
+        const capi = once.slice().sort((a,b) => b.pts.total - a.pts.total)[0];
+        // delanteros: los de más goles (desempate por índice); resto, medio
+        const orden = campo.slice().sort((a,b) => b.goles - a.goles || b.pts.total - a.pts.total);
+        const ataque = orden.slice(0, 2), medio = orden.slice(2, 4), resto = orden.slice(4);
+        const fila = arr => '<div class="pr-fila">' + arr.map(j => carta(j, j === capi ? '<span class="pr-capi">C</span>' : '')).join('') + '</div>';
+        el.innerHTML = '<div class="pr-circulo"></div><div class="pr-area"></div>' + fila(ataque) + fila(medio.concat(resto)) + (por ? fila([por]) : '');
+        const medias = once.filter(j => j.media !== null);
+        const mq = medias.reduce((s,j) => s + j.media, 0) / medias.length;
+        document.getElementById('pr-once-res').innerHTML =
+          '<div class="pr-mini"><div class="l">Media del quinteto</div><div class="v">' + f2(mq) + '</div></div>' +
+          '<div class="pr-mini"><div class="l">Goles entre los cinco</div><div class="v">' + once.reduce((s,j) => s + j.goles, 0) + '</div></div>' +
+          '<div class="pr-mini"><div class="l">MVPs entre los cinco</div><div class="v">' + once.reduce((s,j) => s + j.mvp, 0) + '</div></div>' +
+          '<div class="pr-mini"><div class="l">Valor del quinteto</div><div class="v">' + f1(once.reduce((s,j) => s + j.valor, 0)) + ' M€</div></div>';
+        const banq = P.filter(j => once.indexOf(j) < 0).slice(0, 4);
+        document.getElementById('pr-banquillo').innerHTML = banq.length ? '<b style="color:#fff;font-family:Barlow Condensed,sans-serif;letter-spacing:2px;text-transform:uppercase">Banquillo</b>' +
+          banq.map(j => '<span class="p">' + (j.foto ? '<img src="' + j.foto + '" alt="">' : '') + esc(j.nombre) + ' · ' + f1(j.pts.total) + '</span>').join('') : '';
+      }
+
+      function temporada(){
+        const pod = document.getElementById('pr-podio');
+        const top = P.slice(0, 3);
+        const orden = [1, 0, 2].filter(i => top[i]);
+        pod.innerHTML = orden.map(i => {
+          const j = top[i];
+          return '<div class="pr-pod p' + (i + 1) + '">' + (i === 0 ? '<div class="corona">👑</div>' : '') +
+            '<div class="foto">' + foto(j) + '</div><div class="nom">' + esc(j.nombre) + '</div>' +
+            '<div class="pts">' + f1(j.pts.total) + '<small>PTS</small></div><div class="bloque">' + (i + 1) + '</div></div>';
+        }).join('');
+        const todos = P.concat(J.filter(j => j.pj > 0 && j.pj < 3).sort((a,b) => b.pts.total - a.pts.total));
+        const mx = Math.max.apply(null, todos.map(j => j.pts.total)) || 1;
+        document.getElementById('pr-rank').innerHTML = todos.map((j, i) => {
+          const prov = j.pj < 3;
+          const w = k => (j.pts[k] / mx * 100).toFixed(2);
+          return '<div class="pr-fr' + (!prov && i < 3 ? ' top3' : '') + (prov ? ' prov' : '') + '">' +
+            '<div class="pos">' + (prov ? '–' : i + 1) + '</div><div class="av">' + (j.foto ? '<img src="' + j.foto + '" alt="">' : '') + '</div>' +
+            '<div class="nm">' + esc(j.nombre) + '<small>' + (prov ? 'Provisional · menos de 3 PJ' : j.pj + ' PJ · ' + (j.media === null ? '--' : f2(j.media)) + ' media') + '</small></div>' +
+            '<div class="pr-barra" title="Nota ' + f1(j.pts.nota) + ' · Goles ' + f1(j.pts.gol) + ' · MVP ' + f1(j.pts.mvp) + ' · Presencia ' + f1(j.pts.pj) + '">' +
+              '<i style="width:' + w('nota') + '%;background:#4da3ff"></i><i style="width:' + w('gol') + '%;background:#ffcc33"></i><i style="width:' + w('mvp') + '%;background:#f472b6"></i><i style="width:' + w('pj') + '%;background:#4ade80"></i></div>' +
+            '<div class="tot">' + f1(j.pts.total) + '<small> PTS</small></div></div>';
+        }).join('');
+      }
+
+      function premios(){
+        const grid = document.getElementById('pr-premios-grid');
+        const max = (arr, f) => { if(!arr.length) return []; const m = Math.max.apply(null, arr.map(f)); return arr.filter(x => Math.abs(f(x) - m) < 1e-9); };
+        const min = (arr, f) => { if(!arr.length) return []; const m = Math.min.apply(null, arr.map(f)); return arr.filter(x => Math.abs(f(x) - m) < 1e-9); };
+        const nombres = a => a.map(j => esc(j.nombre)).join(' / ');
+        const cards = [];
+        const add = (ico, tit, color, win, dato, unid, det) => { if(win && win.length) cards.push({ ico, tit, color, win: win.slice(0, 3), dato, unid, det }); };
+
+        const rey = P[0] ? [P[0]] : [];
+        add('🏆', 'Jugador de la temporada', '#ffcc33', rey, rey[0] ? f1(rey[0].pts.total) : '', 'puntos Índice Rayo', rey[0] ? 'Media ' + f2(rey[0].media) + ' · ' + rey[0].goles + (rey[0].goles === 1 ? ' gol · ' : ' goles · ') + rey[0].mvp + (rey[0].mvp === 1 ? ' MVP' : ' MVPs') : '');
+        const gol = max(J.filter(j => j.goles > 0), j => j.goles);
+        add('⚽', 'Pichichi', '#4ade80', gol, gol[0] ? String(gol[0].goles) : '', 'goles', gol[0] ? f2(gol[0].goles / gol[0].pj) + ' goles por partido' : '');
+        const mvp = max(J.filter(j => j.mvp > 0), j => j.mvp);
+        add('⭐', 'Rey del MVP', '#f472b6', mvp, mvp[0] ? String(mvp[0].mvp) : '', 'MVPs', 'El jugador que más veces ha sido el mejor de la jornada');
+        const med = max(J.filter(j => j.pj >= 3), j => j.media);
+        add('🎯', 'Mejor media', '#4da3ff', med, med[0] ? f2(med[0].media) : '', 'de media', med[0] ? 'En ' + med[0].pj + ' partidos jugados' : '');
+        const reg = min(J.filter(j => j.pj >= 4 && j.std !== null), j => j.std);
+        add('🧘', 'El más regular', '#38bdf8', reg, reg[0] ? '±' + f2(reg[0].std) : '', 'de oscilación', reg[0] ? 'Sus notas apenas se mueven: de ' + f1(reg[0].vals.reduce((a,b) => Math.min(a,b))) + ' a ' + f1(reg[0].best) : '');
+        // mayor remontada
+        let rem = [], remD = 0, remInfo = {};
+        J.filter(j => j.pj >= 3).forEach(j => {
+          const r = j.raw || [];
+          for(let a = 0; a < r.length; a++) for(let b = a + 1; b < r.length; b++){
+            if(r[a] === null || r[b] === null) continue;
+            const d = r[b] - r[a];
+            if(d > remD + 1e-9){ remD = d; rem = [j]; remInfo = { from: r[a], to: r[b], ja: a + 1, jb: b + 1 }; }
+          }
+        });
+        add('🚀', 'Mayor remontada', '#fb923c', rem, remD ? '+' + f1(remD) : '', 'puntos de nota', rem[0] ? 'De un ' + f1(remInfo.from) + ' en la J' + remInfo.ja + ' a un ' + f1(remInfo.to) + ' en la J' + remInfo.jb : '');
+        const mej = max(J.filter(j => j.best !== null), j => j.best);
+        add('💎', 'Mejor partido', '#a78bfa', mej, mej[0] ? f1(mej[0].best) : '', 'nota máxima', mej.map(j => j.nombre.split(' ')[0] + ' (J' + (j.raw.indexOf(j.best) + 1) + ')').join(' · '));
+        const oro = max(J.filter(j => j.pj > 0).map(j => Object.assign({}, j, { r8: racha(j.raw || [], v => v >= 8) })).filter(j => j.r8 > 0), j => j.r8);
+        add('🔥', 'Racha de oro', '#ff6b6b', oro, oro[0] ? String(oro[0].r8) : '', 'jornadas seguidas ≥ 8', 'Notas de 8 o más sin fallar');
+        const iron = max(J, j => j.pj);
+        add('🛡️', 'Ironman', '#34d399', iron, iron[0] ? String(iron[0].pj) : '', 'partidos jugados', iron[0] ? 'Ha estado en ' + iron[0].pj + ' de ' + nJ + ' jornadas' : '');
+        const caro = max(J, j => j.valor);
+        add('💰', 'Más valioso', '#facc15', caro, caro[0] ? f1(caro[0].valor) : '', 'M€ de mercado', 'El jugador más caro del Fantasy');
+        const subida = max(J.filter(j => j.delta > 0), j => j.delta);
+        add('📈', 'Mayor revalorización', '#4ade80', subida, subida[0] ? '+' + f1(subida[0].delta) : '', 'M€ esta jornada', subida[0] ? 'Ya vale ' + f1(subida[0].valor) + ' M€' : '');
+        const debut = max(J.filter(j => j.pj === 1), j => j.best);
+        add('🌟', 'Debut de campeón', '#93c5fd', debut, debut[0] ? f1(debut[0].best) : '', 'nota en su estreno', 'Se estrenó con muy buena nota');
+
+        grid.innerHTML = cards.map(c =>
+          '<div class="pr-premio" style="--ac:' + c.color + '"><div class="ico">' + c.ico + '</div><div class="tit">' + c.tit + '</div>' +
+          '<div class="gan"><div class="fotos">' + c.win.map(j => '<div class="f">' + (j.foto ? '<img src="' + j.foto + '" alt="">' : ini(j.nombre)) + '</div>').join('') + '</div><div class="nom">' + nombres(c.win) + '</div></div>' +
+          '<div class="dato">' + c.dato + '<small>' + c.unid + '</small></div><div class="det">' + c.det + '</div></div>').join('');
+      }
+
+      function leerResultados(){
+        const out = [];
+        document.querySelectorAll('#resultados .resultado-card').forEach(c => {
+          const jn = parseInt((c.querySelector('.resultado-jornada') || {}).textContent.replace(/\D/g, ''), 10);
+          const g = c.querySelectorAll('.resultado-goles');
+          const eq = c.querySelectorAll('.resultado-equipo');
+          if(!jn || g.length < 2) return;
+          out.push({ j: jn, gf: parseInt(g[0].textContent, 10), gc: parseInt(g[1].textContent, 10), rival: eq[1] ? eq[1].textContent.trim() : '' });
+        });
+        return out.sort((a,b) => a.j - b.j);
+      }
+
+      function rachas(){
+        const R = leerResultados();
+        const forma = document.getElementById('pr-forma');
+        const tiles = document.getElementById('pr-tiles');
+        if(!R.length){ forma.innerHTML = ''; tiles.innerHTML = ''; return; }
+        R.forEach(r => { r.res = r.gf > r.gc ? 'v' : r.gf < r.gc ? 'd' : 'e'; });
+        const L = { v: 'V', e: 'E', d: 'D' };
+        forma.innerHTML = '<span class="pr-chip">Forma</span>' + R.map(r => '<div class="f ' + r.res + '" title="J' + r.j + ' · ' + esc(r.rival) + ' ' + r.gf + '-' + r.gc + '">' + L[r.res] + '<small>J' + r.j + '</small></div>').join('');
+
+        const V = R.filter(r => r.res === 'v').length, E = R.filter(r => r.res === 'e').length, D = R.filter(r => r.res === 'd').length;
+        const GF = R.reduce((s,r) => s + r.gf, 0), GC = R.reduce((s,r) => s + r.gc, 0);
+        const run = (tipo) => { let b = 0, c = 0; R.forEach(r => { if(tipo(r.res)){ c++; if(c > b) b = c; } else c = 0; }); return b; };
+        let act = 0, actTipo = R[R.length - 1].res;
+        for(let i = R.length - 1; i >= 0 && R[i].res === actTipo; i--) act++;
+        const nomTipo = { v: ['victoria', 'victorias'], e: ['empate', 'empates'], d: ['derrota', 'derrotas'] };
+        const plural = (n, t) => n + ' ' + (n === 1 ? nomTipo[t][0] : nomTipo[t][1]);
+        const vic = R.filter(r => r.res === 'v').sort((a,b) => (b.gf - b.gc) - (a.gf - a.gc))[0];
+        const der = R.filter(r => r.res === 'd').sort((a,b) => (a.gf - a.gc) - (b.gf - b.gc))[0];
+        const gol = R.slice().sort((a,b) => (b.gf + b.gc) - (a.gf + a.gc))[0];
+        const ataque = R.slice().sort((a,b) => b.gf - a.gf)[0];
+        const sinRec = R.filter(r => r.gc === 0).length;
+        // jornada con mejor / peor nota media del equipo
+        const med = [];
+        for(let i = 0; i < nJ; i++){
+          const v = J.map(j => (j.raw || [])[i]).filter(x => x !== null && x !== undefined);
+          med.push(v.length ? v.reduce((a,b) => a + b, 0) / v.length : null);
+        }
+        const idx = med.map((m,i) => ({ m, i })).filter(x => x.m !== null);
+        const mejorJ = idx.slice().sort((a,b) => b.m - a.m)[0], peorJ = idx.slice().sort((a,b) => a.m - b.m)[0];
+
+        const t = [];
+        t.push(['oro', 'Balance', V + 'V · ' + E + 'E · ' + D + 'D', R.length + ' partidos jugados']);
+        t.push(['', 'Goles', GF + ' – ' + GC, 'Diferencia ' + (GF - GC > 0 ? '+' : '') + (GF - GC) + ' · ' + f1(GF / R.length) + ' a favor por partido']);
+        t.push([actTipo === 'v' ? 'verde' : actTipo === 'd' ? 'rojo' : 'oro', 'Racha actual', plural(act, actTipo), 'Seguidas hasta la J' + R[R.length - 1].j]);
+        t.push(['verde', 'Mejor racha ganadora', plural(run(x => x === 'v'), 'v'), 'Sin perder: ' + run(x => x !== 'd') + ' partidos seguidos']);
+        t.push(['rojo', 'Peor racha', run(x => x !== 'v') + ' sin ganar', 'Perdiendo: ' + plural(run(x => x === 'd'), 'd')]);
+        if(vic) t.push(['verde', 'Mayor victoria', vic.gf + ' – ' + vic.gc, 'J' + vic.j + ' · ' + esc(vic.rival)]);
+        if(der) t.push(['rojo', 'Mayor derrota', der.gf + ' – ' + der.gc, 'J' + der.j + ' · ' + esc(der.rival)]);
+        t.push(['', 'Partido con más goles', (gol.gf + gol.gc) + ' goles', 'J' + gol.j + ' · ' + gol.gf + '-' + gol.gc + ' vs ' + esc(gol.rival)]);
+        t.push(['oro', 'Mejor ataque', ataque.gf + ' goles', 'J' + ataque.j + ' vs ' + esc(ataque.rival)]);
+        t.push(['', 'Portería a cero', sinRec + (sinRec === 1 ? ' partido' : ' partidos'), 'Sin encajar gol']);
+        if(mejorJ) t.push(['oro', 'Mejor jornada en notas', f2(mejorJ.m), 'J' + (mejorJ.i + 1) + ' · nota media del equipo']);
+        if(peorJ) t.push(['rojo', 'Peor jornada en notas', f2(peorJ.m), 'J' + (peorJ.i + 1) + ' · nota media del equipo']);
+        tiles.innerHTML = t.map(x => '<div class="pr-tile ' + x[0] + '"><div class="l">' + x[1] + '</div><div class="v">' + x[2] + '</div><div class="s">' + x[3] + '</div></div>').join('');
+
+        // gráfico goles
+        (function(){
+          const Wd = 520, H = 280, pl = 30, pr = 10, pt = 22, pb = 34;
+          const n = R.length, mx = Math.max(6, Math.max.apply(null, R.map(r => Math.max(r.gf, r.gc))));
+          const bw = (Wd - pl - pr) / n;
+          const Y = v => pt + (H - pt - pb) * (1 - v / mx);
+          let s = '<svg viewBox="0 0 ' + Wd + ' ' + H + '" role="img" aria-label="Goles por jornada">';
+          for(let v = 0; v <= mx; v += 2) s += '<line x1="' + pl + '" x2="' + (Wd - pr) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="rgba(255,255,255,0.1)"/><text x="' + (pl - 6) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="rgba(255,255,255,0.6)" font-size="11">' + v + '</text>';
+          R.forEach((r, i) => {
+            const x0 = pl + i * bw + bw * 0.14, w = bw * 0.36;
+            [[r.gf, '#ffcc33', 0], [r.gc, '#ff6b6b', 1]].forEach(([v, c, k]) => {
+              const x = x0 + k * (w + 3), h = Y(0) - Y(v);
+              s += '<rect x="' + x.toFixed(1) + '" y="' + Y(v).toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + Math.max(h, 1).toFixed(1) + '" rx="4" fill="' + c + '"><title>J' + r.j + (k ? ' · goles en contra: ' : ' · goles a favor: ') + v + '</title></rect>';
+              s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (Y(v) - 5).toFixed(1) + '" text-anchor="middle" fill="' + c + '" font-size="13" font-weight="700" font-family="Barlow Condensed,sans-serif">' + v + '</text>';
+            });
+            s += '<text x="' + (pl + i * bw + bw / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="13" font-weight="700" font-family="Barlow Condensed,sans-serif" letter-spacing="1">J' + r.j + '</text>';
+          });
+          s += '</svg><div style="display:flex;gap:16px;justify-content:center;font-size:13px;color:rgba(255,255,255,.8)"><span><i style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#ffcc33;margin-right:6px"></i>A favor</span><span><i style="display:inline-block;width:12px;height:12px;border-radius:4px;background:#ff6b6b;margin-right:6px"></i>En contra</span></div>';
+          document.getElementById('pr-graf-goles').innerHTML = s;
+        })();
+
+        // gráfico notas del equipo
+        (function(){
+          const Wd = 520, H = 280, pl = 34, pr = 10, pt = 22, pb = 34;
+          const n = nJ, ymin = 5, ymax = 10, bw = (Wd - pl - pr) / n;
+          const Y = v => pt + (H - pt - pb) * (1 - (v - ymin) / (ymax - ymin));
+          let s = '<svg viewBox="0 0 ' + Wd + ' ' + H + '" role="img" aria-label="Nota media del equipo">';
+          for(let v = ymin; v <= ymax; v++) s += '<line x1="' + pl + '" x2="' + (Wd - pr) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="rgba(255,255,255,0.1)"/><text x="' + (pl - 6) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="rgba(255,255,255,0.6)" font-size="11">' + v + '</text>';
+          med.forEach((m, i) => {
+            const x = pl + i * bw + bw * 0.18, w = bw * 0.64;
+            if(m !== null){
+              const c = mejorJ && mejorJ.i === i ? '#ffcc33' : peorJ && peorJ.i === i ? '#ff6b6b' : '#4da3ff';
+              s += '<rect x="' + x.toFixed(1) + '" y="' + Y(m).toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + (Y(ymin) - Y(m)).toFixed(1) + '" rx="5" fill="' + c + '" fill-opacity="0.9"><title>J' + (i + 1) + ': ' + f2(m) + '</title></rect>';
+              s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (Y(m) - 6).toFixed(1) + '" text-anchor="middle" fill="' + c + '" font-size="13" font-weight="700" font-family="Barlow Condensed,sans-serif">' + f2(m) + '</text>';
+            }
+            s += '<text x="' + (pl + i * bw + bw / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="13" font-weight="700" font-family="Barlow Condensed,sans-serif" letter-spacing="1">J' + (i + 1) + '</text>';
+          });
+          s += '</svg><div style="display:flex;gap:16px;justify-content:center;font-size:13px;color:rgba(255,255,255,.8)"><span style="color:#ffcc33">■ Mejor jornada</span><span style="color:#ff6b6b">■ Peor jornada</span></div>';
+          document.getElementById('pr-graf-notas').innerHTML = s;
+        })();
+
+        // rachas de jugadores
+        const lista = J.filter(j => j.pj > 0).map(j => Object.assign({}, j, { rs: racha(j.raw || [], () => true) })).sort((a,b) => b.rs - a.rs || b.pj - a.pj).slice(0, 8);
+        document.getElementById('pr-racha').innerHTML = lista.map(j => {
+          let cel = '';
+          for(let i = 0; i < nJ; i++){ const v = (j.raw || [])[i]; cel += '<i class="' + (v !== null && v !== undefined ? 'on' : '') + '"></i>'; }
+          return '<div class="pr-rr"><div class="av">' + (j.foto ? '<img src="' + j.foto + '" alt="">' : '') + '</div><div class="nm">' + esc(j.nombre) + '</div><div class="bar">' + cel + '</div><div class="num">' + j.rs + '</div></div>';
+        }).join('');
+      }
+
+      function iniciar(){
+        prep();
+        if(!J.length) return;
+        quinteto(); temporada(); premios(); rachas();
+        document.querySelectorAll('.pr-nav a').forEach(a => a.addEventListener('click', e => {
+          e.preventDefault();
+          const t = document.getElementById(a.dataset.ir);
+          if(t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }));
+      }
+      if(window.RAYO_JUGADORES){ iniciar(); } else { document.addEventListener('rayo-datos', iniciar, { once: true }); }
+    })();
+    </script>
+
 <script>
   const botones = document.querySelectorAll('.tab-btn');
   const paneles = document.querySelectorAll('.panel');
@@ -3105,7 +3565,7 @@
       btn.classList.add('activo');
       btn.setAttribute('aria-selected','true');
       document.getElementById(btn.dataset.panel).classList.add('activo');
-      document.querySelector('main').classList.toggle('ancho', btn.dataset.panel === 'fantasy' || btn.dataset.panel === 'comparador');
+      document.querySelector('main').classList.toggle('ancho', ['fantasy','comparador','premios'].indexOf(btn.dataset.panel) >= 0);
     });
   });
 </script>
