@@ -2028,6 +2028,32 @@
     .vt-notas-fin .vt-r{ grid-template-columns: 24px 38px 1fr 64px; }
   }
 
+  /* ---------- FANTASY en móvil / tablet: menos columnas (arregla la vista vertical) ---------- */
+  @media (max-width: 1099px){
+    main.ancho .fy-grid{ gap: 12px; }
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 36px) / 4); padding: 10px 8px 11px; }
+    main.ancho .fy-media b{ font-size: 24px; }
+    main.ancho .fy-foto{ width: 72px; height: 72px; }
+  }
+  @media (max-width: 760px){
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 24px) / 3); }
+    main.ancho .fy-nombre{ font-size: 15px; }
+  }
+  @media (max-width: 560px){
+    main.ancho{ padding-left: 14px; padding-right: 14px; }
+    main.ancho .fy-grid{ gap: 12px; }
+    main.ancho .fy-card{ flex: 0 0 calc((100% - 12px) / 2); padding: 12px 10px 13px; }
+    main.ancho .fy-media b{ font-size: 30px; }
+    main.ancho .fy-media small{ font-size: 11px; }
+    main.ancho .fy-foto{ width: 92px; height: 92px; margin: 8px auto 8px; }
+    main.ancho .fy-badges{ top: 58px; left: 6px; }
+    main.ancho .fy-nombre{ font-size: 17px; }
+    main.ancho .fy-nombre.largo{ font-size: 14px; }
+    main.ancho .fy-stats b{ font-size: 18px; }
+    main.ancho .fy-valor b{ font-size: 19px; }
+    main.ancho .fy-orden{ flex-wrap: wrap; gap: 8px; }
+  }
+
   /* ---------- TIENDA ---------- */
   .td-hero{ position: relative; overflow: hidden; border-radius: 24px; padding: 30px 26px; margin-bottom: 14px; text-align: center;
     background: radial-gradient(ellipse at 50% 0%, rgba(47,111,237,0.55), rgba(12,35,80,0.9) 62%), linear-gradient(135deg, #0c2350, #061530); border: 1px solid rgba(255,255,255,0.16); }
