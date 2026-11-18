@@ -1983,6 +1983,51 @@
     .vt-grid{ grid-template-columns: repeat(3, 1fr); }
   }
 
+  /* ---------- VOTAR PARTIDO: asistente de notas ---------- */
+  .vt-prog{ display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .vt-prog .bar{ flex: 1; height: 10px; border-radius: 99px; background: rgba(255,255,255,0.08); overflow: hidden; }
+  .vt-prog .bar i{ display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #4da3ff, #ffcc33); transition: width .3s ease; }
+  .vt-prog .tx{ font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 2px; font-size: 14px; color: rgba(255,255,255,0.8); text-transform: uppercase; white-space: nowrap; }
+  .vt-nota-card{ text-align: center; padding: 6px 0 4px; }
+  .vt-nota-card .foto{ width: 168px; height: 168px; margin: 0 auto 10px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 4px solid var(--amarillo); box-shadow: 0 0 40px rgba(255,204,51,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; font-size: 56px; color: var(--amarillo); }
+  .vt-nota-card .foto img{ width: 100%; height: 100%; object-fit: cover; object-position: center 16%; }
+  .vt-nota-card .nom{ font-family: 'Anton', sans-serif; font-size: 34px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.05; }
+  .vt-nota-card .pos{ color: rgba(255,255,255,0.6); letter-spacing: 3px; font-size: 13px; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; margin-top: 2px; }
+  .vt-pregunta{ margin: 14px 0 12px; font-size: 17px; color: rgba(255,255,255,0.88); }
+  .vt-nums{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; max-width: 560px; margin: 0 auto; }
+  .vt-num{ appearance: none; -webkit-appearance: none; cursor: pointer; aspect-ratio: 1.15; border-radius: 18px; font-family: 'Anton', sans-serif; font-size: 34px; color: #fff; background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.14); transition: transform .12s, background .12s, border-color .12s; }
+  .vt-num:hover{ transform: translateY(-2px); border-color: rgba(255,204,51,0.7); }
+  .vt-num:active{ transform: scale(.96); }
+  .vt-num.sel{ color: #061530; background: linear-gradient(135deg, #ffe28a, #ffcc33); border-color: #ffcc33; box-shadow: 0 0 26px rgba(255,204,51,0.55); }
+  .vt-num.lo{ color: #ff9d9d; } .vt-num.hi{ color: #86efac; } .vt-num.sel.lo, .vt-num.sel.hi{ color: #061530; }
+  .vt-escala{ display: flex; justify-content: space-between; max-width: 560px; margin: 8px auto 0; font-size: 12px; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+  .vt-fila-btn{ display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+  .vt-btn.sec{ font-size: 14px; padding: 8px 18px; }
+  .vt-resumen{ display: flex; flex-direction: column; gap: 6px; }
+  .vt-rs{ display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; }
+  .vt-rs:hover{ border-color: rgba(255,204,51,0.5); }
+  .vt-rs .av{ width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2px solid rgba(255,255,255,0.3); }
+  .vt-rs .av img{ width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .vt-rs .nm{ font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px; }
+  .vt-rs .n{ font-family: 'Anton', sans-serif; font-size: 22px; color: var(--amarillo); }
+  .vt-rs .n.no{ color: rgba(255,255,255,0.4); font-size: 14px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1.5px; }
+  .vt-mvp-pill{ display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 99px; background: rgba(255,204,51,0.14); border: 1px solid rgba(255,204,51,0.5); font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 1.5px; font-size: 16px; margin-top: 12px; }
+  .vt-notas-fin .vt-r .num{ font-size: 24px; }
+  .vt-notas-fin .vt-r .num small{ display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+  .vt-r.pocos{ opacity: .5; }
+  .vt-notas-fin .vt-r{ grid-template-columns: 30px 44px minmax(110px, 190px) 1fr 70px; }
+  .vt-notas-fin .vt-r .num small{ white-space: nowrap; }
+  .vt-copia{ margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .vt-copia textarea{ width: 100%; min-height: 70px; border-radius: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 10px; font-family: inherit; font-size: 14px; }
+  .vt-admin{ margin-top: 12px; text-align: center; }
+  @media (max-width: 700px){
+    .vt-nums{ gap: 8px; } .vt-num{ font-size: 28px; border-radius: 14px; }
+    .vt-nota-card .foto{ width: 140px; height: 140px; } .vt-nota-card .nom{ font-size: 28px; }
+    .vt-r{ grid-template-columns: 24px 38px 1fr 56px; }
+    .vt-notas-fin .vt-r .num{ font-size: 20px; }
+    .vt-notas-fin .vt-r{ grid-template-columns: 24px 38px 1fr 64px; }
+  }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -2142,7 +2187,7 @@
     <button class="tab-btn" data-panel="fantasy" role="tab" aria-selected="false">Fantasy</button>
     <button class="tab-btn" data-panel="comparador" role="tab" aria-selected="false">Comparador</button>
     <button class="tab-btn" data-panel="premios" role="tab" aria-selected="false">Premios</button>
-    <button class="tab-btn" data-panel="votacion" role="tab" aria-selected="false">Votar MVP</button>
+    <button class="tab-btn" data-panel="votacion" role="tab" aria-selected="false">Votar partido</button>
     <button class="tab-btn" data-panel="socios" role="tab" aria-selected="false">Socios</button>
   </nav>
 
@@ -3269,10 +3314,10 @@
     </section>
 
     <section id="votacion" class="panel">
-      <h2><span class="num">11</span> Votar MVP</h2>
+      <h2><span class="num">11</span> Votar partido</h2>
       <div class="linea"></div>
-      <p class="vt-intro">Cada jugador vota desde su móvil al MVP del partido. Un voto por persona y por jornada: una vez enviado, no se puede cambiar.</p>
-      <div id="vt-root" data-jornada="8" data-rival="4 Gats" data-abre="2026-11-21T10:10:00+01:00" data-cierra="2026-11-21T13:10:00+01:00"></div>
+      <p class="vt-intro">Después del partido, cada jugador pone nota a sus compañeros (del 1 al 10) y elige al MVP, desde su móvil. Es rápido: un jugador por pantalla. Un solo envío por persona; una vez enviado, no se puede cambiar.</p>
+      <div id="vt-root" data-jornada="8" data-rival="4 Gats" data-doble="Luis López" data-min="3" data-abre="2026-11-21T10:10:00+01:00" data-cierra="2026-11-21T13:10:00+01:00"></div>
     </section>
 
     <section id="socios" class="panel">
@@ -4139,55 +4184,83 @@
     })();
     </script>
 
-    <script>
+        <script>
     (function(){
       const C = window.RAYO_CONFIG || {};
       const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
       const ini = n => n.split(' ').map(x => x[0]).slice(0,2).join('');
-      let J = [], root = null, jn = '', estado = 'abierta', rival = '';
-      let yo = null, voto = null, votos = {}, elegido = null, cargando = false, timer = null, msg = '', msgTipo = '', abre = null, cierra = null;
+      const f1 = n => n.toFixed(1).replace('.', ',');
+      let J = [], root = null, jn = '', rival = '', estado = 'abierta', abre = null, cierra = null, doble = [], minVotos = 3;
+      let yo = null, votos = {}, notasDB = {}, paso = 'quien', idx = 0, mis = {}, mvp = null, enviando = false, msg = '', msgTipo = '', verAdmin = false;
+      const url = () => String(C.firebaseUrl || '').replace(/\/+$/, '');
+      const rutaV = () => url() + '/votos/j' + jn, rutaN = () => url() + '/notas/j' + jn;
+      const LS = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch(e){} } };
+      const clave = () => 'rayo_borrador_j' + jn + '_' + yo;
+      const avatar = j => j.foto ? '<img src="' + j.foto + '" alt="">' : esc(ini(j.nombre));
       const hhmm = t => { const d = new Date(t); return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'); };
       const diaTxt = t => { const d = new Date(t); return ['dom','lun','mar','mié','jue','vie','sáb'][d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth() + 1); };
-      function calcEstado(){
-        const t = Date.now();
-        if(abre && t < abre) return 'prox';
-        if(cierra && t > cierra) return 'cerrada';
-        return 'abierta';
-      }
-      const url = () => String(C.firebaseUrl || '').replace(/\/+$/, '');
-      const ruta = () => url() + '/votos/j' + jn;
-      const guardado = () => { try { return localStorage.getItem('rayo_votante'); } catch(e){ return null; } };
-      const guardar = v => { try { if(v) localStorage.setItem('rayo_votante', v); else localStorage.removeItem('rayo_votante'); } catch(e){} };
-      const avatar = j => j.foto ? '<img src="' + j.foto + '" alt="">' : esc(ini(j.nombre));
+      function calcEstado(){ const t = Date.now(); if(abre && t < abre) return 'prox'; if(cierra && t > cierra) return 'cerrada'; return 'abierta'; }
+      const candidatos = () => J.filter(j => j.nombre !== yo);
+      const yaVoto = () => !!(yo && (votos[yo] || notasDB[yo]));
 
-      async function cargarVotos(){
+      function guardarBorrador(){ if(yo) LS.set(clave(), JSON.stringify({ mis, mvp, idx, paso })); }
+      function leerBorrador(){
+        mis = {}; mvp = null; idx = 0; paso = 'nota';
+        try { const b = JSON.parse(LS.get(clave()) || 'null'); if(b){ mis = b.mis || {}; mvp = b.mvp || null; idx = b.idx || 0; paso = b.paso || 'nota'; } } catch(e){}
+        if(paso === 'quien' || paso === 'hecho') paso = 'nota';
+      }
+
+      async function cargar(){
         try {
-          const r = await fetch(ruta() + '.json', { cache: 'no-store' });
-          if(!r.ok) throw new Error(r.status);
-          votos = (await r.json()) || {};
-          voto = yo && votos[yo] ? votos[yo] : null;
+          const [a, b] = await Promise.all([fetch(rutaV() + '.json', { cache: 'no-store' }), fetch(rutaN() + '.json', { cache: 'no-store' })]);
+          if(!a.ok) throw new Error('v');
+          votos = (await a.json()) || {};
+          notasDB = b.ok ? ((await b.json()) || {}) : {};
           return true;
         } catch(e){ return false; }
       }
 
       function cabecera(){
-        return '<div class="vt-cab"><div class="j">Jornada ' + esc(jn) + '</div><div class="t">¿Quién fue el MVP' + (rival ? ' contra ' + esc(rival) : '') + '?</div>' +
-          '<span class="e ' + (estado === 'cerrada' ? 'ce' : 'ab') + '">' + (estado === 'abierta' ? '● Votación abierta' + (cierra ? ' hasta las ' + hhmm(cierra) + 'h' : '') : estado === 'prox' ? '◔ Se abre el ' + diaTxt(abre) + ' a las ' + hhmm(abre) + 'h' : '■ Votación cerrada') + '</span></div>';
+        return '<div class="vt-cab"><div class="j">Jornada ' + esc(jn) + '</div><div class="t">Valora el partido' + (rival ? ' contra ' + esc(rival) : '') + '</div>' +
+          '<span class="e ' + (estado === 'cerrada' ? 'ce' : 'ab') + '">' + (estado === 'abierta' ? '● Abierto hasta las ' + (cierra ? hhmm(cierra) : '') + 'h' : estado === 'prox' ? '◔ Se abre el ' + diaTxt(abre) + ' a las ' + hhmm(abre) + 'h' : '■ Cerrado') + '</span></div>';
       }
 
-      function resultados(final){
+      /* ---- cálculo de medias ---- */
+      function medias(){
+        const out = {};
+        J.forEach(j => {
+          let s = 0, w = 0, n = 0;
+          Object.keys(notasDB).forEach(v => {
+            const x = notasDB[v] && notasDB[v][j.nombre];
+            if(typeof x === 'number'){ const p = doble.indexOf(v) >= 0 ? 2 : 1; s += x * p; w += p; n++; }
+          });
+          out[j.nombre] = { n, media: w ? s / w : null };
+        });
+        return out;
+      }
+      function tablaNotas(titulo){
+        const m = medias();
+        const lista = J.map(j => ({ j, n: m[j.nombre].n, media: m[j.nombre].media })).filter(x => x.n > 0).sort((a,b) => (b.n >= minVotos) - (a.n >= minVotos) || b.media - a.media);
+        if(!lista.length) return '<div class="vt-box vt-notas-fin"><h3><span>📝</span>' + titulo + '</h3><div class="vt-msg">Todavía no hay notas.</div></div>';
+        const validas = lista.filter(x => x.n >= minVotos);
+        const txt = 'NOTAS: ' + validas.map(x => x.j.nombre.split(' ')[0] + ' - ' + f1(x.media)).join(', ');
+        return '<div class="vt-box vt-notas-fin"><h3><span>📝</span>' + titulo + '</h3><p class="s">Media de las notas de los compañeros' + (doble.length ? ' (el voto de ' + esc(doble.join(', ')) + ' vale doble)' : '') + '. Hacen falta al menos ' + minVotos + ' votos para que cuente.</p><div class="vt-res">' +
+          lista.map((x, i) => '<div class="vt-r' + (x.n < minVotos ? ' pocos' : (i === 0 ? ' lider' : '')) + '"><div class="pos">' + (x.n < minVotos ? '–' : i + 1) + '</div><div class="av">' + (x.j.foto ? '<img src="' + x.j.foto + '" alt="">' : '') + '</div><div class="nm">' + esc(x.j.nombre) + (x.n < minVotos ? ' <small style="color:rgba(255,255,255,.5)">(pocos votos)</small>' : '') + '</div><div class="br"><i style="width:' + Math.round(x.media * 10) + '%"></i></div><div class="num">' + f1(x.media) + '<small>' + x.n + ' votos</small></div></div>').join('') + '</div>' +
+          '<div class="vt-copia"><button type="button" class="vt-btn sec" id="vt-copiar">📋 Copiar notas</button><span class="vt-msg" id="vt-copiado" style="padding:0"></span><textarea id="vt-txt" readonly>' + esc(txt) + '</textarea></div></div>';
+      }
+
+      function resultadosMVP(final){
         const cont = {};
         Object.keys(votos).forEach(v => { const c = votos[v]; if(typeof c === 'string') cont[c] = (cont[c] || 0) + 1; });
         const lista = J.map(j => ({ j, n: cont[j.nombre] || 0 })).filter(x => x.n > 0).sort((a,b) => b.n - a.n || a.j.nombre.localeCompare(b.j.nombre));
-        const total = Object.keys(votos).length;
-        const mx = lista.length ? lista[0].n : 1;
-        const ya = {}; Object.keys(votos).forEach(v => ya[v] = true);
-        let h = '<div class="vt-box"><h3><span>📊</span>' + (final ? 'Resultado final' : 'Resultados en directo') + '</h3><p class="s">' + total + ' voto' + (total === 1 ? '' : 's') + ' de ' + J.length + ' jugadores.</p>';
+        const ya = {}; Object.keys(votos).forEach(v => ya[v] = true); Object.keys(notasDB).forEach(v => ya[v] = true);
+        const total = Object.keys(ya).length, mx = lista.length ? lista[0].n : 1;
+        let h = '<div class="vt-box"><h3><span>🏆</span>' + (final ? 'MVP del partido' : 'MVP en directo') + '</h3><p class="s">' + total + ' de ' + J.length + ' jugadores han votado.</p>';
         if(final && lista.length){
-          const g = lista[0], empate = lista.filter(x => x.n === g.n);
-          h += '<div class="vt-ganador"><div class="corona">👑</div><div class="f">' + (g.j.foto ? '<img src="' + g.j.foto + '" alt="">' : '') + '</div><div class="n">' + empate.map(x => esc(x.j.nombre)).join(' / ') + '</div><div class="v">' + (empate.length > 1 ? 'Empate con ' : 'MVP de la Jornada ' + esc(jn) + ' con ') + g.n + ' voto' + (g.n === 1 ? '' : 's') + '</div></div>';
+          const g = lista[0], emp = lista.filter(x => x.n === g.n);
+          h += '<div class="vt-ganador"><div class="corona">👑</div><div class="f">' + (g.j.foto ? '<img src="' + g.j.foto + '" alt="">' : '') + '</div><div class="n">' + emp.map(x => esc(x.j.nombre)).join(' / ') + '</div><div class="v">' + (emp.length > 1 ? 'Empate con ' : 'MVP de la Jornada ' + esc(jn) + ' con ') + g.n + ' voto' + (g.n === 1 ? '' : 's') + '</div></div>';
         }
-        h += '<div class="vt-res">' + (lista.length ? lista.map((x, i) => '<div class="vt-r' + (i === 0 ? ' lider' : '') + '"><div class="pos">' + (i + 1) + '</div><div class="av">' + (x.j.foto ? '<img src="' + x.j.foto + '" alt="">' : '') + '</div><div class="nm">' + esc(x.j.nombre) + '</div><div class="br"><i style="width:' + Math.round(x.n / mx * 100) + '%"></i></div><div class="num">' + x.n + '</div></div>').join('') : '<div class="vt-msg">Todavía no hay votos. ¡Sé el primero!</div>') + '</div>';
+        h += '<div class="vt-res">' + (lista.length ? lista.map((x, i) => '<div class="vt-r' + (i === 0 ? ' lider' : '') + '"><div class="pos">' + (i + 1) + '</div><div class="av">' + (x.j.foto ? '<img src="' + x.j.foto + '" alt="">' : '') + '</div><div class="nm">' + esc(x.j.nombre) + '</div><div class="br"><i style="width:' + Math.round(x.n / mx * 100) + '%"></i></div><div class="num">' + x.n + '</div></div>').join('') : '<div class="vt-msg">Todavía no hay votos.</div>') + '</div>';
         h += '<div class="vt-quien-falta"><span>Han votado:</span>' + J.map(j => '<span class="c' + (ya[j.nombre] ? ' ya' : '') + '">' + esc(j.nombre.split(' ')[0]) + (ya[j.nombre] ? ' ✓' : '') + '</span>').join('') + '</div></div>';
         return h;
       }
@@ -4195,77 +4268,126 @@
       function pintar(){
         if(!root) return;
         let h = cabecera();
-        if(!url()){
-          root.innerHTML = h + '<div class="vt-box vt-prep"><div class="big">🗳️</div><h3>La votación se abre pronto</h3><p class="s">Estamos terminando de prepararla. ¡Vuelve después del próximo partido!</p></div>';
-          return;
-        }
+        if(!url()){ root.innerHTML = h + '<div class="vt-box vt-prep"><div class="big">🗳️</div><h3>La votación se abre pronto</h3></div>'; return; }
         if(estado === 'prox'){
-          root.innerHTML = h + '<div class="vt-box vt-prep"><div class="big">⏳</div><h3>Todavía no se puede votar</h3><p class="s">La votación se abre cuando termine el partido: <b>' + diaTxt(abre) + ' a las ' + hhmm(abre) + 'h</b>. Estará abierta hasta las <b>' + hhmm(cierra) + 'h</b>.</p></div>';
+          root.innerHTML = h + '<div class="vt-box vt-prep"><div class="big">⏳</div><h3>Todavía no se puede votar</h3><p class="s">Se abre cuando termine el partido: <b>' + diaTxt(abre) + ' a las ' + hhmm(abre) + 'h</b>. Estará abierto hasta las <b>' + hhmm(cierra) + 'h</b>.</p></div>';
           return;
         }
-        if(estado === 'cerrada'){ root.innerHTML = h + resultados(true); return; }
+        if(estado === 'cerrada'){ root.innerHTML = h + resultadosMVP(true) + tablaNotas('Notas del partido'); enlazarCopiar(); return; }
+        const admin = doble.length && yo && doble.indexOf(yo) >= 0;
         if(!yo){
           h += '<div class="vt-box"><h3><span>1</span>¿Quién eres?</h3><p class="s">Elige tu nombre. Se queda guardado en este móvil.</p><div class="vt-grid">' +
             J.map(j => '<button type="button" class="vt-p" data-yo="' + esc(j.nombre) + '"><div class="f">' + avatar(j) + '</div><div class="n">' + esc(j.nombre) + '</div></button>').join('') + '</div></div>';
-          root.innerHTML = h + resultadosOcultos();
-          return;
+          root.innerHTML = h; return;
         }
         const quien = '<div class="vt-quien">Votas como <b>' + esc(yo) + '</b><button type="button" id="vt-cambiar">No soy yo</button></div>';
-        if(voto){
-          root.innerHTML = h + quien + '<div class="vt-msg ok">✅ Ya has votado por <b>' + esc(voto) + '</b>. ¡Gracias!</div>' + resultados(false);
-          document.getElementById('vt-cambiar').onclick = () => { yo = null; guardar(null); voto = null; elegido = null; msg = ''; pintar(); };
+        if(yaVoto()){
+          root.innerHTML = h + quien + '<div class="vt-msg ok">✅ ¡Gracias! Ya has votado.' + (votos[yo] ? ' Tu MVP: <b>' + esc(votos[yo]) + '</b>.' : '') + '</div>' + resultadosMVP(false) +
+            '<div class="vt-msg">Las notas de cada jugador se verán cuando cierre la votación a las ' + (cierra ? hhmm(cierra) : '') + 'h.</div>' +
+            (admin ? '<div class="vt-admin"><button type="button" class="vt-btn sec" id="vt-ver">' + (verAdmin ? 'Ocultar' : 'Ver') + ' notas provisionales</button></div>' + (verAdmin ? tablaNotas('Notas provisionales') : '') : '');
+          enlazarCopiar(); return;
+        }
+        const C2 = candidatos();
+        const total = C2.length + 1;
+        if(paso === 'nota'){
+          const j = C2[Math.min(idx, C2.length - 1)];
+          const pct = Math.round(idx / total * 100);
+          const sel = mis[j.nombre];
+          root.innerHTML = h + quien + '<div class="vt-box"><div class="vt-prog"><div class="bar"><i style="width:' + pct + '%"></i></div><div class="tx">' + (idx + 1) + ' de ' + total + '</div></div>' +
+            '<div class="vt-nota-card"><div class="foto">' + avatar(j) + '</div><div class="nom">' + esc(j.nombre) + '</div><div class="pos">' + esc(j.posTxt || j.pos) + '</div></div>' +
+            '<div class="vt-pregunta" style="text-align:center">¿Qué nota le das hoy?</div>' +
+            '<div class="vt-nums">' + [1,2,3,4,5,6,7,8,9,10].map(n => '<button type="button" class="vt-num' + (n <= 4 ? ' lo' : n >= 8 ? ' hi' : '') + (sel === n ? ' sel' : '') + '" data-n="' + n + '">' + n + '</button>').join('') + '</div>' +
+            '<div class="vt-escala"><span>Mal partido</span><span>Muy buen partido</span></div>' +
+            '<div class="vt-fila-btn"><button type="button" class="vt-btn sec" id="vt-atras"' + (idx === 0 ? ' disabled' : '') + '>← Atrás</button><button type="button" class="vt-btn sec" id="vt-nojugo">' + (sel === 'x' ? '✓ ' : '') + 'No jugó / no lo vi</button></div></div>';
           return;
         }
-        h += quien + '<div class="vt-box"><h3><span>2</span>Elige al MVP del partido</h3><p class="s">No puedes votarte a ti mismo. Toca a un jugador y confirma.</p><div class="vt-grid">' +
-          J.map(j => '<button type="button" class="vt-p' + (elegido === j.nombre ? ' sel' : '') + (j.nombre === yo ? ' yo' : '') + '" data-cand="' + esc(j.nombre) + '"' + (j.nombre === yo ? ' disabled' : '') + '><div class="f">' + avatar(j) + '</div><div class="n">' + esc(j.nombre) + '</div><div class="m">' + esc(j.pos) + '</div></button>').join('') + '</div>' +
-          '<div class="vt-accion"><button type="button" class="vt-btn prim" id="vt-enviar"' + (elegido && !cargando ? '' : ' disabled') + '>' + (cargando ? 'Enviando…' : elegido ? 'Votar por ' + esc(elegido.split(' ')[0]) : 'Elige a un jugador') + '</button></div>' +
-          (msg ? '<div class="vt-msg ' + msgTipo + '">' + msg + '</div>' : '') + '</div>';
-        root.innerHTML = h;
-        document.getElementById('vt-cambiar').onclick = () => { yo = null; guardar(null); elegido = null; msg = ''; pintar(); };
+        if(paso === 'mvp'){
+          const pos = C2.filter(j => mis[j.nombre] !== 'x');
+          root.innerHTML = h + quien + '<div class="vt-box"><div class="vt-prog"><div class="bar"><i style="width:' + Math.round((total - 1) / total * 100) + '%"></i></div><div class="tx">' + total + ' de ' + total + '</div></div><h3><span>🏆</span>¿Quién ha sido el MVP?</h3><p class="s">Elige al mejor del partido.</p><div class="vt-grid">' +
+            pos.map(j => '<button type="button" class="vt-p' + (mvp === j.nombre ? ' sel' : '') + '" data-mvp="' + esc(j.nombre) + '"><div class="f">' + avatar(j) + '</div><div class="n">' + esc(j.nombre) + '</div>' + (mis[j.nombre] ? '<div class="m">tu nota: ' + mis[j.nombre] + '</div>' : '') + '</button>').join('') + '</div>' +
+            '<div class="vt-fila-btn"><button type="button" class="vt-btn sec" id="vt-atras">← Atrás</button><button type="button" class="vt-btn prim" id="vt-revisar"' + (mvp ? '' : ' disabled') + '>Revisar y enviar</button></div></div>';
+          return;
+        }
+        if(paso === 'resumen'){
+          const notadas = C2.filter(j => typeof mis[j.nombre] === 'number').length;
+          root.innerHTML = h + quien + '<div class="vt-box"><h3><span>✔</span>Revisa tus votos</h3><p class="s">Toca a un jugador para cambiar su nota. Una vez enviados, ya no se pueden cambiar.</p><div class="vt-resumen">' +
+            C2.map((j, i) => '<div class="vt-rs" data-ir="' + i + '"><div class="av">' + (j.foto ? '<img src="' + j.foto + '" alt="">' : '') + '</div><div class="nm">' + esc(j.nombre) + '</div>' + (typeof mis[j.nombre] === 'number' ? '<div class="n">' + mis[j.nombre] + '</div>' : '<div class="n no">NO JUGÓ</div>') + '</div>').join('') + '</div>' +
+            '<div style="text-align:center"><span class="vt-mvp-pill">🏆 MVP: ' + esc(mvp || '—') + '</span></div>' +
+            '<div class="vt-fila-btn"><button type="button" class="vt-btn sec" id="vt-atras">← Atrás</button><button type="button" class="vt-btn prim" id="vt-enviar"' + (enviando || !notadas || !mvp ? ' disabled' : '') + '>' + (enviando ? 'Enviando…' : 'Enviar mis votos') + '</button></div>' +
+            (msg ? '<div class="vt-msg ' + msgTipo + '">' + msg + '</div>' : '') + '</div>';
+          return;
+        }
       }
-      function resultadosOcultos(){
-        const total = Object.keys(votos).length;
-        return '<div class="vt-msg">' + total + ' voto' + (total === 1 ? '' : 's') + ' hasta ahora. Los resultados se ven después de votar.</div>';
+
+      function enlazarCopiar(){
+        const b = document.getElementById('vt-copiar'); if(!b) return;
+        b.onclick = async () => {
+          const t = document.getElementById('vt-txt'); const o = document.getElementById('vt-copiado');
+          try { await navigator.clipboard.writeText(t.value); o.textContent = '¡Copiado!'; o.className = 'vt-msg ok'; }
+          catch(e){ t.select(); o.textContent = 'Selecciona y copia el texto.'; }
+        };
       }
 
       async function enviar(){
-        if(!yo || !elegido || cargando) return;
-        cargando = true; msg = ''; pintar();
+        if(enviando) return; enviando = true; msg = ''; pintar();
+        const obj = {}; candidatos().forEach(j => { if(typeof mis[j.nombre] === 'number') obj[j.nombre] = mis[j.nombre]; });
         try {
-          const r = await fetch(ruta() + '/' + encodeURIComponent(yo) + '.json', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(elegido) });
-          if(r.status === 401 || r.status === 403){
-            await cargarVotos();
-            msg = voto ? '' : 'Esa persona ya había votado en esta jornada.'; msgTipo = 'err';
-          } else if(!r.ok){ throw new Error(r.status); }
-          else { voto = elegido; votos[yo] = elegido; await cargarVotos(); }
-        } catch(e){ msg = 'No se ha podido enviar el voto. Revisa la conexión y vuelve a probar.'; msgTipo = 'err'; }
-        cargando = false; pintar();
+          const r1 = await fetch(rutaN() + '/' + encodeURIComponent(yo) + '.json', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(obj) });
+          if(!r1.ok){ throw new Error('n' + r1.status); }
+          const r2 = await fetch(rutaV() + '/' + encodeURIComponent(yo) + '.json', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(mvp) });
+          if(!r2.ok){ throw new Error('v' + r2.status); }
+          LS.set(clave(), null);
+          await cargar();
+        } catch(e){
+          await cargar();
+          if(!yaVoto()){ msg = 'No se ha podido enviar. Revisa la conexión y vuelve a probar.'; msgTipo = 'err'; }
+        }
+        enviando = false; pintar();
       }
 
       async function iniciar(){
-        root = document.getElementById('vt-root');
-        if(!root) return;
+        root = document.getElementById('vt-root'); if(!root) return;
         J = (window.RAYO_JUGADORES || []).slice();
         jn = root.dataset.jornada || ''; rival = root.dataset.rival || '';
+        doble = (root.dataset.doble || '').split('|').map(s => s.trim()).filter(Boolean);
+        minVotos = parseInt(root.dataset.min || '3', 10) || 3;
         abre = root.dataset.abre ? new Date(root.dataset.abre).getTime() : null; cierra = root.dataset.cierra ? new Date(root.dataset.cierra).getTime() : null;
         if(isNaN(abre)) abre = null; if(isNaN(cierra)) cierra = null;
         estado = calcEstado();
-        const g = guardado(); if(g && J.some(j => j.nombre === g)) yo = g;
+        const g = LS.get('rayo_votante'); if(g && J.some(j => j.nombre === g)){ yo = g; leerBorrador(); }
         root.addEventListener('click', e => {
-          const a = e.target.closest('[data-yo]'); if(a){ yo = a.dataset.yo; guardar(yo); voto = votos[yo] || null; elegido = null; pintar(); return; }
-          const b = e.target.closest('[data-cand]'); if(b && !b.disabled){ elegido = b.dataset.cand; msg = ''; pintar(); return; }
-          if(e.target.closest('#vt-enviar')) enviar();
+          const t = e.target;
+          let a;
+          if(a = t.closest('[data-yo]')){ yo = a.dataset.yo; LS.set('rayo_votante', yo); leerBorrador(); pintar(); return; }
+          if(t.closest('#vt-cambiar')){ yo = null; LS.set('rayo_votante', null); mis = {}; mvp = null; idx = 0; paso = 'nota'; pintar(); return; }
+          if(t.closest('#vt-ver')){ verAdmin = !verAdmin; pintar(); return; }
+          const C2 = candidatos();
+          if(a = t.closest('[data-n]')){
+            mis[C2[idx].nombre] = parseInt(a.dataset.n, 10); guardarBorrador(); pintar();
+            setTimeout(() => { if(paso !== 'nota') return; if(idx < C2.length - 1) idx++; else paso = 'mvp'; guardarBorrador(); pintar(); window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }, 220);
+            return;
+          }
+          if(t.closest('#vt-nojugo')){
+            mis[C2[idx].nombre] = 'x'; if(mvp === C2[idx].nombre) mvp = null;
+            if(idx < C2.length - 1) idx++; else paso = 'mvp'; guardarBorrador(); pintar(); return;
+          }
+          if(t.closest('#vt-atras')){
+            if(paso === 'resumen') paso = 'mvp'; else if(paso === 'mvp'){ paso = 'nota'; idx = C2.length - 1; } else if(idx > 0) idx--;
+            guardarBorrador(); pintar(); return;
+          }
+          if(a = t.closest('[data-mvp]')){ mvp = a.dataset.mvp; guardarBorrador(); pintar(); return; }
+          if(t.closest('#vt-revisar')){ paso = 'resumen'; guardarBorrador(); pintar(); return; }
+          if(a = t.closest('[data-ir]')){ idx = parseInt(a.dataset.ir, 10); paso = 'nota'; guardarBorrador(); pintar(); return; }
+          if(t.closest('#vt-enviar')) enviar();
         });
         pintar();
-        setInterval(async () => { const n = calcEstado(); if(n !== estado){ estado = n; if(url()) await cargarVotos(); pintar(); } }, 5000);
+        setInterval(async () => { const n = calcEstado(); if(n !== estado){ estado = n; if(url()) await cargar(); pintar(); } }, 5000);
         if(url()){
-          await cargarVotos(); pintar();
-          timer = setInterval(async () => {
-            const nuevo = calcEstado();
-            if(nuevo !== estado){ estado = nuevo; await cargarVotos(); pintar(); return; }
+          await cargar(); pintar();
+          setInterval(async () => {
             const act = document.getElementById('votacion');
-            if(!act || !act.classList.contains('activo') || document.hidden || cargando) return;
-            if(await cargarVotos()){ if(voto || estado === 'cerrada') pintar(); }
+            if(!act || !act.classList.contains('activo') || document.hidden || enviando) return;
+            if(await cargar()){ if(yaVoto() || estado === 'cerrada') pintar(); }
           }, 15000);
         }
       }
