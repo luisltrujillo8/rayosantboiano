@@ -2103,6 +2103,21 @@
     .td-hero h3{ font-size: 36px; }
   }
 
+  /* ---------- INSTALAR APP ---------- */
+  #pwa-bar{ display: none; align-items: center; gap: 12px; padding: 10px 14px; background: linear-gradient(90deg, #ffe28a, #ffcc33); color: #061530; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .5px; }
+  #pwa-bar.visible{ display: flex; }
+  #pwa-bar .t{ flex: 1; line-height: 1.15; }
+  #pwa-bar button{ appearance: none; -webkit-appearance: none; cursor: pointer; border: none; font-family: 'Anton', sans-serif; letter-spacing: 1.5px; font-size: 14px; text-transform: uppercase; padding: 9px 16px; border-radius: 10px; background: #061530; color: #ffcc33; }
+  #pwa-bar button.x{ background: transparent; color: #061530; padding: 6px 8px; font-size: 18px; }
+  #pwaAyuda{ position: fixed; inset: 0; z-index: 4000; display: none; align-items: flex-end; justify-content: center; background: rgba(3,10,26,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  #pwaAyuda.abierto{ display: flex; }
+  #pwaAyuda .caja{ width: min(480px, 100%); max-height: 90vh; overflow-y: auto; box-sizing: border-box; padding: 22px 22px 26px; border-radius: 22px 22px 0 0; background: linear-gradient(170deg, #0f2d68, #08183d); border: 1px solid rgba(255,255,255,0.2); }
+  #pwaAyuda h4{ margin: 0 0 4px; font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: 1.5px; text-transform: uppercase; }
+  #pwaAyuda p.s{ margin: 0 0 14px; color: rgba(255,255,255,0.7); }
+  #pwaAyuda ol{ margin: 0 0 16px; padding-left: 22px; line-height: 1.5; }
+  #pwaAyuda li{ margin-bottom: 6px; }
+  #pwaAyuda .cerrar{ appearance: none; -webkit-appearance: none; cursor: pointer; width: 100%; padding: 13px; border-radius: 14px; border: none; font-family: 'Anton', sans-serif; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #ffe28a, #ffcc33); color: #061530; }
+
   /* ---------- RESULTADOS + MVP ---------- */
   .resultado-card{
     display:flex;
@@ -2204,8 +2219,17 @@
     nav.tabs{ justify-content:flex-start; }
   }
 </style>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0c2350">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Rayo">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
+<div id="pwa-bar" role="region" aria-label="Instalar la app"><span class="t">📲 Instala la app del Rayo en tu móvil</span><button type="button" id="pwa-instalar">Instalar</button><button type="button" class="x" id="pwa-cerrar" aria-label="Cerrar">✕</button></div>
+<div id="pwaAyuda"><div class="caja" id="pwaCaja"></div></div>
 
 <div id="rayo-bg">
   <svg viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true">
@@ -4487,6 +4511,36 @@
         }
       }
       if(window.RAYO_JUGADORES){ iniciar(); } else { document.addEventListener('rayo-datos', iniciar, { once: true }); }
+    })();
+    </script>
+
+    <script>
+    (function(){
+      const LS = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k, v){ try { localStorage.setItem(k, v); } catch(e){} } };
+      if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){ window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {})); }
+      const standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+      if(standalone) return;
+      const ua = navigator.userAgent;
+      const ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      const movil = ios || /Android/i.test(ua);
+      let evento = null;
+      const bar = document.getElementById('pwa-bar'), ayuda = document.getElementById('pwaAyuda'), caja = document.getElementById('pwaCaja');
+      if(!bar) return;
+      window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); evento = e; });
+      function mostrarAyuda(){
+        const pasos = ios
+          ? '<ol><li>Abre esta web en <b>Safari</b> (no vale desde WhatsApp ni Instagram).</li><li>Pulsa el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba ⬆️).</li><li>Baja y elige <b>«Añadir a pantalla de inicio»</b>.</li><li>Pulsa <b>«Añadir»</b>. ¡Ya tienes el escudo en tu móvil! ⚡</li></ol>'
+          : '<ol><li>Abre esta web en <b>Chrome</b>.</li><li>Pulsa los <b>tres puntos ⋮</b> de arriba a la derecha.</li><li>Elige <b>«Instalar aplicación»</b> o <b>«Añadir a la pantalla de inicio»</b>.</li><li>Confirma. ¡Ya tienes el escudo en tu móvil! ⚡</li></ol>';
+        caja.innerHTML = '<h4>📲 Instala el Rayo</h4><p class="s">' + (ios ? 'En iPhone se hace desde Safari:' : 'En Android:') + '</p>' + pasos + '<button type="button" class="cerrar">Entendido</button>';
+        ayuda.classList.add('abierto');
+      }
+      document.getElementById('pwa-instalar').addEventListener('click', () => {
+        if(evento){ evento.prompt(); evento.userChoice.then(() => { evento = null; bar.classList.remove('visible'); LS.set('rayo_pwa_cerrada', '1'); }); }
+        else mostrarAyuda();
+      });
+      document.getElementById('pwa-cerrar').addEventListener('click', () => { bar.classList.remove('visible'); LS.set('rayo_pwa_cerrada', '1'); });
+      ayuda.addEventListener('click', e => { if(e.target === ayuda || e.target.closest('.cerrar')) ayuda.classList.remove('abierto'); });
+      if(movil && LS.get('rayo_pwa_cerrada') !== '1') bar.classList.add('visible');
     })();
     </script>
 
