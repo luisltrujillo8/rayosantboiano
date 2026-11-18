@@ -2054,6 +2054,42 @@
     main.ancho .fy-orden{ flex-wrap: wrap; gap: 8px; }
   }
 
+  /* ---------- LOGROS + CARTA DESCARGABLE + AVISOS ---------- */
+  .lg-btn{ appearance: none; -webkit-appearance: none; cursor: pointer; width: 100%; margin: 0 0 12px; padding: 12px 16px; border-radius: 14px; border: none; font-family: 'Anton', sans-serif; letter-spacing: 2px; font-size: 15px; text-transform: uppercase; color: #061530; background: linear-gradient(135deg, #ffe28a, #ffcc33); box-shadow: 0 6px 22px rgba(255,204,51,0.28); }
+  .lg-btn:active{ transform: scale(.98); }
+  .lg-btn[disabled]{ opacity: .7; cursor: wait; }
+  .fi-logros{ margin-top: 14px; }
+  .fi-logros h4{ margin: 0 0 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: 13px; color: var(--amarillo); text-transform: uppercase; }
+  .fi-logros h4 small{ color: rgba(255,255,255,0.6); letter-spacing: 1.5px; margin-left: 6px; }
+  .lg-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .lg{ display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); }
+  .lg .i{ flex: 0 0 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,255,255,0.06); filter: grayscale(1); opacity: .45; }
+  .lg .t{ font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.1; color: rgba(255,255,255,0.55); }
+  .lg .t small{ display: block; font-weight: 500; font-size: 11.5px; letter-spacing: .2px; color: rgba(255,255,255,0.45); margin-top: 2px; line-height: 1.15; }
+  .lg.on{ background: linear-gradient(135deg, rgba(255,204,51,0.16), rgba(255,204,51,0.05)); border-color: rgba(255,204,51,0.5); }
+  .lg.on .i{ filter: none; opacity: 1; background: rgba(255,204,51,0.2); box-shadow: 0 0 14px rgba(255,204,51,0.35); }
+  .lg.on .t{ color: #fff; } .lg.on .t small{ color: rgba(255,255,255,0.7); }
+  .lg-rank{ display: flex; flex-direction: column; gap: 8px; }
+  .lg-row{ display: grid; grid-template-columns: 28px 44px minmax(0,1fr) auto; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
+  .lg-row:hover{ border-color: rgba(255,204,51,0.5); }
+  .lg-row .pos{ font-family: 'Anton', sans-serif; font-size: 18px; color: var(--amarillo); text-align: center; }
+  .lg-row .av{ width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: #0c2350; border: 2px solid rgba(255,204,51,0.6); }
+  .lg-row .av img{ width: 100%; height: 100%; object-fit: cover; object-position: center 16%; display: block; }
+  .lg-row .nm{ font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: .5px; text-transform: uppercase; }
+  .lg-row .ch{ display: block; font-size: 15px; letter-spacing: 2px; margin-top: 2px; white-space: normal; word-break: break-all; }
+  .lg-row .n{ font-family: 'Anton', sans-serif; font-size: 24px; color: var(--amarillo); text-align: right; }
+  .lg-row .n small{ font-family: 'Barlow Condensed', sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); }
+  .lg-leyenda{ margin-top: 14px; }
+  .av-card{ margin-top: 18px; padding: 22px; border-radius: 22px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(47,111,237,0.35), rgba(12,35,80,0.85) 70%); border: 1px solid rgba(255,255,255,0.16); }
+  .av-card h3{ margin: 0 0 6px; font-family: 'Anton', sans-serif; font-size: 26px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .av-card p{ margin: 0 auto 14px; max-width: 520px; color: rgba(255,255,255,0.78); line-height: 1.5; }
+  .av-pasos{ text-align: left; max-width: 520px; margin: 0 auto 16px; padding-left: 20px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .av-pasos code{ background: rgba(0,0,0,0.35); padding: 2px 8px; border-radius: 6px; color: var(--amarillo-suave); font-size: 14px; word-break: break-all; }
+  .av-fila{ display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .av-fila a, .av-fila button{ appearance: none; -webkit-appearance: none; cursor: pointer; text-decoration: none; padding: 11px 16px; border-radius: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 1.5px; font-size: 15px; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.3); }
+  .av-fila .pri{ color: #061530; background: linear-gradient(135deg, #ffe28a, #ffcc33); border-color: transparent; }
+  @media (max-width: 700px){ .lg-grid{ grid-template-columns: 1fr 1fr; } }
+
   /* ---------- TIENDA ---------- */
   .td-hero{ position: relative; overflow: hidden; border-radius: 24px; padding: 30px 26px; margin-bottom: 14px; text-align: center;
     background: radial-gradient(ellipse at 50% 0%, rgba(47,111,237,0.55), rgba(12,35,80,0.9) 62%), linear-gradient(135deg, #0c2350, #061530); border: 1px solid rgba(255,255,255,0.16); }
@@ -3499,6 +3535,22 @@
 
         <span class="socios-handle">@rayosantboiano</span>
       </div>
+
+      <div class="av-card" id="avisos-equipo">
+        <h3>🔔 Avisos del Rayo</h3>
+        <p>Recibe en tu móvil los avisos del equipo: partido, convocatoria, votación abierta, resultados…</p>
+        <ol class="av-pasos">
+          <li>Instala la app gratuita <b>ntfy</b> (sin cuenta).</li>
+          <li>Pulsa «+» y suscríbete al tema <code id="av-tema">rayo-avisos-santboiano-b7q4</code></li>
+          <li>Listo: cada aviso del Rayo te sonará como una notificación.</li>
+        </ol>
+        <div class="av-fila">
+          <a class="pri" href="https://apps.apple.com/app/ntfy/id1625396347" target="_blank" rel="noopener">🍎 iPhone</a>
+          <a class="pri" href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" target="_blank" rel="noopener">🤖 Android</a>
+          <button type="button" id="av-copiar">Copiar nombre del tema</button>
+          <a href="https://ntfy.sh/rayo-avisos-santboiano-b7q4" target="_blank" rel="noopener">Ver avisos en la web</a>
+        </div>
+      </div>
     </section>
     </main>
 
@@ -4568,6 +4620,181 @@
       ayuda.addEventListener('click', e => { if(e.target === ayuda || e.target.closest('.cerrar')) ayuda.classList.remove('abierto'); });
       if(movil && LS.get('rayo_pwa_cerrada') !== '1') bar.classList.add('visible');
     })();
+    </script>
+
+    <script>
+    /* ===== Logros del jugador, vitrina en Premios y carta descargable (se apoya en la ficha) ===== */
+    (function(){
+      const f1 = n => n.toFixed(1).replace('.', ',');
+      const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+      const racha = (raw, ok) => { let m = 0, c = 0; (raw || []).forEach(v => { if(v !== null && v !== undefined && ok(v)){ c++; if(c > m) m = c; } else c = 0; }); return m; };
+      const remontada = raw => { const v = (raw || []).filter(x => x !== null && x !== undefined); let m = 0; for(let i = 1; i < v.length; i++){ const d = v[i] - v[i-1]; if(d > m) m = d; } return m; };
+      let J = [], nJ = 0;
+      const LOGROS = [
+        { ico: '⚽', nom: 'Estrenó la red', desc: 'Marcar un gol', ok: j => j.goles >= 1 },
+        { ico: '🎯', nom: 'Goleador', desc: '3 goles en la temporada', ok: j => j.goles >= 3 },
+        { ico: '⭐', nom: 'Primer MVP', desc: 'Ser MVP de una jornada', ok: j => j.mvp >= 1 },
+        { ico: '🌟', nom: 'Rey del MVP', desc: '3 MVPs en la temporada', ok: j => j.mvp >= 3 },
+        { ico: '🛡️', nom: 'Fijo del once', desc: '5 partidos jugados', ok: j => j.pj >= 5 },
+        { ico: '📅', nom: 'Siempre presente', desc: 'No faltar a ninguna jornada', ok: j => nJ >= 4 && j.pj >= nJ },
+        { ico: '💎', nom: 'Nota de leyenda', desc: 'Un 9 o más en un partido', ok: j => j.pj > 0 && Math.max.apply(null, j.vals) >= 9 },
+        { ico: '🔥', nom: 'Racha de oro', desc: '2 jornadas seguidas con 8 o más', ok: j => racha(j.raw, v => v >= 8) >= 2 },
+        { ico: '👑', nom: 'Media de oro', desc: 'Media de 8 o más (mín. 3 PJ)', ok: j => j.pj >= 3 && j.media >= 8 },
+        { ico: '🧘', nom: 'Reloj suizo', desc: 'Notas muy constantes (mín. 4 PJ)', ok: j => { if(j.pj < 4) return false; const m = j.media; const s = Math.sqrt(j.vals.reduce((a,x) => a + Math.pow(x - m, 2), 0) / j.vals.length); return s <= 0.5; } },
+        { ico: '🚀', nom: 'Remontada', desc: 'Subir 2 puntos de nota de un partido a otro', ok: j => remontada(j.raw) >= 2 },
+        { ico: '🎬', nom: 'Debut de campeón', desc: 'Debutar con un 8 o más', ok: j => j.vals.length > 0 && j.vals[0] >= 8 },
+        { ico: '💰', nom: 'Club de los 20 M€', desc: 'Valer 20 M€ o más', ok: j => j.valor >= 20 }
+      ];
+      const logrosDe = j => LOGROS.map(l => ({ l, on: !!l.ok(j) }));
+      const buscar = nombre => J.filter(j => j.nombre === nombre)[0] || null;
+
+      function prep(){
+        J = window.RAYO_JUGADORES || [];
+        nJ = 0; J.forEach(j => (j.raw || []).forEach((v, i) => { if(v !== null && v !== undefined && i + 1 > nJ) nJ = i + 1; }));
+      }
+
+      /* ---- vitrina en Premios ---- */
+      function vitrina(){
+        const sec = document.getElementById('premios'); if(!sec || document.getElementById('pr-logros')) return;
+        const filas = J.map(j => ({ j, lg: logrosDe(j) })).map(o => Object.assign(o, { n: o.lg.filter(x => x.on).length }))
+          .sort((a, b) => b.n - a.n || (b.j.media || 0) - (a.j.media || 0));
+        const bl = document.createElement('div'); bl.className = 'pr-bloque'; bl.id = 'pr-logros';
+        bl.innerHTML = '<div class="pr-titulo"><span class="n">05</span> Vitrina de logros</div>' +
+          '<p class="pr-sub">Insignias que se desbloquean solas con las notas, los goles y los MVPs. Pulsa en un jugador para ver todos los suyos en su ficha.</p>' +
+          '<div class="lg-rank">' + filas.map((o, i) =>
+            '<div class="pr-rr lg-row"><div class="pos">' + (i + 1) + '</div><div class="av">' + (o.j.foto ? '<img src="' + o.j.foto + '" alt="">' : '') + '</div>' +
+            '<div><div class="nm">' + esc(o.j.nombre) + '</div><span class="ch">' + (o.n ? o.lg.filter(x => x.on).map(x => x.l.ico).join(' ') : '<small style="color:rgba(255,255,255,.45)">Aún sin logros</small>') + '</span></div>' +
+            '<div class="n">' + o.n + '<small> / ' + LOGROS.length + '</small></div></div>').join('') + '</div>' +
+          '<div class="lg-leyenda"><div class="lg-grid">' + LOGROS.map(l => {
+            const k = J.filter(j => l.ok(j)).length;
+            return '<div class="lg' + (k ? ' on' : '') + '"><div class="i">' + l.ico + '</div><div class="t">' + l.nom + '<small>' + l.desc + ' · ' + k + (k === 1 ? ' jugador' : ' jugadores') + '</small></div></div>';
+          }).join('') + '</div></div>';
+        sec.appendChild(bl);
+        const nav = sec.querySelector('.pr-nav');
+        if(nav && !nav.querySelector('[data-ir="pr-logros"]')){ const a = document.createElement('a'); a.href = '#pr-logros'; a.setAttribute('data-ir', 'pr-logros'); a.textContent = '🏅 Logros'; nav.appendChild(a); }
+      }
+
+      /* ---- carta descargable ---- */
+      const TIER = {
+        oro:   { t: '#ffcc33', g: ['#7a5a0a', '#0b2154', '#08183d'] },
+        plata: { t: '#8fbcff', g: ['#3b5f99', '#0b2154', '#08183d'] },
+        bronce:{ t: '#d08a4b', g: ['#6b4320', '#0b2154', '#08183d'] },
+        sin:   { t: '#8b97ad', g: ['#3a4559', '#0b2154', '#08183d'] }
+      };
+      const rr = (c, x, y, w, h, r) => { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); };
+      const cargar = src => new Promise(res => { if(!src) return res(null); const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+
+      async function dibujar(d){
+        try { await Promise.all([document.fonts.load('120px Anton'), document.fonts.load('700 40px "Barlow Condensed"')]); } catch(e){}
+        const W = 1080, H = 1520, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+        const c = cv.getContext('2d'), T = TIER[d.tier] || TIER.oro, t = T.t;
+        const ANTON = 'Anton, Impact, "Arial Narrow", sans-serif', BARL = '"Barlow Condensed", "Arial Narrow", sans-serif';
+        c.fillStyle = '#061530'; c.fillRect(0, 0, W, H);
+        c.save(); rr(c, 30, 30, W - 60, H - 60, 90); c.clip();
+        const g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, T.g[0]); g.addColorStop(.55, T.g[1]); g.addColorStop(1, T.g[2]); c.fillStyle = g; c.fillRect(0, 0, W, H);
+        c.strokeStyle = 'rgba(255,255,255,0.05)'; c.lineWidth = 3;
+        for(let x = -H; x < W + H; x += 46){ c.beginPath(); c.moveTo(x, 0); c.lineTo(x + H * 0.47, H); c.stroke(); }
+        c.fillStyle = 'rgba(255,255,255,0.06)'; c.beginPath(); c.moveTo(700, 150); c.lineTo(430, 760); c.lineTo(620, 760); c.lineTo(500, 1330); c.lineTo(900, 640); c.lineTo(700, 640); c.lineTo(820, 150); c.closePath(); c.fill();
+        c.restore();
+        rr(c, 30, 30, W - 60, H - 60, 90); c.lineWidth = 10; c.strokeStyle = t; c.stroke();
+        // overall + pos
+        c.textBaseline = 'alphabetic'; c.textAlign = 'left';
+        c.fillStyle = t; c.font = '190px ' + ANTON; c.fillText(d.over, 90, 270);
+        c.fillStyle = '#fff'; c.font = '64px ' + ANTON; c.fillText(d.pos, 96, 345);
+        const cr = await cargar(d.escudo);
+        if(cr){ c.save(); c.beginPath(); c.arc(900, 220, 85, 0, Math.PI * 2); c.clip(); c.drawImage(cr, 815, 135, 170, 170); c.restore(); c.beginPath(); c.arc(900, 220, 85, 0, Math.PI * 2); c.lineWidth = 6; c.strokeStyle = t; c.stroke(); }
+        // foto
+        const cx = 540, cy = 630, R = 290;
+        c.save(); c.shadowColor = t; c.shadowBlur = 60; c.beginPath(); c.arc(cx, cy, R + 8, 0, Math.PI * 2); c.fillStyle = '#0c2350'; c.fill(); c.restore();
+        const im = await cargar(d.foto);
+        c.save(); c.beginPath(); c.arc(cx, cy, R, 0, Math.PI * 2); c.clip();
+        if(im){ const s = Math.max(2 * R / im.width, 2 * R / im.height), w = im.width * s, h = im.height * s; c.drawImage(im, cx - w / 2, cy - R - (h - 2 * R) * 0.16, w, h); }
+        else { c.fillStyle = '#0c2350'; c.fillRect(cx - R, cy - R, 2 * R, 2 * R); c.fillStyle = t; c.font = '200px ' + ANTON; c.textAlign = 'center'; c.fillText(d.ini, cx, cy + 70); }
+        c.restore(); c.beginPath(); c.arc(cx, cy, R, 0, Math.PI * 2); c.lineWidth = 14; c.strokeStyle = t; c.stroke();
+        // nombre
+        c.textAlign = 'center'; c.fillStyle = '#fff'; let fs = 110; c.font = fs + 'px ' + ANTON; const nom = d.nombre.toUpperCase();
+        while(c.measureText(nom).width > 880 && fs > 50){ fs -= 4; c.font = fs + 'px ' + ANTON; }
+        c.fillText(nom, cx, 1040);
+        // adjetivo
+        c.font = '700 44px ' + BARL; const aw = c.measureText(d.adj.toUpperCase()).width + 80;
+        rr(c, cx - aw / 2, 1068, aw, 66, 33); c.fillStyle = t; c.fill();
+        c.fillStyle = '#061530'; c.fillText(d.adj.toUpperCase(), cx, 1116);
+        // atributos
+        c.strokeStyle = 'rgba(255,255,255,0.25)'; c.lineWidth = 3; c.beginPath(); c.moveTo(110, 1170); c.lineTo(W - 110, 1170); c.stroke();
+        d.attr.forEach((a, i) => { const col = i % 3, row = (i / 3) | 0, x = 230 + col * 310, y = 1250 + row * 92;
+          c.textAlign = 'right'; c.fillStyle = t; c.font = '66px ' + ANTON; c.fillText(a[1], x + 20, y);
+          c.textAlign = 'left'; c.fillStyle = 'rgba(255,255,255,0.85)'; c.font = '700 36px ' + BARL; c.fillText(a[0], x + 36, y); });
+        // logros + pie
+        if(d.logros){ c.textAlign = 'center'; c.font = '46px sans-serif'; c.fillStyle = '#fff'; c.fillText(d.logros, cx, 1408); }
+        c.textAlign = 'center'; c.fillStyle = t; c.font = '700 34px ' + BARL; c.fillText('RAYO SANTBOIANO', cx, 1462);
+        return cv;
+      }
+
+      async function descargar(btn){
+        const panel = document.querySelector('#fichaOv .fi-panel'); if(!panel) return;
+        const carta = panel.querySelector('.fi-carta'); if(!carta) return;
+        const nombre = carta.querySelector('.fi-nom').textContent.trim();
+        const j = buscar(nombre) || J.filter(x => x.nombre.toLowerCase() === nombre.toLowerCase())[0];
+        const tier = ['oro', 'plata', 'bronce', 'sin'].filter(k => carta.classList.contains(k))[0] || 'oro';
+        const esc0 = document.querySelector('.escudo img');
+        const d = {
+          tier, nombre, over: carta.querySelector('.fi-over b').textContent.trim(), pos: carta.querySelector('.fi-over span').textContent.trim(),
+          adj: carta.querySelector('.fi-adj').textContent.trim(), foto: (carta.querySelector('.fi-foto img') || {}).src || '', escudo: esc0 ? esc0.src : '',
+          ini: nombre.split(' ').map(x => x[0]).slice(0, 2).join(''),
+          attr: Array.from(carta.querySelectorAll('.fi-attr div')).map(x => [x.querySelector('span').textContent.trim(), x.querySelector('b').textContent.trim()]),
+          logros: j ? logrosDe(j).filter(x => x.on).slice(0, 7).map(x => x.l.ico).join(' ') : ''
+        };
+        const txt = btn.textContent; btn.disabled = true; btn.textContent = 'Preparando carta…';
+        try {
+          const cv = await dibujar(d);
+          const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+          const fname = 'carta-rayo-' + nombre.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.png';
+          const file = new File([blob], fname, { type: 'image/png' });
+          if(navigator.canShare && navigator.canShare({ files: [file] })){
+            try { await navigator.share({ files: [file], title: 'Carta de ' + nombre + ' · Rayo Santboiano' }); }
+            catch(e){ if(e && e.name !== 'AbortError') throw e; }
+          } else {
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+          }
+          btn.textContent = '✓ Carta lista';
+        } catch(e){ btn.textContent = 'No se pudo crear la carta'; }
+        setTimeout(() => { btn.textContent = txt; btn.disabled = false; }, 2200);
+      }
+
+      /* ---- inyectar en la ficha cada vez que se abre ---- */
+      function inyectar(panel){
+        const der = panel.querySelector('.fi-der'), carta = panel.querySelector('.fi-carta'); if(!der || !carta || der.querySelector('.lg-btn')) return;
+        const nombre = carta.querySelector('.fi-nom').textContent.trim();
+        const j = J.filter(x => x.nombre === nombre)[0];
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'lg-btn'; b.textContent = '📸 Descargar mi carta';
+        b.addEventListener('click', () => descargar(b));
+        const cab = der.querySelector('.fi-cab'); (cab ? cab.insertAdjacentElement('afterend', b) : der.prepend(b));
+        if(j){
+          const lg = logrosDe(j), n = lg.filter(x => x.on).length;
+          const bl = document.createElement('div'); bl.className = 'fi-logros';
+          bl.innerHTML = '<h4>Logros <small>' + n + ' / ' + lg.length + '</small></h4><div class="lg-grid">' +
+            lg.map(x => '<div class="lg' + (x.on ? ' on' : '') + '" title="' + esc(x.l.desc) + '"><div class="i">' + x.l.ico + '</div><div class="t">' + x.l.nom + '<small>' + x.l.desc + '</small></div></div>').join('') + '</div>';
+          const pr = der.querySelector('.fi-prem'); (pr ? pr.insertAdjacentElement('afterend', bl) : der.appendChild(bl));
+        }
+      }
+      function vigilar(){
+        const arm = () => { const ov = document.getElementById('fichaOv'); if(!ov) return false; const p = ov.querySelector('.fi-panel');
+          new MutationObserver(() => inyectar(p)).observe(p, { childList: true }); return true; };
+        if(arm()) return;
+        const mo = new MutationObserver(() => { if(arm()) mo.disconnect(); });
+        mo.observe(document.body, { childList: true });
+      }
+
+      function iniciar(){ prep(); if(!J.length) return; vitrina(); vigilar(); }
+      if(window.RAYO_JUGADORES){ setTimeout(iniciar, 50); } else { document.addEventListener('rayo-datos', () => setTimeout(iniciar, 50), { once: true }); }
+    })();
+    </script>
+
+    <script>
+    (function(){ const b = document.getElementById('av-copiar'); if(!b) return;
+      b.addEventListener('click', () => { const t = document.getElementById('av-tema').textContent.trim();
+        (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = '¡Copiado!'; }).catch(() => { b.textContent = t; });
+        setTimeout(() => { b.textContent = 'Copiar nombre del tema'; }, 2500); }); })();
     </script>
 
     <script>
