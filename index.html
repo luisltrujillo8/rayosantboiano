@@ -4906,20 +4906,30 @@
       }
 
       /* ---- inyectar en la ficha cada vez que se abre ---- */
+      const PROG = {
+        'Estrenó la red': j => [Math.min(j.goles,1),1], 'Goleador': j => [Math.min(j.goles,3),3],
+        'Primer MVP': j => [Math.min(j.mvp,1),1], 'Rey del MVP': j => [Math.min(j.mvp,3),3],
+        'Fijo del once': j => [Math.min(j.pj,5),5], 'Club de los 20 M€': j => [Math.min(Math.round(j.valor),20),20],
+        'Media de oro': j => [j.pj >= 3 ? Math.round(Math.min(j.media,8)*10)/10 : null, 8]
+      };
       function inyectar(panel){
-        const der = panel.querySelector('.fi-der'), carta = panel.querySelector('.fi-carta'); if(!der || !carta || der.querySelector('.lg-btn')) return;
-        const nombre = carta.querySelector('.fi-nom').textContent.trim();
+        const der = panel.querySelector('.fi-der'); if(!der || der.querySelector('.fi-logros')) return;
+        const cv = panel.querySelector('.fi-cv'); let nombre = '';
+        if(cv) nombre = (cv.getAttribute('aria-label') || '').replace(/^Carta de /, '').trim();
+        else { const c0 = panel.querySelector('.fi-carta .fi-nom'); nombre = c0 ? c0.textContent.trim() : ''; }
         const j = J.filter(x => x.nombre === nombre)[0];
-        const b = document.createElement('button'); b.type = 'button'; b.className = 'lg-btn'; b.textContent = '📸 Descargar mi carta';
-        b.addEventListener('click', () => descargar(b));
-        const cab = der.querySelector('.fi-cab'); (cab ? cab.insertAdjacentElement('afterend', b) : der.prepend(b));
-        if(j){
-          const lg = logrosDe(j), n = lg.filter(x => x.on).length;
-          const bl = document.createElement('div'); bl.className = 'fi-logros';
-          bl.innerHTML = '<h4>Logros <small>' + n + ' / ' + lg.length + '</small></h4><div class="lg-grid">' +
-            lg.map(x => '<div class="lg' + (x.on ? ' on' : '') + '" title="' + esc(x.l.desc) + '"><div class="i">' + x.l.ico + '</div><div class="t">' + x.l.nom + '<small>' + x.l.desc + '</small></div></div>').join('') + '</div>';
-          const pr = der.querySelector('.fi-prem'); (pr ? pr.insertAdjacentElement('afterend', bl) : der.appendChild(bl));
-        }
+        if(!j) return;
+        const lg = logrosDe(j), n = lg.filter(x => x.on).length, pct = Math.round(n / lg.length * 100);
+        const orden = lg.slice().sort((a, b) => (b.on ? 1 : 0) - (a.on ? 1 : 0));
+        const bl = document.createElement('div'); bl.className = 'fi-logros';
+        bl.innerHTML = '<h4>Logros <small>' + n + ' / ' + lg.length + ' desbloqueados</small></h4>' +
+          '<div class="lg-bar"><i style="width:' + pct + '%"></i></div><div class="lg-grid">' +
+          orden.map(x => {
+            let pg = ''; const f = PROG[x.l.nom];
+            if(!x.on && f){ const r = f(j); if(r && r[0] !== null) pg = '<em class="lg-pg"><i style="width:' + Math.round(r[0] / r[1] * 100) + '%"></i></em><span class="lg-pn">' + String(r[0]).replace('.', ',') + ' / ' + r[1] + '</span>'; }
+            return '<div class="lg' + (x.on ? ' on' : '') + '" title="' + esc(x.l.desc) + '"><div class="i">' + x.l.ico + '</div><div class="t">' + x.l.nom + '<small>' + x.l.desc + '</small>' + pg + '</div><span class="lg-s">' + (x.on ? '✓' : '🔒') + '</span></div>';
+          }).join('') + '</div>';
+        const pr = der.querySelector('.fi-prem'); (pr ? pr.insertAdjacentElement('afterend', bl) : der.appendChild(bl));
       }
       function vigilar(){
         const arm = () => { const ov = document.getElementById('fichaOv'); if(!ov) return false; const p = ov.querySelector('.fi-panel');
@@ -6072,6 +6082,27 @@ window.__chapas={get S(){return S;},cfg,launch,planAI,startGame,sel,PLAYERS,auto
   document.addEventListener('click',function(){ setTimeout(act,50); }); act(); setInterval(act,2000);
 })();
 </script>
+<style>
+.fi-logros{margin-top:16px}
+.fi-logros h4 small{color:rgba(255,255,255,.6);letter-spacing:1.5px;margin-left:8px;font-weight:600}
+.lg-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:0 0 12px}
+.lg-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ffcc33,#fff2b0);box-shadow:0 0 12px rgba(255,204,51,.6)}
+.fi-logros .lg-grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.fi-logros .lg{position:relative;padding:12px 12px;border-radius:16px;overflow:hidden}
+.fi-logros .lg .i{flex:0 0 46px;height:46px;font-size:24px}
+.fi-logros .lg:not(.on){background:rgba(255,255,255,.03);border-style:dashed;border-color:rgba(255,255,255,.14)}
+.fi-logros .lg:not(.on) .i{filter:grayscale(1) brightness(.7);opacity:.5}
+.fi-logros .lg .t{font-size:16px;letter-spacing:.4px}
+.fi-logros .lg.on .t{color:#fff}
+.fi-logros .lg.on::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.16) 50%,transparent 65%);transform:translateX(-120%);animation:lg-brillo 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes lg-brillo{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.lg-s{position:absolute;top:8px;right:10px;font-size:13px;font-weight:800;color:#ffcc33}
+.lg:not(.on) .lg-s{font-size:12px;opacity:.55;color:#fff}
+.lg-pg{display:block;height:5px;border-radius:99px;background:rgba(255,255,255,.1);margin-top:6px;overflow:hidden}
+.lg-pg i{display:block;height:100%;background:rgba(255,204,51,.7);border-radius:99px}
+.lg-pn{display:block;font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;font-weight:600;letter-spacing:.5px}
+@media (prefers-reduced-motion:reduce){.fi-logros .lg.on::after{animation:none}}
+</style>
 <!--cromos-->
 <style>
   /* ---------- CROMO FIFA ---------- */
